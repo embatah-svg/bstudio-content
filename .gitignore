@@ -8,4 +8,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Tool interni (non pubblicare — possibili frammenti di lavoro)
+.claude-flow/
+.claude/
+.swarm/
+.hive-mind/
+
 # (i PNG in _export/ e i .md SONO inclusi: servono come asset pubblici per l'API)
