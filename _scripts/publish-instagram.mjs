@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 
 const SELF = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SELF, "..");
-const GRAPH = "https://graph.facebook.com/v21.0";
+let GRAPH = "https://graph.facebook.com/v21.0"; // override dopo il caricamento .env (GRAPH_HOST)
 
 // --- mini .env loader (senza dipendenze) ---
 async function loadEnv() {
@@ -34,6 +34,7 @@ const DRY = has("--dry-run");
 
 await loadEnv();
 const { IG_USER_ID, ACCESS_TOKEN, ASSET_BASE_URL } = process.env;
+GRAPH = `https://${process.env.GRAPH_HOST || "graph.facebook.com"}/v21.0`; // Strada B: graph.instagram.com
 if (!DRY && (!IG_USER_ID || !ACCESS_TOKEN || !ASSET_BASE_URL)) {
   console.error("❌ Mancano IG_USER_ID / ACCESS_TOKEN / ASSET_BASE_URL (vedi .env e PUBLISHING-META.md).");
   process.exit(1);
