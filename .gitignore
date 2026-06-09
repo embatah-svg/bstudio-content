@@ -1,0 +1,11 @@
+# Segreti — NON pubblicare mai
+.env
+*.local
+
+# Sistema
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# (i PNG in _export/ e i .md SONO inclusi: servono come asset pubblici per l'API)

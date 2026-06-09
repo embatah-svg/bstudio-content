@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>B.Studio · Tag 01 · 3 Fehler die dein Logo billig machen — Premium Carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0908; --ink2:#100F0A; --gold:#C8A96E; --gold-hi:#E4CE9A;
+    --cream:#F0ECD8; --muted:rgba(240,236,216,0.55); --line:rgba(240,236,216,0.10);
+    --serif:'Playfair Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#1c1b18;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px;font-family:var(--sans);}
+  .label{color:#7a766b;font-size:13px;letter-spacing:.3em;text-transform:uppercase;margin-top:8px;}
+
+  /* ── SLIDE FRAME ── */
+  .slide{
+    width:1080px;height:1920px;position:relative;overflow:hidden;
+    background:radial-gradient(120% 90% at 50% -10%, #15130d 0%, var(--ink) 42%, #050403 100%);
+    display:flex;flex-direction:column;
+  }
+  /* gold mesh glow */
+  .slide::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(40% 26% at 78% 12%, rgba(200,169,110,.16), transparent 70%),
+      radial-gradient(45% 30% at 12% 88%, rgba(200,169,110,.10), transparent 70%);
+    pointer-events:none;}
+  /* film grain */
+  .slide::after{content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .bottomglow{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(0deg, rgba(200,169,110,.06), transparent);pointer-events:none;}
+
+  .safe{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding:150px 96px 230px;}
+  .center{justify-content:center;}
+  .eyebrow{font-weight:300;font-size:19px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);opacity:.9;display:flex;align-items:center;gap:18px;margin-bottom:46px;}
+  .eyebrow::before{content:"";width:46px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);}
+  h1{font-family:var(--serif);font-weight:900;font-size:118px;line-height:1.0;color:var(--cream);letter-spacing:-.01em;}
+  h1 em{font-style:italic;font-weight:400;color:var(--gold);}
+  h2{font-family:var(--serif);font-weight:900;font-size:90px;line-height:1.04;color:var(--cream);}
+  h2 em{font-style:italic;font-weight:400;color:var(--gold);}
+  .kicker{font-family:var(--serif);font-style:italic;font-size:40px;color:var(--gold);margin-bottom:30px;}
+  .lead{font-weight:300;font-size:32px;line-height:1.6;color:var(--muted);max-width:830px;margin-top:34px;}
+  .lead strong{color:var(--cream);font-weight:500;}
+
+  /* numeric token */
+  .token{font-family:var(--serif);font-weight:900;font-size:240px;line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(200,169,110,.55);letter-spacing:-.02em;}
+  /* glass card */
+  .glass{margin-top:54px;padding:46px 50px;border-radius:24px;background:rgba(28,26,22,.5);
+    border:1px solid rgba(200,169,110,.30);box-shadow:0 30px 70px rgba(0,0,0,.5),inset 0 1px 0 rgba(240,236,216,.06);backdrop-filter:blur(14px);}
+  .glass .t{font-family:var(--serif);font-size:46px;color:var(--cream);font-weight:700;}
+  .glass .d{font-weight:300;font-size:28px;line-height:1.55;color:var(--muted);margin-top:18px;}
+
+  .pills{display:flex;gap:14px;margin-top:52px;}
+  .pill{font-weight:700;font-size:15px;letter-spacing:.2em;color:var(--ink);background:var(--gold);padding:12px 24px;border-radius:3px;}
+  .swatchrow{display:flex;gap:30px;margin-top:50px;}
+  .swatch{flex:1;border-radius:18px;height:230px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;border:1px solid var(--line);}
+  .swatch .hex{font-size:24px;font-weight:500;letter-spacing:.04em;}
+
+  .swipe{display:flex;align-items:center;gap:18px;margin-top:60px;}
+  .swipe .tx{font-weight:500;font-size:19px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
+  .swipe .ar{font-size:30px;color:var(--gold);animation:none;}
+
+  .cta-box{margin-top:30px;padding:52px 50px;border-radius:24px;background:linear-gradient(135deg, rgba(200,169,110,.14), rgba(200,169,110,.04));border:1px solid rgba(200,169,110,.4);}
+  .cta-box .big{font-family:var(--serif);font-size:62px;font-weight:900;color:var(--cream);line-height:1.05;}
+  .cta-box .big em{font-style:italic;color:var(--gold);}
+  .cta-box .sub{font-weight:300;font-size:30px;color:var(--muted);margin-top:24px;line-height:1.5;}
+  .cta-box .trigger{display:inline-block;margin-top:30px;font-weight:700;letter-spacing:.18em;color:var(--ink);background:var(--gold);padding:18px 34px;border-radius:6px;font-size:24px;}
+
+  .wordmark{position:absolute;left:0;right:0;bottom:92px;text-align:center;z-index:3;font-weight:300;font-size:15px;letter-spacing:.46em;text-transform:uppercase;color:var(--cream);opacity:.30;}
+  .pagenum{position:absolute;top:92px;right:96px;z-index:3;font-weight:500;font-size:20px;letter-spacing:.2em;color:var(--gold);opacity:.7;}
+  .pagenum b{color:var(--cream);}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 · HOOK -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>01</b> / 07</div>
+  <div class="safe center">
+    <div class="eyebrow">Brand-Diagnose · B.Studio</div>
+    <h1>3 Fehler,<br>die dein<br>Logo <em>billig</em><br>machen.</h1>
+    <div class="lead"><strong>Die meisten KMU machen alle drei.</strong> Und merken es nie — der Kunde schon.</div>
+    <div class="pills"><span class="pill">01</span><span class="pill">02</span><span class="pill">03</span></div>
+    <div class="swipe"><span class="tx">Weiterwischen</span><span class="ar">→</span></div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH</div>
+</div>
+<div class="label">SLIDE 1 — HOOK</div>
+
+<!-- SLIDE 2 · FEHLER 01 -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>02</b> / 07</div>
+  <div class="safe center">
+    <div class="token">01</div>
+    <h2 style="margin-top:30px">Zu viele<br><em>Schriften.</em></h2>
+    <div class="glass">
+      <div class="t">Zwei reichen. Drei sind Chaos.</div>
+      <div class="d">Dein Auge merkt es sofort — auch wenn dein Kopf nicht weiss warum. Eine Schrift führt, eine begleitet. Mehr braucht es nie.</div>
+    </div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH</div>
+</div>
+<div class="label">SLIDE 2 — FEHLER 01</div>
+
+<!-- SLIDE 3 · FEHLER 02 -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>03</b> / 07</div>
+  <div class="safe center">
+    <div class="token">02</div>
+    <h2 style="margin-top:30px">Effekte<br>aus <em>2008.</em></h2>
+    <div class="glass">
+      <div class="t">Schlagschatten, Verläufe, 3D-Glanz.</div>
+      <div class="d">Das schreit „selbstgemacht". Flach wirkt teuer. Lass die Effekte weg — und dein Logo altert nicht mehr.</div>
+    </div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH</div>
+</div>
+<div class="label">SLIDE 3 — FEHLER 02</div>
+
+<!-- SLIDE 4 · FEHLER 03 -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>04</b> / 07</div>
+  <div class="safe center">
+    <div class="token">03</div>
+    <h2 style="margin-top:30px">Kein<br><em>Weissraum.</em></h2>
+    <div class="glass">
+      <div class="t">Luft = Luxus.</div>
+      <div class="d">Wenn alles eng ist, wirkt nichts wertvoll. Gib deinem Logo Platz zum Atmen — und es wirkt sofort eine Klasse höher.</div>
+    </div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH</div>
+</div>
+<div class="label">SLIDE 4 — FEHLER 03</div>
+
+<!-- SLIDE 5 · DER TEST -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>05</b> / 07</div>
+  <div class="safe center">
+    <div class="eyebrow">Der schnelle Selbsttest</div>
+    <h2>Der <em>16px</em>-Test.</h2>
+    <div class="lead">Schrumpf dein Logo auf Briefmarken-Grösse — so klein wie ein Favicon im Browser-Tab.</div>
+    <div class="glass"><div class="t">Noch erkennbar?</div><div class="d">Wenn ja → stark und reduziert. Wenn nein → zu kompliziert. Ein gutes Logo funktioniert winzig <em style="color:var(--gold);font-style:italic">und</em> riesig.</div></div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH</div>
+</div>
+<div class="label">SLIDE 5 — DER TEST</div>
+
+<!-- SLIDE 6 · SO WIRKT'S TEUER -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>06</b> / 07</div>
+  <div class="safe center">
+    <div class="eyebrow">So wirkt's teuer</div>
+    <h2>Schlicht schlägt<br><em>verspielt.</em></h2>
+    <div class="swatchrow">
+      <div class="swatch" style="background:#0A0908"><span class="hex" style="color:var(--gold)">1 Schrift</span></div>
+      <div class="swatch" style="background:#100F0A"><span class="hex" style="color:var(--gold)">0 Effekte</span></div>
+      <div class="swatch" style="background:linear-gradient(135deg,#C8A96E,#9c7f4e)"><span class="hex" style="color:var(--ink)">viel Luft</span></div>
+    </div>
+    <div class="lead"><strong>Eine starke Schrift · null Effekte · viel Weissraum · eine klare Form.</strong> Das ist der ganze Unterschied.</div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH</div>
+</div>
+<div class="label">SLIDE 6 — RICHTIG</div>
+
+<!-- SLIDE 7 · CTA -->
+<div class="slide">
+  <div class="bottomglow"></div>
+  <div class="pagenum"><b>07</b> / 07</div>
+  <div class="safe center">
+    <div class="eyebrow">Deine ehrliche Analyse</div>
+    <div class="cta-box">
+      <div class="big">Welchen machst du <em>gerade?</em></div>
+      <div class="sub">Kommentier das Wort unten — ich schicke dir eine ehrliche 3-Punkte-Analyse deines Logos. Gratis, kein Verkaufsgespräch.</div>
+      <span class="trigger">Kommentier „CHECK"</span>
+    </div>
+    <div class="swipe" style="margin-top:54px"><span class="tx">B.Studio · Brand &amp; Web für KMU</span></div>
+  </div>
+  <div class="wordmark">@b.studio_design · Balsthal CH · bstudiodesign.it</div>
+</div>
+<div class="label">SLIDE 7 — CTA (Trigger: CHECK)</div>
+
+</body>
+</html>
