@@ -1,6 +1,8 @@
 [
   {
-    "tag": "tag01", "type": "carousel", "platform": "instagram",
+    "tag": "tag01",
+    "type": "carousel",
+    "platform": "instagram",
     "assets": [
       "instagram/2026-06-08_tag01/_export/post-tag01-carousel-slide01.png",
       "instagram/2026-06-08_tag01/_export/post-tag01-carousel-slide02.png",
@@ -12,10 +14,14 @@
     ],
     "caption": "Dein Logo kostet dich jeden Tag Kunden — und du merkst es nicht.\n\nIn 0,2 Sekunden entscheidet der Bauch: vertrauen oder weiterblättern. Die meisten KMU-Logos in Solothurn und dem Mittelland verlieren dieses Urteil still. Nicht weil das Produkt schlecht ist. Sondern wegen 3 Fehler, die fast jeder macht:\n\n1) Zu viele Schriften — das Auge weiss nicht wo landen\n2) Effekte aus 2008 — Schlagschatten, Verläufe, Glitzer\n3) Kein Weissraum — alles klebt, nichts atmet\n\nWelchen machst du gerade?\n\nKommentier CHECK — ich schau mir dein Logo an und sag dir ehrlich was es dich kostet. Gratis, kein Verkaufsgespräch.\n\n#logodesign #branding #kmuschweiz #solothurn #balsthal #grafikdesign #markenaufbau #brandidentity",
     "firstComment": "Kommentier CHECK hier unten — ich schick dir die ehrliche 3-Punkte-Analyse deines Logos. Gratis. Kein Haken. Ich nehme diese Woche die ersten 10 Analysen — wer zuerst kommentiert, ist dabei.",
-    "status": "draft"
+    "status": "published",
+    "publishedAt": "2026-06-10",
+    "mediaId": "17922701403144424"
   },
   {
-    "tag": "tag02", "type": "carousel", "platform": "instagram",
+    "tag": "tag02",
+    "type": "carousel",
+    "platform": "instagram",
     "assets": [
       "instagram/2026-06-09_tag02/_export/post-tag02-carousel-slide01.png",
       "instagram/2026-06-09_tag02/_export/post-tag02-carousel-slide02.png",
@@ -25,10 +31,12 @@
     ],
     "caption": "Deine Kunden geben deiner Website genau 5 Sekunden. Was sehen sie?\n\nMach den Test jetzt — Startseite öffnen, bis 5 zählen, Augen zu. Weisst du noch: was bietest du an? Für wen? Was soll der Besucher als Nächstes tun?\n\nWenn du zögerst, ist das deine Antwort.\n\n70% aller Website-Besuche in der Schweiz kommen heute vom Handy. Nicht vom Desktop den du liebevoll gestaltet hast.\n\nSchick das einem Unternehmer aus der Region, der's braucht.\n\nKommentier WEBCHECK — ich mach den 5-Sekunden-Test live für deine Website. Kostenlos, für KMU im Kanton Solothurn.\n\n#webdesign #kmuschweiz #solothurn #balsthal #websitecheck #mobilefirst #conversion #onlinemarketing",
     "firstComment": "Kommentier WEBCHECK hier unten — ich mach den Test live für deine Seite und sag dir in 3 Punkten was sie Kunden kostet. Dauert 24h, gratis, kein Druck.",
-    "status": "draft"
+    "status": "ready"
   },
   {
-    "tag": "tag03", "type": "carousel", "platform": "instagram",
+    "tag": "tag03",
+    "type": "carousel",
+    "platform": "instagram",
     "assets": [
       "instagram/2026-06-10_tag03/_export/post-tag03-carousel-slide01.png",
       "instagram/2026-06-10_tag03/_export/post-tag03-carousel-slide02.png",
@@ -39,17 +47,23 @@
     ],
     "caption": "Canva-Logo oder echter Brand — du merkst den Unterschied sofort. Deine Kunden auch.\n\nEin Logo ist ein Bild. Es sagt: \"Wir existieren.\"\nEin echtes Brand ist ein Gefühl. Es sagt: \"Das ist genau für mich.\"\n\nDer Unterschied entscheidet, ob jemand anruft oder zum Konkurrenten geht.\n\nBei Handwerkern, Restaurants und Dienstleistern im Kanton Solothurn sehe ich das täglich: gute Arbeit, die unsichtbar bleibt — weil der erste Eindruck nicht hält was das Produkt verspricht.\n\nSchick das einem Unternehmer aus der Region der noch mit Canva-Logo arbeitet.\n\nHast du ein Logo oder ein Brand? Kommentier CHECK — ich sag dir's ehrlich.\n\n#branding #logodesign #kmuschweiz #solothurn #balsthal #markenaufbau #corporatedesign #canva",
     "firstComment": "Kommentier CHECK — Logo oder Brand? Ich schau mir deinen Auftritt an und sag dir in 2 Minuten was den Unterschied macht. Gratis, direkt, ohne Fuffa.",
-    "status": "draft"
+    "status": "ready"
   },
   {
-    "tag": "tag04", "type": "single", "platform": "instagram",
-    "assets": ["instagram/2026-06-11_tag04/_export/post-tag04-single.png"],
+    "tag": "tag04",
+    "type": "single",
+    "platform": "instagram",
+    "assets": [
+      "instagram/2026-06-11_tag04/_export/post-tag04-single.png"
+    ],
     "caption": "Deine Website hat 4 Löcher — und durch jedes verlierst du Kunden. Täglich.\n\nLoch 1: Oben fehlt der klare Satz was du tust und für wen.\nLoch 2: Auf dem Handy ist alles fummelig und langsam.\nLoch 3: Die Seite lädt über 3 Sekunden — 40% gehen dann weg.\nLoch 4: Der Kontakt-Button ist versteckt statt dominant.\n\nDas ist kein Design-Problem. Das ist ein Kunden-Problem.\n\nDie gute Nachricht: jedes dieser Löcher lässt sich in wenigen Tagen stopfen — meist ohne die ganze Website neu zu bauen.\n\nWelches Loch hat deine Website? Kommentier WEBCHECK — ich schau mir deine Seite an und nenne dir den schnellsten Fix. Für KMU in Solothurn und Umgebung.\n\n#webdesign #kmuschweiz #solothurn #balsthal #mobilefirst #conversion #websitecheck #ux",
     "firstComment": "Kommentier WEBCHECK hier unten — ich schau mir deine Seite an und sag dir kostenlos welches Loch zuerst gestopft werden muss. Schnell, direkt, konkret.",
-    "status": "draft"
+    "status": "ready"
   },
   {
-    "tag": "tag05", "type": "carousel", "platform": "instagram",
+    "tag": "tag05",
+    "type": "carousel",
+    "platform": "instagram",
     "assets": [
       "instagram/2026-06-12_tag05/_export/post-tag05-carousel-slide01.png",
       "instagram/2026-06-12_tag05/_export/post-tag05-carousel-slide02.png",
@@ -58,10 +72,12 @@
     ],
     "caption": "Luxusmarken zahlen Millionen für ihr Design. Dieser eine Trick kostet dich nichts.\n\nReines Schwarz (#000000) und reines Weiss (#FFFFFF) wirken hart und billig. Warum? Das Auge kennt das aus Druck-Fehlern und billigen Vorlagen.\n\nWarmes Off-Black (#0A0908) und Cremeweiss (#F0ECD8) — du änderst nur zwei Zahlenwerte, und dein gesamter Auftritt wirkt sofort teurer. Rolex macht das. Aesop macht das. Du kannst es auch.\n\nSpeicher dir diesen Post — du brauchst die Codes wenn du das nächste Mal etwas gestaltest.\n\nKommentier TIPP — ich schick dir meine 5 Luxus-Farbcodes als Bild zum Speichern. Gratis.\n\n#designtipps #branding #farben #kmuschweiz #grafikdesign #balsthal #solothurn #colorpalette",
     "firstComment": "Kommentier TIPP hier unten — ich schick dir die 5 Farbcodes als Bild direkt in die DMs. Speicher es, nutz es, und wenn du Fragen zu deinem Auftritt hast: einfach fragen.",
-    "status": "draft"
+    "status": "ready"
   },
   {
-    "tag": "tag06", "type": "carousel", "platform": "instagram",
+    "tag": "tag06",
+    "type": "carousel",
+    "platform": "instagram",
     "assets": [
       "instagram/2026-06-13_tag06/_export/post-tag06-carousel-slide01.png",
       "instagram/2026-06-13_tag06/_export/post-tag06-carousel-slide02.png",
@@ -72,10 +88,12 @@
     ],
     "caption": "\"Die günstige Website kostet doch nichts.\" — Doch. Sie kostet die Kunden, die du nicht bekommst.\n\nEin Wix-Baukasten kostet CHF 15–49 pro Monat. Nach 2 Jahren: CHF 360–1'176 — und du besitzt nichts. Die Plattform gehört Wix, nicht dir.\n\nEine Custom-Website bei B.Studio: einmalig ab CHF 500. Du besitzt sie. Für immer.\n\nUnd schon 1 verlorener Auftrag pro Monat — ein Handwerker, ein Restaurantgast, ein Coach-Client — zahlt die ganze Investition.\n\nSchick das einem KMU-Inhaber aus dem Kanton Solothurn der noch auf einem Baukasten sitzt.\n\nReicht für dich ein Baukasten? Kommentier WEBCHECK — ehrliche Antwort, auch wenn's \"reicht\".\n\n#webdesign #kmuschweiz #solothurn #balsthal #wix #customwebsite #conversion #onlinemarketing",
     "firstComment": "Kommentier WEBCHECK — Baukasten oder Custom? Ich schau mir deine Situation an und sag dir ehrlich was für dich Sinn macht. Auch wenn die Antwort Baukasten ist.",
-    "status": "draft"
+    "status": "ready"
   },
   {
-    "tag": "tag07", "type": "carousel", "platform": "instagram",
+    "tag": "tag07",
+    "type": "carousel",
+    "platform": "instagram",
     "assets": [
       "instagram/2026-06-14_tag07/_export/post-tag07-carousel-slide01.png",
       "instagram/2026-06-14_tag07/_export/post-tag07-carousel-slide02.png",
@@ -85,6 +103,6 @@
     ],
     "caption": "Gleiche Firma. Gleiches Können. Gleiches Team. Nur der Auftritt ist neu.\n\nGenau das ist der Punkt von Branding: du änderst nicht dein Geschäft. Du zeigst endlich, wie gut es wirklich ist — und genau so nehmen dich Kunden ab dem ersten Blick wahr.\n\nDiesen Monat habe ich noch 2 Plätze frei. Für KMU in Balsthal, Solothurn und dem Mittelland die professionell wirken wollen — ohne Agenturpreise.\n\nWillst du dein Vorher/Nachher? Kommentier VORHER — ich zeig dir Schritt für Schritt, wie so eine Verwandlung abläuft.\n\n#vorhernachher #branding #rebrand #webdesign #kmuschweiz #balsthal #solothurn #transformation",
     "firstComment": "Kommentier VORHER hier unten — ich zeig dir das ganze Vorher/Nachher im Detail direkt in den DMs. Nur 2 Plätze diesen Monat. ✦",
-    "status": "draft"
+    "status": "ready"
   }
 ]
