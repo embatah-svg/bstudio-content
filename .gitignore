@@ -14,4 +14,7 @@ Thumbs.db
 .swarm/
 .hive-mind/
 
+# Bot reply state (dati locali, non sincronizzare)
+_scripts/.replied.json
+
 # (i PNG in _export/ e i .md SONO inclusi: servono come asset pubblici per l'API)

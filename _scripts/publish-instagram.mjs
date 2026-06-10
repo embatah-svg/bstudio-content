@@ -90,8 +90,12 @@ async function finalize(creationId, post) {
   const pub = await api("POST", `/${IG_USER_ID}/media_publish`, { creation_id: creationId });
   console.log(`  ✅ pubblicato — media id: ${pub.id}`);
   if (post.firstComment) {
-    await api("POST", `/${pub.id}/comments`, { message: post.firstComment });
-    console.log(`  💬 primo commento (trigger) pubblicato — ricordati di FISSARLO a mano.`);
+    try {
+      await api("POST", `/${pub.id}/comments`, { message: post.firstComment });
+      console.log(`  💬 primo commento (trigger) pubblicato — ricordati di FISSARLO a mano.`);
+    } catch (e) {
+      console.log(`  ⚠ commento non pubblicato (${e.message}). Pubblicalo a mano: "${post.firstComment}"`);
+    }
   }
   return pub.id;
 }
