@@ -1,7 +1,7 @@
 // export-carousels.mjs — converte gli HTML (carousel/cover/single) in PNG 1080×1920 pronti per Meta.
 // Uso:  node _scripts/export-carousels.mjs
 // Output: ogni HTML genera una cartella _export/ accanto al file, con un PNG per slide.
-import { readdir, mkdir } from "node:fs/promises";
+import { readdir, mkdir, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -9,6 +9,13 @@ import puppeteer from "puppeteer";
 
 const SELF = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SELF, ".."); // bstudio-content-30days
+
+// Logo B.Studio (bianco trasparente) da iniettare su ogni slide. Se manca, si salta.
+const LOGO_PATH = path.join(ROOT, "_assets", "logo.png");
+let LOGO_DATA = null;
+if (existsSync(LOGO_PATH)) {
+  LOGO_DATA = `data:image/png;base64,${(await readFile(LOGO_PATH)).toString("base64")}`;
+}
 const CHROME_FALLBACK = path.resolve(
   ROOT, "..", "b-studio-design-video", "node_modules", ".remotion",
   "chrome-headless-shell", "win64", "chrome-headless-shell-win64", "chrome-headless-shell.exe"
@@ -44,7 +51,20 @@ for (const file of files) {
   await page.setViewport({ width: 1080, height: 1920, deviceScaleFactor: 1 });
   await page.goto(pathToFileURL(file).href, { waitUntil: "networkidle0", timeout: 60000 });
   await page.evaluate(() => document.fonts && document.fonts.ready);
-  await new Promise((r) => setTimeout(r, 450)); // fonts/grain settle
+  // Inietta il logo B.Studio (bianco) in alto a sinistra di ogni slide.
+  if (LOGO_DATA) {
+    await page.evaluate((logo) => {
+      document.querySelectorAll(".slide, .frame").forEach((s) => {
+        if (s.querySelector(".bstudio-injected-logo")) return;
+        const img = document.createElement("img");
+        img.className = "bstudio-injected-logo";
+        img.src = logo;
+        img.style.cssText = "position:absolute;top:84px;left:92px;height:50px;width:auto;z-index:6;opacity:0.92;pointer-events:none;";
+        s.appendChild(img);
+      });
+    }, LOGO_DATA);
+  }
+  await new Promise((r) => setTimeout(r, 450)); // fonts/grain/logo settle
   const handles = await page.$$(".slide, .frame, .canvas");
   const outDir = path.join(path.dirname(file), "_export");
   if (!existsSync(outDir)) await mkdir(outDir, { recursive: true });

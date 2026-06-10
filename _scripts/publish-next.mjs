@@ -22,7 +22,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function api(method, p, params) {
   if (DRY) { console.log(`   [dry] ${method} ${p}`); return { id: `dry_${Math.random().toString(36).slice(2, 8)}` }; }
-  const res = await fetch(new URL(`${GRAPH}${p}`), { method, body: new URLSearchParams({ ...params, access_token: ACCESS_TOKEN }) });
+  const allParams = { ...params, access_token: ACCESS_TOKEN };
+  let url = new URL(`${GRAPH}${p}`);
+  let opts = { method };
+  if (method === "GET") {
+    for (const [k, v] of Object.entries(allParams)) url.searchParams.set(k, v);
+  } else {
+    opts.body = new URLSearchParams(allParams);
+  }
+  const res = await fetch(url, opts);
   const json = await res.json();
   if (!res.ok || json.error) throw new Error(`API ${p}: ${JSON.stringify(json.error || json)}`);
   return json;
@@ -43,6 +51,12 @@ try {
       children.push(c.id);
     }
     creationId = (await api("POST", `/${IG_USER_ID}/media`, { media_type: "CAROUSEL", children: children.join(","), caption: post.caption })).id;
+    for (let i = 0; i < 30 && !DRY; i++) {
+      const st = await api("GET", `/${creationId}`, { fields: "status_code" });
+      if (st.status_code === "FINISHED") break;
+      if (st.status_code === "ERROR") throw new Error("Carousel processing ERROR");
+      await sleep(4000);
+    }
   } else if (post.type === "reel") {
     const params = { media_type: "REELS", video_url: assetUrl(post.assets[0]), caption: post.caption };
     if (post.cover) params.cover_url = assetUrl(post.cover);
