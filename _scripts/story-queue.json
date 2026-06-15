@@ -1,5 +1,19 @@
 [
   {
+    "id": "story-brand-logo",
+    "video": "instagram/stories/story-logo-02s.mp4",
+    "spec": {
+      "eyebrow": "Tagesimpuls",
+      "hook": "Dein Logo\nentscheidet in\n0,2 Sekunden.",
+      "accent": "0,2 Sekunden",
+      "keyword": "CHECK",
+      "subline": "Schreib mir — ich sag dir ehrlich, was deins kostet."
+    },
+    "status": "published",
+    "publishedAt": "2026-06-15T19:39:16.996Z",
+    "mediaId": "18126637996622553"
+  },
+  {
     "id": "story-tag04",
     "image": "instagram/2026-06-11_tag04/_export/post-tag04-single.png",
     "status": "ready"
