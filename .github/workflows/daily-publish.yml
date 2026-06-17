@@ -1,0 +1,61 @@
+name: Daily Publish (1 Post + 1 Reel + 1 Story)
+
+# Pubblica automaticamente il set giornaliero su Instagram via Meta Graph API.
+# Gira ogni giorno alle 19:00 CEST (17:00 UTC). Modificabile sotto.
+
+on:
+  schedule:
+    - cron: "0 17 * * *" # 17:00 UTC = 19:00 CEST
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Solo test (non pubblica)"
+        type: boolean
+        default: false
+      only:
+        description: "Limita formati (es. post,reel,story)"
+        type: string
+        default: "post,reel,story"
+
+permissions:
+  contents: write # per committare lo stato aggiornato delle code
+
+concurrency:
+  group: daily-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Publish daily set
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ASSET_BASE_URL: ${{ secrets.ASSET_BASE_URL }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ github.event.inputs.only }}" ]; then ARGS="$ARGS --only=${{ github.event.inputs.only }}"; fi
+          node _scripts/daily-publish.mjs $ARGS
+
+      - name: Commit updated queues
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _scripts/publish-queue.json _scripts/reel-queue.json _scripts/story-queue.json
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica alle code."
+          else
+            git commit -m "chore: daily publish — update queue status [skip ci]"
+            git push
+          fi
