@@ -46,27 +46,27 @@ async function waitReady(id, tries = 30, ms = 4000) {
 
 const POST = {
   images: [
-    "instagram/etsy/G01/01-cover.png",
-    "instagram/etsy/G01/02-feature.png",
-    "instagram/etsy/G01/04-included.png",
-    "instagram/etsy/G01/05-result.png",
+    "instagram/etsy/E/01-hook.png",
+    "instagram/etsy/E/02-barbershop.png",
+    "instagram/etsy/E/03-salon.png",
+    "instagram/etsy/E/04-restaurant.png",
+    "instagram/etsy/E/05-included.png",
   ],
   caption:
-    "Schluss mit dem leeren Bildschirm. 300 ChatGPT-Prompts, die dein Marketing erledigen.\n\n" +
-    "Du weisst, dass du posten, mailen und werben solltest — aber dir fehlt die Zeit und die Idee. " +
-    "Genau dafür gibt es diesen Guide: 300 fertige Copy-Paste-Prompts, sortiert nach Marketing-Ziel.\n\n" +
-    "Was drin ist — 9 Kategorien:\n" +
-    "— Social Media: Instagram, Facebook, LinkedIn, Stories\n" +
-    "— E-Mail: Betreffzeilen, Willkommens-Sequenzen, Newsletter\n" +
-    "— Ads & SEO: Facebook/Google Ads, Blog, lokale Suche\n" +
-    "— Produkttexte, Kundenservice, Branding, Aktionen\n\n" +
-    "Einfach [Platzhalter] ausfüllen — funktioniert mit ChatGPT, Claude & Gemini.\n\n" +
-    "Für Selbstständige, KMU, Etsy-Verkäufer und alle, die ihr Marketing selbst machen.\n\n" +
+    "Eine fertige Website für dein Business — in Minuten online, ohne eine Zeile Code.\n\n" +
+    "Keine teure Agentur, kein Baukasten-Chaos. Du bekommst eine fertige, professionell gestaltete HTML-Website. " +
+    "Namen, Texte und Fotos austauschen — dann gratis veröffentlichen (z. B. auf Netlify). Fertig.\n\n" +
+    "Drei Vorlagen, sofort einsatzbereit:\n" +
+    "— Barbershop / Coiffeur\n" +
+    "— Hair Salon / Beauty\n" +
+    "— Restaurant / Café\n\n" +
+    "Alles dabei: Hero-Bereich, Leistungen & Preise, Galerie, Buchungs-Button, Öffnungszeiten & Karte — voll responsive auf Handy, Tablet und Desktop.\n\n" +
+    "Perfekt für KMU und Selbstständige, die schnell online sein wollen, ohne Monate zu warten.\n\n" +
     "Zum Launch −20% mit Code WELCOME20. Link in Bio → Shop bstudiodesignch.\n\n" +
-    "#chatgptprompts #aimarketing #onlinemarketing #kmuschweiz #kleinunternehmen #marketingtipps #digitaleprodukte",
+    "#webdesign #website #kmuschweiz #kleinunternehmen #onlinepräsenz #homepage #solothurn #digitaleprodukte",
   firstComment:
-    "Hol dir den Guide im Shop (Link in Bio) — Launch-Rabatt −20% mit Code WELCOME20. " +
-    "300 Prompts, sofort als PDF nutzbar. Fragen? Schreib mir hier drunter.",
+    "Hol dir deine Website-Vorlage im Shop (Link in Bio) — Launch-Rabatt −20% mit Code WELCOME20. " +
+    "Eine HTML-Datei, deine Texte rein, in Minuten live. Welche Branche hast du? Schreib's mir hier drunter.",
 };
 const STORY = { video: "instagram/stories/etsy-g01-story.mp4" };
 
