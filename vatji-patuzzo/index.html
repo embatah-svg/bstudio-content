@@ -155,7 +155,6 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 32px;
-      opacity: 0;
     }
     .hero-badge::before {
       content: '';
@@ -175,7 +174,6 @@
       letter-spacing: 0.02em;
       color: var(--white);
       margin-bottom: 28px;
-      opacity: 0;
     }
     .hero-title .gold { color: var(--gold); }
     .hero-title .outline {
@@ -188,14 +186,12 @@
       max-width: 540px;
       line-height: 1.7;
       margin-bottom: 48px;
-      opacity: 0;
     }
     .hero-actions {
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      opacity: 0;
     }
     .btn-primary {
       display: inline-flex;
@@ -233,7 +229,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      opacity: 0;
     }
     .hero-scroll-line {
       width: 40px;
@@ -1098,7 +1093,8 @@
     .footer-bottom p span { color: var(--gold); }
 
     /* ─── SCROLL ANIMATION BASE ────────────────────────────── */
-    .reveal { opacity: 0; transform: translateY(30px); }
+    .reveal { opacity: 1; transform: none; }
+    .js-ready .reveal { opacity: 0; transform: translateY(30px); }
 
     /* ─── CURSOR ─────────────────────────────────────────────── */
     .cursor {
@@ -1835,6 +1831,9 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
+    /* ── Abilita animazioni JS solo quando GSAP è pronto ── */
+    document.body.classList.add('js-ready');
+
     /* ── Cursor ───────────────────────────────────────── */
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursor-follower');
@@ -1862,6 +1861,8 @@
     });
 
     /* ── Hero animations ──────────────────────────────── */
+    const heroEls = ['#hero-badge','#hero-title','#hero-sub','#hero-actions','#hero-scroll'];
+    gsap.set(heroEls, { opacity: 0, y: 24 });
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.to('#hero-badge',   { opacity: 1, y: 0, duration: 0.8, delay: 0.3 })
       .to('#hero-title',   { opacity: 1, y: 0, duration: 1.0 }, '-=0.4')
@@ -1877,7 +1878,7 @@
           opacity: 1, y: 0,
           duration: 0.9,
           ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+          scrollTrigger: { trigger: el, start: 'top 92%', once: true }
         }
       );
     });
