@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZÉRO STUDIO — Car Wrap · PPF · Window Tint · Boat Wrap</title>
+  <meta name="description" content="ZÉRO STUDIO di Mario Vatji e Kevin Patuzzo — Specialisti in Car Wrapping, PPF Paint Protection Film, Window Tinting e Boat Wrap. Zero compromessi, perfezione assoluta." />
+  <meta name="keywords" content="car wrapping, PPF, paint protection film, window tinting, boat wrap, pellicola auto, wrapping auto, oscuramento vetri" />
+  <meta property="og:title" content="ZÉRO STUDIO — Surface Specialists" />
+  <meta property="og:description" content="Zero compromessi. Perfezione assoluta. Car Wrap · PPF · Window Tint · Boat Wrap." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────────── */
+    :root {
+      --bg:        #080808;
+      --surface:   #101010;
+      --surface2:  #181818;
+      --border:    rgba(255,255,255,0.07);
+      --gold:      #C9A84C;
+      --gold2:     #E8C96A;
+      --white:     #F2F2F2;
+      --gray:      #777;
+      --gray2:     #444;
+      --radius:    12px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+    .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+    h1, h2, h3 { line-height: 1.1; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 120px 0; }
+    .section-sm { padding: 80px 0; }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 40px;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--gold);
+      color: #080808;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { width: 24px; height: 2px; background: var(--white); display: block; transition: var(--transition); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    #particles-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 0 40px;
+      margin-left: max(40px, calc((100vw - 1200px) / 2));
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 40px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      opacity: 0;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 130px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 28px;
+      opacity: 0;
+    }
+    .hero-title .gold { color: var(--gold); }
+    .hero-title .outline {
+      -webkit-text-stroke: 1px rgba(242,242,242,0.3);
+      color: transparent;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: rgba(242,242,242,0.55);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      opacity: 0;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #080808;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: var(--transition);
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: max(40px, calc((100vw - 1200px) / 2));
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+    }
+    .hero-scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-scroll span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .hero-image-side {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 42%;
+      overflow: hidden;
+    }
+    .hero-image-side::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--bg) 0%, transparent 40%);
+      z-index: 1;
+    }
+    .hero-image-side .img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ─── STATS BAR ─────────────────────────────────────────── */
+    #stats {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 40px 32px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+    .stat-item:hover::before { transform: scaleX(1); }
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 54px;
+      letter-spacing: 0.02em;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ─── ABOUT ─────────────────────────────────────────────── */
+    #about { background: var(--bg); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .about-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 0.95;
+      margin-bottom: 28px;
+    }
+    .about-text {
+      color: rgba(242,242,242,0.6);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    .about-signature {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .signature-item { text-align: center; }
+    .signature-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      margin-top: 12px;
+    }
+    .signature-role {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+    .avatar-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 2px solid var(--gold);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--gold);
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--surface2);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--gold);
+      color: #080808;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .about-img-badge span {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+      opacity: 0.7;
+    }
+
+    /* ─── SERVICES ──────────────────────────────────────────── */
+    #services { background: var(--surface); }
+    .section-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: rgba(242,242,242,0.55);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--surface);
+      padding: 48px 36px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .service-card:hover { background: var(--surface2); }
+    .service-card:hover::before { opacity: 1; }
+    .service-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0.6;
+    }
+    .service-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      font-size: 26px;
+      transition: var(--transition);
+    }
+    .service-card:hover .service-icon {
+      background: rgba(201,168,76,0.2);
+      border-color: rgba(201,168,76,0.5);
+    }
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .service-desc {
+      font-size: 14px;
+      color: rgba(242,242,242,0.5);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(201,168,76,0.08);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    .service-arrow {
+      position: absolute;
+      bottom: 36px;
+      right: 36px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: var(--transition);
+      color: var(--gray);
+    }
+    .service-card:hover .service-arrow {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #080808;
+      transform: translate(4px, -4px);
+    }
+
+    /* ─── PORTFOLIO ─────────────────────────────────────────── */
+    #portfolio { background: var(--bg); }
+    .portfolio-filters {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--gray);
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #080808;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .portfolio-item.large {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 60%);
+      opacity: 0;
+      transition: var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-info h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .portfolio-info p {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .portfolio-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--gray2);
+    }
+    .portfolio-placeholder svg { width: 40px; height: 40px; opacity: 0.3; }
+    .portfolio-placeholder span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ─── PROCESS ───────────────────────────────────────────── */
+    #process { background: var(--surface); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+    }
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+    .process-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition);
+    }
+    .process-step:hover .process-num {
+      background: var(--gold);
+      color: #080808;
+      border-color: var(--gold);
+      box-shadow: 0 0 40px rgba(201,168,76,0.3);
+    }
+    .process-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .process-desc {
+      font-size: 13px;
+      color: rgba(242,242,242,0.5);
+      line-height: 1.7;
+    }
+
+    /* ─── PRICING ───────────────────────────────────────────── */
+    #pricing { background: var(--bg); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px 36px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .pricing-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, var(--surface) 60%);
+    }
+    .pricing-card.featured::before {
+      content: 'PIÙ RICHIESTO';
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--gold);
+      color: #080808;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .pricing-service {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .pricing-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .pricing-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .pricing-price {
+      margin-bottom: 32px;
+    }
+    .pricing-from {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .pricing-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pricing-currency {
+      font-size: 24px;
+      vertical-align: super;
+      color: var(--gold);
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+    .pricing-features li {
+      font-size: 14px;
+      color: rgba(242,242,242,0.65);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      color: var(--white);
+    }
+    .pricing-card.featured .pricing-cta {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #080808;
+    }
+    .pricing-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #080808;
+    }
+
+    /* ─── TESTIMONIALS ──────────────────────────────────────── */
+    #testimonials { background: var(--surface); overflow: hidden; }
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .testimonial-card {
+      flex: 0 0 380px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 18px;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+    .testimonial-text {
+      font-size: 15px;
+      color: rgba(242,242,242,0.7);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--gold);
+    }
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+    .testimonial-vehicle {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ─── BRANDS ─────────────────────────────────────────────── */
+    #brands {
+      background: var(--bg);
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .brands-label {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+    .brands-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .brand-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.15em;
+      color: var(--gray2);
+      transition: var(--transition);
+    }
+    .brand-item:hover { color: var(--white); }
+
+    /* ─── CTA SECTION ────────────────────────────────────────── */
+    #cta {
+      background: linear-gradient(135deg, #1a1400 0%, var(--bg) 50%, #0a1200 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .cta-content { position: relative; z-index: 1; text-align: center; }
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 7vw, 90px);
+      line-height: 0.92;
+      margin-bottom: 24px;
+    }
+    .cta-title .gold { color: var(--gold); }
+    .cta-sub {
+      font-size: 16px;
+      color: rgba(242,242,242,0.55);
+      margin-bottom: 48px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    #contact { background: var(--surface); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .contact-info p {
+      font-size: 15px;
+      color: rgba(242,242,242,0.55);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .contact-detail-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .contact-detail-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 3px;
+    }
+    .contact-detail-value {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .form-input, .form-select, .form-textarea {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      color: var(--white);
+      transition: var(--transition);
+      outline: none;
+      width: 100%;
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: rgba(201,168,76,0.5);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.07);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--gray2); }
+    .form-submit {
+      background: var(--gold);
+      color: #080808;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+    .form-submit:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 72px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+    .footer-brand .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .footer-brand .logo span { color: var(--gold); }
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 24px;
+    }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--gray);
+      transition: var(--transition);
+    }
+    .social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.08);
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--gray);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .footer-bottom p span { color: var(--gold); }
+
+    /* ─── SCROLL ANIMATION BASE ────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(30px); }
+
+    /* ─── CURSOR ─────────────────────────────────────────────── */
+    .cursor {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transition: transform 0.1s;
+    }
+    .cursor-follower {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.4);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.3s ease, width 0.3s, height 0.3s;
+    }
+
+    /* ─── MOBILE ─────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-content { padding: 0 20px; margin-left: 0; }
+      .hero-image-side { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-item.large { grid-column: span 2; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid::before { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .section { padding: 80px 0; }
+      .container { padding: 0 16px; }
+      .cursor, .cursor-follower { display: none; }
+    }
+    @media (max-width: 480px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-item.large { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ─── NAV ─────────────────────────────────────── -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">ZÉR<span>O</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Studio</a></li>
+      <li><a href="#services">Servizi</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pricing">Prezzi</a></li>
+      <li><a href="#contact">Contatti</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Preventivo Gratuito</a>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">
+        Surface Specialists · Est. 2024
+      </div>
+      <h1 class="hero-title" id="hero-title">
+        ZERO<br/>
+        <span class="gold">COMPRO</span><br/>
+        <span class="outline">MESSI.</span>
+      </h1>
+      <p class="hero-sub" id="hero-sub">
+        Car Wrapping · PPF · Window Tinting · Boat Wrap.<br/>
+        Trasformiamo ogni superficie in un'opera di precisione assoluta.
+      </p>
+      <div class="hero-actions" id="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Richiedi Preventivo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+        <a href="#portfolio" class="btn-outline">Vedi il Portfolio</a>
+      </div>
+    </div>
+    <div class="hero-scroll" id="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scorri per scoprire</span>
+    </div>
+    <div class="hero-image-side">
+      <div class="img-placeholder">
+        <div class="hero-image-overlay"></div>
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS ─────────────────────────────────────── -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Veicoli Wrappati</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="100">0<span style="font-size:24px">%</span></div>
+        <div class="stat-label">Clienti Soddisfatti</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="5">0</div>
+        <div class="stat-label">Anni di Esperienza</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number">3M</div>
+        <div class="stat-label">Certificazione Ufficiale</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <div class="about-label">Chi Siamo</div>
+          <h2 class="about-title">
+            LA NOSTRA<br/>
+            <span style="color:var(--gold)">OSSESSIONE</span><br/>
+            PER LA PERFEZIONE
+          </h2>
+          <p class="about-text">
+            Siamo Mario e Kevin — due professionisti accomunati da un'unica missione: portare la superficie di ogni veicolo e ogni ambiente al suo massimo potenziale. Il termine "levabolle" non è solo il nome del nostro mestiere: è la nostra filosofia. Zero bolle, zero imperfezioni, zero compromessi.
+          </p>
+          <p class="about-text">
+            Con anni di esperienza nell'applicazione di pellicole viniliche premium, PPF di ultima generazione e window tinting certificato, abbiamo sviluppato un metodo di lavoro preciso, metodico e orientato al dettaglio. Ogni progetto è unico, ogni cliente merita il meglio.
+          </p>
+          <p class="about-text">
+            Utilizziamo esclusivamente materiali dei brand leader mondiali — 3M, XPEL, Avery Dennison — e seguiamo i protocolli di applicazione più rigorosi del settore. Il nostro studio è il posto dove la tua auto, barca o superficie riceve la cura che merita.
+          </p>
+          <div class="about-signature">
+            <div class="signature-item">
+              <div class="avatar-placeholder">M</div>
+              <div class="signature-name">Mario Vatji</div>
+              <div class="signature-role">Co-Founder · PPF Specialist</div>
+            </div>
+            <div class="signature-item">
+              <div class="avatar-placeholder">K</div>
+              <div class="signature-name">Kevin Patuzzo</div>
+              <div class="signature-role">Co-Founder · Wrap Expert</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="about-img-main">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div class="about-img-badge">
+            <span>CERTIFICATO</span>
+            3M · XPEL · AVERY
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ──────────────────────────────────── -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">I Nostri Servizi</div>
+        <h2 class="section-title">TUTTO PER<br/><span style="color:var(--gold)">LA TUA SUPERFICIE</span></h2>
+        <p class="section-desc">
+          Dal car wrapping completo alla protezione PPF, dall'oscuramento vetri al boat wrap: offriamo soluzioni professionali per ogni esigenza.
+        </p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-number">01</div>
+          <div class="service-icon">🎨</div>
+          <h3 class="service-name">Car Wrapping</h3>
+          <p class="service-desc">
+            Cambia il colore della tua auto senza toccare la vernice originale. Full wrap o partial wrap con oltre 1.000 finiture disponibili: opaco, satinato, metallizzato, camaleonte, cromato, effetto carbonio.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Full Wrap</span>
+            <span class="tag">Partial Wrap</span>
+            <span class="tag">Opaco & Satinato</span>
+            <span class="tag">Camaleonte</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number">02</div>
+          <div class="service-icon">🛡️</div>
+          <h3 class="service-name">PPF Protection</h3>
+          <p class="service-desc">
+            La pellicola in poliuretano termoplastico che protegge la vernice da sassi, graffi e agenti chimici. Versioni trasparente, opaca e colorata. Auto-rigenerante con il calore: invisibile, duratura, indispensabile.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Self-Healing</span>
+            <span class="tag">PPF Colorato</span>
+            <span class="tag">XPEL</span>
+            <span class="tag">Full Coverage</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number">03</div>
+          <div class="service-icon">🪟</div>
+          <h3 class="service-name">Window Tinting</h3>
+          <p class="service-desc">
+            Oscuramento vetri professionale con pellicole di qualità certificata. Riduce calore, raggi UV e abbagliamento. Applicazione precisa nel rispetto della normativa italiana vigente.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Anti-UV</span>
+            <span class="tag">Fumé</span>
+            <span class="tag">Specchiante</span>
+            <span class="tag">Conforme CDI</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number">04</div>
+          <div class="service-icon">⛵</div>
+          <h3 class="service-name">Boat Wrapping</h3>
+          <p class="service-desc">
+            Rivestimento di scafi e superfici nautiche con pellicole marine specifiche 3M. Resistenti all'acqua salata, agli UV intensi e all'abrasione. Personalizzazione totale per la tua imbarcazione.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Scafi</span>
+            <span class="tag">Pellicole Marine</span>
+            <span class="tag">Anti-UV</span>
+            <span class="tag">3M Marine</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number">05</div>
+          <div class="service-icon">🏢</div>
+          <h3 class="service-name">Flotte Aziendali</h3>
+          <p class="service-desc">
+            Trasforma i tuoi furgoni e veicoli aziendali in potenti strumenti di comunicazione. Wrapping con grafica personalizzata, logo e brand identity. Contratti ricorrenti con prezzi dedicati.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Furgoni</span>
+            <span class="tag">Branding</span>
+            <span class="tag">Flotte</span>
+            <span class="tag">B2B</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-number">06</div>
+          <div class="service-icon">🏠</div>
+          <h3 class="service-name">Interior Wrapping</h3>
+          <p class="service-desc">
+            Rinnova cucine, mobili, uffici e spazi commerciali con pellicole decorative 3M DI-NOC e Cover Styl'. Oltre 1.200 finiture disponibili. La soluzione alternativa alla verniciatura per interni.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Cucine</span>
+            <span class="tag">Mobili</span>
+            <span class="tag">3M DI-NOC</span>
+            <span class="tag">Uffici</span>
+          </div>
+          <div class="service-arrow">→</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PORTFOLIO ─────────────────────────────────── -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">I NOSTRI<br/><span style="color:var(--gold)">LAVORI</span></h2>
+        <p class="section-desc">Ogni progetto è una dimostrazione di precisione. Sfoglia i nostri lavori e scegli la tua trasformazione.</p>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn active">Tutti</button>
+        <button class="filter-btn">Car Wrap</button>
+        <button class="filter-btn">PPF</button>
+        <button class="filter-btn">Window Tint</button>
+        <button class="filter-btn">Boat</button>
+        <button class="filter-btn">Interior</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item large reveal">
+          <div class="portfolio-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Foto Progetto</span>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h4>BMW M4 Competition</h4>
+              <p>Full Wrap Opaco Grafite · PPF Frontale</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item reveal">
+          <div class="portfolio-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Foto Progetto</span>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h4>Ferrari 488</h4>
+              <p>PPF Full Car · Self-Healing</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item reveal">
+          <div class="portfolio-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Foto Progetto</span>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h4>Porsche 911</h4>
+              <p>Partial Wrap · Tetto Carbonio</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item reveal">
+          <div class="portfolio-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Foto Progetto</span>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h4>Imbarcazione 9m</h4>
+              <p>Boat Wrap · Pellicole Marine 3M</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item reveal">
+          <div class="portfolio-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Foto Progetto</span>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h4>Range Rover Sport</h4>
+              <p>Full Wrap Camaleonte</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item large reveal">
+          <div class="portfolio-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Foto Progetto</span>
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h4>Flotta Aziendale — 12 Furgoni</h4>
+              <p>Wrapping Commerciale · Branding Completo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ───────────────────────────────────── -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Come Lavoriamo</div>
+        <h2 class="section-title">IL NOSTRO<br/><span style="color:var(--gold)">METODO</span></h2>
+        <p class="section-desc">Un processo in 4 fasi progettato per garantirti il risultato perfetto, senza sorprese.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-num">01</div>
+          <h4 class="process-title">Consulenza</h4>
+          <p class="process-desc">Analizziamo insieme le tue esigenze, il tuo veicolo e il budget. Ti consigliamo il materiale e la finitura più adatta al tuo caso specifico.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">02</div>
+          <h4 class="process-title">Preventivo</h4>
+          <p class="process-desc">Preventivo dettagliato e trasparente entro 24 ore. Prezzi chiari, nessun costo nascosto. Se sei d'accordo, si prenota la data.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">03</div>
+          <h4 class="process-title">Applicazione</h4>
+          <p class="process-desc">Il tuo veicolo entra nel nostro studio. Pulizia approfondita, preparazione della superficie e applicazione millimetrica della pellicola.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">04</div>
+          <h4 class="process-title">Consegna</h4>
+          <p class="process-desc">Ispezione finale con te presente. Consegna con istruzioni di cura e garanzia sull'applicazione. Il risultato deve essere perfetto, o non ci fermiamo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ───────────────────────────────────── -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Prezzi Trasparenti</div>
+        <h2 class="section-title">QUANTO<br/><span style="color:var(--gold)">COSTA?</span></h2>
+        <p class="section-desc">Crediamo nella trasparenza. Ecco i range orientativi per i nostri servizi principali. Ogni progetto è unico: contattaci per un preventivo personalizzato.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card reveal">
+          <div class="pricing-service">Car Wrap</div>
+          <h3 class="pricing-name">Partial Wrap</h3>
+          <p class="pricing-desc">Cofano, tetto, specchietti, spoiler o pannelli singoli. La personalizzazione su misura.</p>
+          <div class="pricing-price">
+            <div class="pricing-from">A partire da</div>
+            <div class="pricing-amount"><span class="pricing-currency">€</span>350</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Cofano o tetto</li>
+            <li>Specchietti laterali</li>
+            <li>Oltre 100 finiture</li>
+            <li>Pellicole premium 3M / Avery</li>
+            <li>Garanzia 2 anni</li>
+          </ul>
+          <a href="#contact" class="pricing-cta">Richiedi Preventivo</a>
+        </div>
+
+        <div class="pricing-card featured reveal">
+          <div class="pricing-service">Car Wrap</div>
+          <h3 class="pricing-name">Full Wrap</h3>
+          <p class="pricing-desc">Trasformazione completa della carrozzeria. La soluzione più richiesta per chi vuole un look unico al 100%.</p>
+          <div class="pricing-price">
+            <div class="pricing-from">A partire da</div>
+            <div class="pricing-amount"><span class="pricing-currency">€</span>1.800</div>
+          </div>
+          <ul class="pricing-features">
+            <li>Copertura totale carrozzeria</li>
+            <li>1.000+ finiture disponibili</li>
+            <li>Pellicole premium 3M / Avery / XPEL</li>
+            <li>Reversibile al 100%</li>
+            <li>Garanzia 3 anni</li>
+          </ul>
+          <a href="#contact" class="pricing-cta">Richiedi Preventivo</a>
+        </div>
+
+        <div class="pricing-card reveal">
+          <div class="pricing-service">PPF</div>
+          <h3 class="pricing-name">Paint Protection Film</h3>
+          <p class="pricing-desc">La protezione definitiva per la tua vernice. Invisibile, self-healing, indispensabile per auto di valore.</p>
+          <div class="pricing-price">
+            <div class="pricing-from">A partire da</div>
+            <div class="pricing-amount"><span class="pricing-currency">€</span>900</div>
+          </div>
+          <ul class="pricing-features">
+            <li>PPF frontale (paraurti+cofano+fari)</li>
+            <li>Pellicola self-healing XPEL / 3M</li>
+            <li>Protegge da sassi e graffi</li>
+            <li>Versione trasparente e opaca</li>
+            <li>Garanzia fino a 10 anni</li>
+          </ul>
+          <a href="#contact" class="pricing-cta">Richiedi Preventivo</a>
+        </div>
+
+      </div>
+      <p style="text-align:center;margin-top:40px;font-size:13px;color:var(--gray);">
+        I prezzi indicati sono orientativi e variano in base al modello del veicolo, alla finitura scelta e allo stato della carrozzeria. <a href="#contact" style="color:var(--gold);text-decoration:underline;">Contattaci per un preventivo preciso e gratuito.</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ──────────────────────────────── -->
+  <section id="testimonials" class="section-sm">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Recensioni</div>
+        <h2 class="section-title">COSA DICONO<br/><span style="color:var(--gold)">I CLIENTI</span></h2>
+      </div>
+    </div>
+    <div class="testimonials-track" id="testimonials-track">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Risultato incredibile. Ho portato la mia BMW M4 per un full wrap opaco e sono rimasto senza parole. Applicazione perfetta, zero bolle, zero imperfezioni. Mario e Kevin sono veri professionisti."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LR</div>
+          <div>
+            <div class="testimonial-name">Luca R.</div>
+            <div class="testimonial-role">Cliente privato</div>
+            <div class="testimonial-vehicle">BMW M4 · Full Wrap Opaco</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Ho fatto fare il PPF frontale sulla mia Porsche 911 nuova. Il lavoro è impeccabile, la pellicola è invisibile e ora non ho più paura dei sassi in autostrada. Consigliato al 100%."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">GM</div>
+          <div>
+            <div class="testimonial-name">Giulia M.</div>
+            <div class="testimonial-role">Cliente privato</div>
+            <div class="testimonial-vehicle">Porsche 911 · PPF Frontale XPEL</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Abbiamo wrappato l'intera flotta di 8 furgoni aziendali. Lavoro preciso, puntuale, con grafica perfettamente rispettata. Sono diventati i nostri fornitori di fiducia per tutta la flotta."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AT</div>
+          <div>
+            <div class="testimonial-name">Alessandro T.</div>
+            <div class="testimonial-role">Direttore Operativo, PMI</div>
+            <div class="testimonial-vehicle">Flotta 8 Furgoni · Branding Aziendale</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Il boat wrapping sulla mia barca ha superato ogni aspettativa. Pellicola marina che regge mare e sole senza problemi. La barca sembra uscita dal cantiere, ma con un look personalizzato unico."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">FP</div>
+          <div>
+            <div class="testimonial-name">Francesco P.</div>
+            <div class="testimonial-role">Cliente privato</div>
+            <div class="testimonial-vehicle">Imbarcazione 8m · Boat Wrap 3M Marine</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Oscuramento vetri fatto a regola d'arte. Ho provato altri installatori in passato, ma la qualità di ZÉRO Studio è su un altro livello. Precisi, puliti, rispettosi dei tempi. Non cambio più."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SB</div>
+          <div>
+            <div class="testimonial-name">Sara B.</div>
+            <div class="testimonial-role">Cliente privato</div>
+            <div class="testimonial-vehicle">Range Rover · Window Tinting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BRANDS ────────────────────────────────────── -->
+  <section id="brands">
+    <div class="container">
+      <p class="brands-label">Materiali Certificati dai Migliori Brand al Mondo</p>
+      <div class="brands-row">
+        <div class="brand-item">3M</div>
+        <div class="brand-item">XPEL</div>
+        <div class="brand-item">AVERY DENNISON</div>
+        <div class="brand-item">LLUMAR</div>
+        <div class="brand-item">HEXIS</div>
+        <div class="brand-item">SOLARIS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ───────────────────────────────────────── -->
+  <section id="cta">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2 class="cta-title">
+          PRONTO A<br/>
+          <span class="gold">TRASFORMARE</span><br/>
+          LA TUA AUTO?
+        </h2>
+        <p class="cta-sub">Prenota una consulenza gratuita. In 15 minuti ti diciamo esattamente cosa possiamo fare per il tuo veicolo e quanto costerà.</p>
+        <a href="#contact" class="btn-primary">
+          Consulenza Gratuita
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────── -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="about-label">Contatti</div>
+          <h3 class="contact-info" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);line-height:0.95;margin-bottom:20px;">
+            PARLIAMO<br/>DEL TUO<br/><span style="color:var(--gold)">PROGETTO</span>
+          </h3>
+          <p class="contact-info" style="font-size:15px;color:rgba(242,242,242,0.55);line-height:1.7;margin-bottom:40px;">
+            Ogni trasformazione inizia da una conversazione. Raccontaci il tuo veicolo e quello che hai in mente — ti risponderemo entro 24 ore con un preventivo personalizzato.
+          </p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📱</div>
+              <div>
+                <div class="contact-detail-label">Telefono / WhatsApp</div>
+                <div class="contact-detail-value">+39 000 000 0000</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">✉️</div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value">info@zerostudio.it</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div>
+                <div class="contact-detail-label">Studio</div>
+                <div class="contact-detail-value">Via [Indirizzo], [Città]</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🕐</div>
+              <div>
+                <div class="contact-detail-label">Orari</div>
+                <div class="contact-detail-value">Lun–Ven 8:00–18:00 · Sab su appuntamento</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Nome</label>
+                <input type="text" class="form-input" placeholder="Mario Rossi" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Telefono</label>
+                <input type="tel" class="form-input" placeholder="+39 333 000 0000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="mario@email.it" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Tipo di Veicolo</label>
+                <select class="form-select">
+                  <option value="" disabled selected>Seleziona...</option>
+                  <option>Auto berlina / SUV</option>
+                  <option>Auto sportiva</option>
+                  <option>Furgone / van</option>
+                  <option>Moto</option>
+                  <option>Barca</option>
+                  <option>Interior / Arredamento</option>
+                  <option>Altro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Servizio di interesse</label>
+                <select class="form-select">
+                  <option value="" disabled selected>Seleziona...</option>
+                  <option>Car Wrapping (full)</option>
+                  <option>Car Wrapping (partial)</option>
+                  <option>PPF - Paint Protection</option>
+                  <option>Window Tinting</option>
+                  <option>Boat Wrapping</option>
+                  <option>Flotta Aziendale</option>
+                  <option>Interior Wrapping</option>
+                  <option>Non so ancora</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Descrivi il tuo progetto</label>
+              <textarea class="form-textarea" placeholder="Raccontaci la tua auto, il colore che hai in mente, eventuali esigenze particolari..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              Invia Richiesta →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">ZÉR<span>O</span> STUDIO</div>
+          <p>Specialisti in Car Wrapping, PPF, Window Tinting e Boat Wrap. Fondato da Mario Vatji e Kevin Patuzzo — due professionisti uniti dalla stessa ossessione: la perfezione.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="TikTok">🎵</a>
+            <a href="#" class="social-link" title="Facebook">📘</a>
+            <a href="#" class="social-link" title="WhatsApp">💬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Servizi</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Car Wrapping</a></li>
+            <li><a href="#services">PPF Protection</a></li>
+            <li><a href="#services">Window Tinting</a></li>
+            <li><a href="#services">Boat Wrapping</a></li>
+            <li><a href="#services">Flotte Aziendali</a></li>
+            <li><a href="#services">Interior Wrapping</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul class="footer-links">
+            <li><a href="#about">Chi Siamo</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#process">Il Nostro Metodo</a></li>
+            <li><a href="#testimonials">Recensioni</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+390000000000">+39 000 000 0000</a></li>
+            <li><a href="mailto:info@zerostudio.it">info@zerostudio.it</a></li>
+            <li><a href="#contact">Preventivo Gratuito</a></li>
+            <li><a href="#contact">Dove Siamo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 <span>ZÉRO Studio</span> di Mario Vatji & Kevin Patuzzo. Tutti i diritti riservati.</p>
+        <p>P.IVA: 00000000000 · Privacy Policy · Cookie Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────── -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── Cursor ───────────────────────────────────────── */
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      gsap.to(cursor, { x: mouseX - 5, y: mouseY - 5, duration: 0.1 });
+    });
+    function animateFollower() {
+      followerX += (mouseX - followerX - 16) * 0.12;
+      followerY += (mouseY - followerY - 16) * 0.12;
+      follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+      requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+    document.querySelectorAll('a, button, .service-card, .portfolio-item').forEach(el => {
+      el.addEventListener('mouseenter', () => gsap.to(follower, { width: 60, height: 60, duration: 0.3 }));
+      el.addEventListener('mouseleave', () => gsap.to(follower, { width: 32, height: 32, duration: 0.3 }));
+    });
+
+    /* ── Navbar ───────────────────────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ── Hero animations ──────────────────────────────── */
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.to('#hero-badge',   { opacity: 1, y: 0, duration: 0.8, delay: 0.3 })
+      .to('#hero-title',   { opacity: 1, y: 0, duration: 1.0 }, '-=0.4')
+      .to('#hero-sub',     { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+      .to('#hero-actions', { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
+      .to('#hero-scroll',  { opacity: 1, y: 0, duration: 0.6 }, '-=0.2');
+
+    /* ── Scroll reveals ───────────────────────────────── */
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+        }
+      );
+    });
+
+    /* ── Counter animation ────────────────────────────── */
+    document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.innerHTML.replace(/\d+/, '');
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+          gsap.fromTo({ val: 0 }, { val: target },
+            {
+              duration: 2,
+              ease: 'power2.out',
+              onUpdate: function() {
+                el.innerHTML = Math.round(this.targets()[0].val) + suffix;
+              }
+            }
+          );
+        }
+      });
+    });
+
+    /* ── Testimonials marquee ─────────────────────────── */
+    const track = document.getElementById('testimonials-track');
+    const cards = track.innerHTML;
+    track.innerHTML = cards + cards;
+    let scrollPos = 0;
+    function marquee() {
+      scrollPos += 0.5;
+      if (scrollPos >= track.scrollWidth / 2) scrollPos = 0;
+      track.scrollLeft = scrollPos;
+      requestAnimationFrame(marquee);
+    }
+    marquee();
+    track.addEventListener('mouseenter', () => scrollPos -= 0);
+
+    /* ── Portfolio filters ────────────────────────────── */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    /* ── Form submit ──────────────────────────────────── */
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      const original = btn.textContent;
+      btn.textContent = 'Inviato! ✓';
+      btn.style.background = '#22c55e';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Particles ────────────────────────────────────── */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * 1920,
+        y: Math.random() * 1080,
+        r: Math.random() * 1.5 + 0.3,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        o: Math.random() * 0.4 + 0.1
+      });
+    }
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,168,76,${p.o})`;
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    /* ── Parallax hero ────────────────────────────────── */
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      document.querySelector('.hero-content').style.transform = `translateY(${y * 0.3}px)`;
+      document.querySelector('.hero-gradient').style.transform = `translateY(${y * 0.2}px)`;
+    });
+  </script>
+</body>
+</html>
