@@ -438,6 +438,34 @@ button { font-family: inherit; cursor: pointer; }
 .footer__legal a:hover { color: var(--mist); }
 
 /* ============================================================
+   IMAGE FALLBACK (bis echte Fotos in ./images/ liegen)
+   ============================================================ */
+.img-missing {
+  position: relative;
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0 22px, rgba(255,255,255,0.045) 22px 24px),
+    linear-gradient(135deg, var(--graphite), var(--ink));
+}
+.frame.img-missing { aspect-ratio: 16 / 11; }
+.img-missing::before {
+  content: "";
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -170%);
+  width: 46px; height: 32px;
+  background:
+    linear-gradient(var(--red), var(--red)) left bottom / 60% 2.4px no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 28'%3E%3Cpath d='M4 26 L20 6 L36 26' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 28'%3E%3Cpath d='M4 26 L20 6 L36 26' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  background: var(--fog);
+}
+.img-missing::after {
+  content: attr(data-label);
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, 40%);
+  width: 80%; text-align: center;
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--fog);
+}
+
+/* ============================================================
    REVEAL / MOTION
    ============================================================ */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }

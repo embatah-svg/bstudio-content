@@ -49,6 +49,19 @@
     reveals.forEach(function (el) { el.classList.add("is-in"); });
   }
 
+  /* ---------- Graceful image fallback (until real photos are in ./images/) ---------- */
+  var bpFallback = function (img) {
+    var wrap = img.closest(".frame, .svc__media, .gallery__item");
+    if (!wrap) return;
+    wrap.classList.add("img-missing");
+    wrap.setAttribute("data-label", img.getAttribute("alt") || "BauPro Solutions");
+    img.style.display = "none";
+  };
+  document.querySelectorAll(".frame img, .svc__media img, .gallery__item img").forEach(function (img) {
+    if (img.complete) { if (img.naturalWidth === 0) bpFallback(img); }
+    img.addEventListener("error", function () { bpFallback(img); });
+  });
+
   /* ---------- Footer year ---------- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
