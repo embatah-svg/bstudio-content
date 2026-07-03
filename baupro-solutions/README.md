@@ -18,22 +18,35 @@ Reines statisches HTML/CSS/JS — **kein Build nötig**. `index.html` in jedem
 Browser öffnen oder auf beliebigem Webhost (Netlify, Vercel, GitHub Pages,
 Hosting-Anbieter) hochladen.
 
-## Bilder
+## Bilder — WICHTIG
 
-Die Bilder wurden mit KI generiert und liegen aktuell auf einem CDN
-(`https://d8j0ntlcm91z4.cloudfront.net/...`). Sie werden im Browser direkt
-geladen.
+`index.html` verweist auf **lokale Bilder** in `images/`:
+`hero.jpg`, `renovationen.jpg`, `betonarbeiten.jpg`, `abbruch.jpg`,
+`kernbohrungen.jpg`. Solange diese fehlen, zeigt die Seite einen sauberen
+Marken-Platzhalter (kein „kaputtes" Bild).
 
-**Für ein vollständig eigenständiges Deployment** einfach lokal ausführen:
+**Warum lokal statt CDN?** Die KI-Bilder liegen auf dem Higgsfield-CDN, das
+Hotlinking (Einbetten auf einer fremden Domain) blockiert — auf `*.vercel.app`
+wurden sie deshalb nicht angezeigt. Im Repo/über Vercel ausgeliefert
+funktionieren sie zuverlässig.
 
-```bash
-cd baupro-solutions
-bash download-images.sh
-```
+**So die echten Fotos einsetzen (einmalig):**
 
-Das Skript lädt die 5 Bilder nach `images/` und stellt `index.html` automatisch
-auf lokale Pfade um. (In der Cloud-Sandbox ist das CDN gesperrt — daher lokal
-ausführen.)
+1. Die 5 Bilder in der **Higgsfield-App** öffnen und herunterladen.
+2. Mit exakt diesen Namen in `images/` ablegen:
+
+   | Datei | Motiv |
+   |---|---|
+   | `hero.jpg` | Handwerker bei hochwertiger Renovation |
+   | `renovationen.jpg` | Fertig renovierte, helle Wohnung |
+   | `betonarbeiten.jpg` | Betonwand mit Schalung / Armierung |
+   | `abbruch.jpg` | Kontrollierter Innen-Rückbau |
+   | `kernbohrungen.jpg` | Diamant-Kernbohrung in Beton |
+
+3. Committen und auf `main` pushen → Vercel deployt automatisch neu.
+
+Alternativ `bash download-images.sh` versuchen (lädt vom CDN; kann bei
+Hotlink-Schutz mit 403 fehlschlagen — dann Schritt 1–2 manuell).
 
 ## Kontaktformular (Formspree)
 
