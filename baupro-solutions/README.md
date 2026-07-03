@@ -24,22 +24,31 @@ Die Bilder wurden mit KI generiert und liegen aktuell auf einem CDN
 (`https://d8j0ntlcm91z4.cloudfront.net/...`). Sie werden im Browser direkt
 geladen.
 
-**Für ein vollständig eigenständiges Deployment** empfohlen: die 5 Bilder
-herunterladen, in `images/` ablegen (z. B. `hero.jpg`, `renovationen.jpg`,
-`betonarbeiten.jpg`, `abbruch.jpg`, `kernbohrungen.jpg`) und die CDN-URLs in
-`index.html` durch die lokalen Pfade ersetzen (Suchen/Ersetzen der
-`https://d8j0ntlcm91z4...`-URLs).
+**Für ein vollständig eigenständiges Deployment** einfach lokal ausführen:
 
-## Kontaktformular
+```bash
+cd baupro-solutions
+bash download-images.sh
+```
 
-Das Formular validiert im Browser und zeigt eine Bestätigung. Es ist noch **nicht
-an ein Backend angebunden**. Vor dem Livegang eine der Optionen wählen:
+Das Skript lädt die 5 Bilder nach `images/` und stellt `index.html` automatisch
+auf lokale Pfade um. (In der Cloud-Sandbox ist das CDN gesperrt — daher lokal
+ausführen.)
 
-- **Formspree / Basin / Getform** — `action`-URL im `<form>` eintragen.
-- **`mailto:`** — schneller Zwischenschritt (öffnet das Mailprogramm).
-- Eigenes Endpoint / CMS.
+## Kontaktformular (Formspree)
 
-Siehe Kommentar in `script.js` (`// Demo: no backend wired`).
+Das Formular ist bereits für **Formspree** vorbereitet (asynchroner Versand mit
+Lade-, Erfolgs- und Fehlerzustand, Spam-Honeypot). Zum Aktivieren:
+
+1. Auf [formspree.io](https://formspree.io) kostenlos registrieren und ein neues
+   Formular mit der Zieladresse `info@baupro-nuhiu.ch` anlegen.
+2. Die Form-ID kopieren (z. B. `xayzqwer`).
+3. In `index.html` im `<form>` das `action` anpassen:
+   `action="https://formspree.io/f/DEINE_FORM_ID"` — dabei `YOUR_FORM_ID` ersetzen.
+
+Fertig. Solange `YOUR_FORM_ID` nicht ersetzt ist, zeigt das Formular eine
+Demo-Bestätigung (nichts wird versendet), damit die Oberfläche nie kaputt wirkt.
+Die erste echte Einsendung muss bei Formspree einmalig per E-Mail bestätigt werden.
 
 ## Anpassen
 

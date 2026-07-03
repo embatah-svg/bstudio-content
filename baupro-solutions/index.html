@@ -362,7 +362,9 @@
           </div>
         </div>
 
-        <form class="contact__form reveal" data-delay="120" id="contactForm" novalidate>
+        <!-- Formspree: ersetzen Sie YOUR_FORM_ID durch Ihre Form-ID von https://formspree.io -->
+        <form class="contact__form reveal" data-delay="120" id="contactForm" novalidate
+              action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name" required placeholder="Vor- und Nachname" />
@@ -401,6 +403,10 @@
             <span class="field__error" data-for="message">Bitte beschreiben Sie kurz Ihr Anliegen.</span>
           </div>
 
+          <!-- Spam-Schutz (Honeypot) + Betreff für Formspree -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp" />
+          <input type="hidden" name="_subject" value="Neue Anfrage über die Website" />
+
           <button type="submit" class="btn btn--red btn--lg btn--block">
             Anfrage senden <span class="btn__icon" aria-hidden="true">→</span>
           </button>
@@ -409,6 +415,10 @@
           <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
             <strong>Danke für Ihre Anfrage!</strong>
             <span>Wir melden uns in Kürze bei Ihnen. Für Dringendes: 076 488 55 83.</span>
+          </div>
+          <div class="form-error" id="formError" role="alert" aria-live="assertive" hidden>
+            <strong>Das hat leider nicht geklappt.</strong>
+            <span>Bitte versuchen Sie es erneut oder rufen Sie uns an: 076 488 55 83.</span>
           </div>
         </form>
       </div>
