@@ -9,7 +9,7 @@
   --charcoal: #16191d;
   --graphite: #21252b;
   --steel:    #3a4048;
-  --concrete: #6b717a;
+  --concrete: #5f656d;
   --fog:      #9aa0a8;
   --mist:     #d7d5d0;
   --paper-2:  #e9e7e2;
@@ -387,7 +387,7 @@ button { font-family: inherit; cursor: pointer; }
   width: 100%;
 }
 .field textarea { resize: vertical; min-height: 108px; }
-.field input::placeholder, .field textarea::placeholder { color: var(--steel); }
+.field input::placeholder, .field textarea::placeholder { color: #868d96; }
 .field input:focus, .field textarea:focus, .field select:focus {
   outline: none; border-color: var(--red); box-shadow: 0 0 0 3px var(--red-soft);
 }
@@ -433,9 +433,27 @@ button { font-family: inherit; cursor: pointer; }
 .footer__bar {
   max-width: var(--maxw); margin: 24px auto 0;
   display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--steel);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--fog);
 }
-.footer__legal a:hover { color: var(--mist); }
+.footer__legal a:hover { color: var(--red); }
+
+/* Legal (Impressum / Datenschutz) */
+.legal { max-width: var(--maxw); margin: 20px auto 0; }
+.legal__item { border-top: 1px solid var(--line-dk); }
+.legal__item summary {
+  cursor: pointer; list-style: none; padding: 16px 0;
+  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--mist); display: flex; align-items: center; gap: 10px;
+}
+.legal__item summary::-webkit-details-marker { display: none; }
+.legal__item summary::before { content: "+"; color: var(--red); font-size: 15px; width: 12px; }
+.legal__item[open] summary::before { content: "–"; }
+.legal__body { padding: 0 0 20px; max-width: 68ch; }
+.legal__body p { color: var(--fog); font-size: 14px; margin-bottom: 12px; line-height: 1.6; }
+.legal__body strong { color: var(--mist); }
+.legal__body a { color: var(--mist); text-decoration: underline; text-underline-offset: 2px; }
+.legal__body a:hover { color: var(--red); }
+.legal__todo { color: var(--steel) !important; font-style: italic; font-size: 13px !important; }
 
 /* ============================================================
    IMAGE FALLBACK (bis echte Fotos in ./images/ liegen)

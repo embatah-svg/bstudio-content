@@ -62,6 +62,19 @@
     img.addEventListener("error", function () { bpFallback(img); });
   });
 
+  /* ---------- Open legal accordion from footer links / hash ---------- */
+  var openLegalFromHash = function () {
+    var id = (location.hash || "").replace("#", "");
+    if (id !== "impressum" && id !== "datenschutz") return;
+    var el = document.getElementById(id);
+    if (el && el.tagName.toLowerCase() === "details") {
+      el.open = true;
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+  window.addEventListener("hashchange", openLegalFromHash);
+  openLegalFromHash();
+
   /* ---------- Footer year ---------- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();

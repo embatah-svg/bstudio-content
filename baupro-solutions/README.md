@@ -48,6 +48,17 @@ funktionieren sie zuverlässig.
 Alternativ `bash download-images.sh` versuchen (lädt vom CDN; kann bei
 Hotlink-Schutz mit 403 fehlschlagen — dann Schritt 1–2 manuell).
 
+## Logo
+
+Vektor-Logo (SVG, skalierbar) in `images/`:
+
+- `logo.svg` — Lockup für helle Hintergründe
+- `logo-inverse.svg` — Lockup für dunkle Hintergründe
+- `logo-mark.svg` — nur die Bildmarke (App-Icon, Social, Stempel)
+
+Bildmarke = Dach + rote Innenlinie + Fundamentlinie (Bau & Renovation);
+Wortmarke in Archivo, Zusatz „SOLUTIONS GMBH" in JetBrains Mono.
+
 ## Kontaktformular (Formspree)
 
 Das Formular ist bereits für **Formspree** vorbereitet (asynchroner Versand mit

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 296 64" width="296" height="64" role="img" aria-label="BauPro Solutions GmbH">
+  <style>
+    .wm { font-family: "Archivo", "Arial Black", system-ui, sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+    .sub { font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 500; letter-spacing: 0.22em; }
+  </style>
+  <!-- Bildmarke -->
+  <g transform="translate(2,14) scale(1.06)">
+    <path d="M4 24 L20 6 L36 24" fill="none" stroke="#101215" stroke-width="2.6" stroke-linecap="square"/>
+    <path d="M12.5 24 L20 15.5 L27.5 24" fill="none" stroke="#c8262c" stroke-width="2.6" stroke-linecap="square"/>
+    <path d="M4 29 H36" stroke="#101215" stroke-width="2.6" stroke-linecap="square"/>
+  </g>
+  <!-- Wortmarke -->
+  <text class="wm" x="62" y="35" font-size="30" fill="#101215">BauPro</text>
+  <text class="sub" x="63" y="51" font-size="9.5" fill="#5f656d">SOLUTIONS GMBH</text>
+</svg>
