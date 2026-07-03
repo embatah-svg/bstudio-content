@@ -81,6 +81,34 @@
     });
   });
 
+  var errorBox = document.getElementById("formError");
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var submitLabel = submitBtn ? submitBtn.innerHTML : "Anfrage senden";
+  var endpoint = form.getAttribute("action") || "";
+  // Formspree is "ready" once YOUR_FORM_ID is replaced with a real form id.
+  var formspreeReady = /formspree\.io\/f\/[A-Za-z0-9]+$/.test(endpoint) && endpoint.indexOf("YOUR_FORM_ID") === -1;
+
+  var lockForm = function (locked) {
+    form.querySelectorAll("input, textarea, select, button").forEach(function (el) { el.disabled = locked; });
+  };
+  var showSuccess = function () {
+    if (errorBox) errorBox.hidden = true;
+    success.hidden = false;
+    lockForm(true);
+    success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+  var resetBtn = function () {
+    if (!submitBtn) return;
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = submitLabel;
+  };
+  var showError = function () {
+    resetBtn();
+    if (!errorBox) return;
+    errorBox.hidden = false;
+    errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var valid = true;
@@ -93,9 +121,18 @@
       if (firstErr) firstErr.focus();
       return;
     }
-    // Demo: no backend wired — show confirmation. Replace with real endpoint / mailto on launch.
-    success.hidden = false;
-    form.querySelectorAll("input, textarea, select, button").forEach(function (el) { el.disabled = true; });
-    success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    // No Formspree id configured yet → show a demo confirmation so the UI is never broken.
+    if (!formspreeReady) { showSuccess(); return; }
+
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = "Wird gesendet…"; }
+    fetch(endpoint, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    }).then(function (res) {
+      if (res.ok) showSuccess();
+      else showError();
+    }).catch(showError);
   });
 })();

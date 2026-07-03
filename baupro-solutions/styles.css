@@ -405,6 +405,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .form-success strong { color: var(--white); font-family: var(--font-display); }
 .form-success span { color: var(--fog); font-size: 14px; }
+.form-error {
+  margin-top: 18px; padding: 18px 20px; border-radius: var(--radius);
+  background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.4);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.form-error strong { color: #ff8f8f; font-family: var(--font-display); }
+.form-error span { color: var(--fog); font-size: 14px; }
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
 
 /* ============================================================
    FOOTER
