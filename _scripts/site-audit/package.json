@@ -1,0 +1,15 @@
+{
+  "name": "bstudio-site-audit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Analisi di un sito web con browser reale, con report PDF e screenshot annotati.",
+  "bin": { "site-audit": "./audit.mjs" },
+  "scripts": {
+    "audit": "node audit.mjs"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.62.1"
+  }
+}
