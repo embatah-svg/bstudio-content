@@ -9,15 +9,19 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { collect } from './lib/collect.mjs';
-import { valuta } from './lib/checks.mjs';
+import * as checksIt from './lib/checks.mjs';
+import * as checksDe from './lib/checks.de.mjs';
 import { buildHtml, renderPdf, loadImages } from './lib/report.mjs';
 
+const LINGUE = { it: checksIt, de: checksDe };
+
 function parseArgs(argv) {
-  const args = { url: null, out: null, cliente: null, ignoreHttpsErrors: false };
+  const args = { url: null, out: null, cliente: null, lang: 'it', ignoreHttpsErrors: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--out') args.out = argv[++i];
     else if (a === '--cliente') args.cliente = argv[++i];
+    else if (a === '--lang') args.lang = argv[++i];
     else if (a === '--ignore-https-errors') args.ignoreHttpsErrors = true;
     else if (!a.startsWith('-')) args.url = a;
   }
@@ -40,8 +44,15 @@ Analisi sito → PDF
 Opzioni
   --out <cartella>          dove scrivere il report (default: ./report-<dominio>)
   --cliente "<nome>"        nome della cliente, stampato in copertina
+  --lang it|de              lingua del report (default: it)
   --ignore-https-errors     ignora errori di certificato (solo per test interni)
 `);
+  process.exit(1);
+}
+
+const checksMod = LINGUE[args.lang];
+if (!checksMod) {
+  console.error(`\n  Lingua non supportata: "${args.lang}". Usa --lang it oppure --lang de.\n`);
   process.exit(1);
 }
 
@@ -63,11 +74,19 @@ if (dati.fatal) {
 }
 
 console.log('  [2/4] Valutazione dei parametri…');
-const esito = valuta(dati);
+const esito = checksMod.valuta(dati);
 
 console.log('  [3/4] Composizione del report…');
 const { shots, crops } = await loadImages(dati);
-const html = buildHtml({ d: dati, esito, shots, crops, cliente: args.cliente });
+const html = buildHtml({
+  d: dati,
+  esito,
+  shots,
+  crops,
+  cliente: args.cliente,
+  lang: args.lang,
+  AREE: checksMod.AREE,
+});
 
 const htmlFile = path.join(outDir, 'report.html');
 const jsonFile = path.join(outDir, 'dati.json');

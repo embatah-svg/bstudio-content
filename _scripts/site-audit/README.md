@@ -26,7 +26,14 @@ node audit.mjs https://esempio.ch --cliente "Nome Salone"
 |---|---|
 | `--out <cartella>` | dove scrivere il report (default `report-<dominio>`) |
 | `--cliente "<nome>"` | nome stampato in copertina |
+| `--lang it\|de` | lingua del report (default `it`) |
 | `--ignore-https-errors` | ignora errori di certificato (solo per prove interne) |
+
+Esempio per una cliente di lingua tedesca:
+
+```bash
+node audit.mjs https://esempio.ch --lang de --cliente "Nome Salone"
+```
 
 Nella cartella di uscita:
 
@@ -70,9 +77,13 @@ inserirla nell'elenco `CHECKS`.
 
 ## Report in tedesco
 
-Tutti i testi rivolti al cliente stanno in `lib/checks.mjs` (più le intestazioni di sezione in
-`lib/report.mjs`). Per la clientela della Svizzera tedesca si traduce quel file — la pipeline
-non cambia.
+`--lang de` usa `lib/checks.de.mjs` (stessa struttura di `checks.mjs`: id/area/severità
+identici, solo i testi tradotti, registro formale "Sie") e le stringhe fisse del layout in
+`lib/report.mjs` (oggetto `TESTI.de`). Punteggio e ordine dei rilievi sono identici fra le due
+lingue — cambia solo il testo.
+
+Per aggiungere una terza lingua: duplicare `checks.mjs` in `checks.<lingua>.mjs`, aggiungere una
+voce a `TESTI` in `report.mjs` e registrare il file in `LINGUE` dentro `audit.mjs`.
 
 ## Note
 
