@@ -6,6 +6,28 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { existsSync, readdirSync } from 'node:fs';
 
+// Etichette disegnate SOPRA lo screenshot (fanno parte del PNG, non dell'HTML
+// del report): devono seguire --lang quanto il resto del testo, altrimenti il
+// ritaglio annotato resta in italiano anche in un report tedesco.
+const ETICHETTE = {
+  it: {
+    alt: (n) => `Immagine ${n} — nessun testo alternativo`,
+    contrasto: (ratio, req) => `Contrasto ${ratio}:1 — minimo richiesto ${req}:1`,
+    formLabel: 'Campi senza etichetta',
+    overflow: (tag, right) => `Esce dallo schermo — <${tag}> arriva a ${right}px`,
+    tapTarget: (w, h) => `${w}×${h}px — sotto il minimo di 44×44`,
+    smallText: (size) => `Testo a ${size}px`,
+  },
+  de: {
+    alt: (n) => `Bild ${n} — kein Alternativtext`,
+    contrasto: (ratio, req) => `Kontrast ${ratio}:1 — nötig: ${req}:1`,
+    formLabel: 'Felder ohne Beschriftung',
+    overflow: (tag, right) => `Ragt über den Bildschirmrand — <${tag}> reicht bis ${right}px`,
+    tapTarget: (w, h) => `${w}×${h}px — unter dem Minimum von 44×44`,
+    smallText: (size) => `Text bei ${size}px`,
+  },
+};
+
 // Opzioni di newContext(): la misura dello schermo va sotto `viewport`, non al
 // primo livello, altrimenti Playwright usa silenziosamente il valore predefinito.
 export const VIEWPORTS = {
@@ -506,9 +528,10 @@ async function checkLinks(request, links, max = 40) {
   return results;
 }
 
-export async function collect(targetUrl, { outDir, ignoreHttpsErrors = false } = {}) {
+export async function collect(targetUrl, { outDir, ignoreHttpsErrors = false, lang = 'it' } = {}) {
   const shotDir = path.join(outDir, 'screenshots');
   await fs.mkdir(shotDir, { recursive: true });
+  const L = ETICHETTE[lang] || ETICHETTE.it;
 
   const browser = await chromium.launch({ executablePath: findChromium() });
   const data = { target: targetUrl, startedAt: new Date().toISOString(), screenshots: {}, crops: {} };
@@ -604,20 +627,20 @@ export async function collect(targetUrl, { outDir, ignoreHttpsErrors = false } =
         id: 'alt',
         marks: data.dom.images
           .filter((i) => !i.hasAlt)
-          .map((i, n) => ({ rect: i.rect, label: `Immagine ${n + 1} — nessun testo alternativo` })),
+          .map((i, n) => ({ rect: i.rect, label: L.alt(n + 1) })),
       },
       {
         id: 'contrasto',
         marks: data.dom.contrastIssues.map((c) => ({
           rect: c.rect,
-          label: `Contrasto ${c.ratio}:1 — minimo richiesto ${c.required}:1`,
+          label: L.contrasto(c.ratio, c.required),
         })),
       },
       {
         id: 'form-label',
         marks: data.dom.forms
           .filter((fo) => fo.rect && fo.fields.some((x) => !x.labelled))
-          .map((fo) => ({ rect: fo.rect, label: 'Campi senza etichetta' })),
+          .map((fo) => ({ rect: fo.rect, label: L.formLabel })),
       },
     ]);
     data.screenshots.desktopAnnotated = cropsDesktop.__panoramica || null;
@@ -645,21 +668,21 @@ export async function collect(targetUrl, { outDir, ignoreHttpsErrors = false } =
         id: 'overflow',
         marks: data.mobile.overflow.elements.map((o) => ({
           rect: o.rect,
-          label: `Esce dallo schermo — <${o.tag}> arriva a ${o.right}px`,
+          label: L.overflow(o.tag, o.right),
         })),
       },
       {
         id: 'tap-targets',
-        marks: data.mobile.tapTargets.map((t) => ({
-          rect: t.rect,
-          label: `${t.w}×${t.h}px — sotto il minimo di 44×44`,
+        marks: data.mobile.tapTargets.map((tt) => ({
+          rect: tt.rect,
+          label: L.tapTarget(tt.w, tt.h),
         })),
       },
       {
         id: 'small-text',
         marks: data.mobile.smallText.map((s) => ({
           rect: s.rect,
-          label: `Testo a ${s.fontSize}px`,
+          label: L.smallText(s.fontSize),
         })),
       },
     ]);

@@ -66,7 +66,7 @@ console.log(`\n  Analisi di ${url}`);
 console.log(`  Uscita: ${outDir}\n`);
 
 console.log('  [1/4] Caricamento del sito da computer e da telefono…');
-const dati = await collect(url, { outDir, ignoreHttpsErrors: args.ignoreHttpsErrors });
+const dati = await collect(url, { outDir, ignoreHttpsErrors: args.ignoreHttpsErrors, lang: args.lang });
 
 if (dati.fatal) {
   console.error(`\n  Analisi interrotta: ${dati.fatal}\n`);
