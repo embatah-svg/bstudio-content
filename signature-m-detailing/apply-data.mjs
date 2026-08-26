@@ -1,40 +1,28 @@
 #!/usr/bin/env node
 /**
- * Signature M Detailing — Platzhalter in echte Kundendaten umschreiben.
+ * Signature Mobile Detailing — Platzhalter in echte Daten umschreiben.
  *
  *   1. Unten die Werte in DATEN ausfüllen (nur die, die man kennt).
  *   2. `node apply-data.mjs` im Ordner ausführen (--dry-run zeigt nur an, was passieren würde).
  *
- * Ersetzt wird in index.html: Telefon, WhatsApp, E-Mail, Adresse, Region,
- * Google-Maps-Standort und die Formspree-Form-ID.
+ * Echt aus dem Instagram-Profil übernommen und deshalb NICHT hier drin:
+ * WhatsApp-Link, Instagram-Handle, Leistungen, Positionierung „mobil, schweizweit".
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
 
 /* ------------------------------------------------------------------ DATEN */
 const DATEN = {
-  telefonAnzeige: "+41 XX XXX XX XX",   // wie es auf der Seite steht
-  telefonLink:    "+41000000000",        // tel:-Link, ohne Leerzeichen
-  whatsapp:       "41000000000",         // wa.me/<Nummer>, ohne + und Leerzeichen
-  email:          "info@signature-m-detailing.ch",
-  strasse:        "Musterstrasse 00",
-  plz:            "0000",
-  ort:            "Ort",
-  region:         "Region Ort",          // Hero-Zeile: „… · Region Ort“
-  formspreeId:    "YOUR_FORM_ID"         // Form-ID von formspree.io
+  email:       "info@signature-mobile-detailing.ch", // echte Geschäfts-E-Mail
+  whatsappUrl: "https://wa.me/qr/DLJWM4OPHJW2A1",    // aus dem Profil; oder https://wa.me/41XXXXXXXXX
+  formspreeId: "YOUR_FORM_ID"                        // Form-ID von formspree.io
 };
 /* ------------------------------------------------------------------------ */
 
 const PLATZHALTER = {
-  telefonAnzeige: "+41 XX XXX XX XX",
-  telefonLink:    "+41000000000",
-  whatsapp:       "41000000000",
-  email:          "info@signature-m-detailing.ch",
-  strasse:        "Musterstrasse 00",
-  plz:            "0000",
-  ort:            "Ort",
-  region:         "Region Ort",
-  formspreeId:    "YOUR_FORM_ID"
+  email:       "info@signature-mobile-detailing.ch",
+  whatsappUrl: "https://wa.me/qr/DLJWM4OPHJW2A1",
+  formspreeId: "YOUR_FORM_ID"
 };
 
 const dryRun = process.argv.includes("--dry-run");
@@ -49,35 +37,17 @@ const ersetze = (alt, neu, label) => {
   if (treffer === 0) return;
   html = html.split(alt).join(neu);
   geaendert += treffer;
-  console.log(`  ✓ ${label.padEnd(16)} ${treffer}× → ${neu}`);
+  console.log(`  ✓ ${label.padEnd(14)} ${treffer}× → ${neu}`);
 };
 
-console.log("\nSignature M Detailing — Daten einsetzen\n");
+console.log("\nSignature Mobile Detailing — Daten einsetzen\n");
 
-// Reihenfolge beachten: der lange Telefon-Link zuerst, sonst greift die kurze
-// WhatsApp-Nummer in „+41000000000“ mit.
-ersetze(PLATZHALTER.telefonLink,    DATEN.telefonLink,    "Telefon-Link");
-ersetze(PLATZHALTER.telefonAnzeige, DATEN.telefonAnzeige, "Telefon");
-ersetze(`wa.me/${PLATZHALTER.whatsapp}`, `wa.me/${DATEN.whatsapp}`, "WhatsApp");
-ersetze(PLATZHALTER.email,          DATEN.email,          "E-Mail");
-ersetze(PLATZHALTER.strasse,        DATEN.strasse,        "Strasse");
-ersetze(`${PLATZHALTER.plz} ${PLATZHALTER.ort}`, `${DATEN.plz} ${DATEN.ort}`, "PLZ / Ort");
-ersetze(`"postalCode": "${PLATZHALTER.plz}"`,       `"postalCode": "${DATEN.plz}"`,       "PLZ (Schema)");
-ersetze(`"addressLocality": "${PLATZHALTER.ort}"`,  `"addressLocality": "${DATEN.ort}"`,  "Ort (Schema)");
-ersetze(PLATZHALTER.region,         DATEN.region,         "Region");
-ersetze(PLATZHALTER.formspreeId,    DATEN.formspreeId,    "Formspree-ID");
-
-// Google-Maps-Karte auf die echte Adresse setzen
-if (DATEN.strasse !== PLATZHALTER.strasse || DATEN.ort !== PLATZHALTER.ort) {
-  const adresse = encodeURIComponent(`${DATEN.strasse}, ${DATEN.plz} ${DATEN.ort}, Schweiz`);
-  html = html.replace("maps?q=Schweiz&output=embed", `maps?q=${adresse}&output=embed`);
-  console.log("  ✓ Karte            1× → " + adresse);
-  geaendert++;
-} else {
-  offen.push("Karte");
-}
+ersetze(PLATZHALTER.email,       DATEN.email,       "E-Mail");
+ersetze(PLATZHALTER.whatsappUrl, DATEN.whatsappUrl, "WhatsApp");
+ersetze(PLATZHALTER.formspreeId, DATEN.formspreeId, "Formspree-ID");
 
 if (offen.length) console.log(`\n  ⚠ noch Platzhalter: ${offen.join(", ")}`);
+console.log("  ℹ von Hand prüfen: Preise, Impressum-Angaben, Kundenstimmen, Einsatzgebiet-Liste");
 
 if (dryRun) {
   console.log(`\nProbelauf — nichts geschrieben (${geaendert} Ersetzungen möglich).\n`);
