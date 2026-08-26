@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Signature M Detailing — Bildmarke">
+  <rect x="1.6" y="1.6" width="60.8" height="60.8" rx="14" fill="#08090b"/>
+  <rect x="5.4" y="5.4" width="53.2" height="53.2" rx="10.5" fill="none" stroke="#c9a24a" stroke-opacity=".38" stroke-width="1.2"/>
+  <path d="M18 45V21l14 12.5L46 21v24" fill="none" stroke="#c9a24a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
