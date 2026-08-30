@@ -1,0 +1,69 @@
+name: Acquisizione (audit prospect + report + testi outreach)
+
+# Gira i prospect di _acquisizione/prospects.csv, genera report e testi 1:1,
+# e committa i risultati. GitHub Actions ha rete aperta e gira in cloud: è il livello
+# che lavora anche quando il tuo computer è spento. Gratis nei minuti inclusi.
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "URL pubblico base dei report (per i link nelle mail)"
+        type: string
+        default: ""
+  schedule:
+    - cron: "0 5 * * 1" # lunedì 07:00 CEST — rianalizza la lista prima della settimana
+
+permissions:
+  contents: write
+
+concurrency:
+  group: acquisizione
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Skip se non c'è una lista prospect
+        id: guard
+        run: |
+          if [ -f _acquisizione/prospects.csv ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Manca _acquisizione/prospects.csv — copia prospects.example.csv e riempilo."
+          fi
+
+      - name: Installa Playwright
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Analizza i prospect
+        if: steps.guard.outputs.run == 'true'
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url }}
+        run: |
+          BASE="${BASE_URL:-https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/_acquisizione/out}"
+          node _acquisizione/run.mjs --base "$BASE"
+
+      - name: Committa report e pipeline
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _acquisizione/out
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica."
+          else
+            git commit -m "chore: acquisizione — nuovi report e testi outreach [skip ci]"
+            git push
+          fi

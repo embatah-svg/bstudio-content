@@ -1,0 +1,9 @@
+# B.Studio — lista prospect. Copia questo file in prospects.csv e riempilo.
+# Una riga per azienda. Solo la prima colonna è obbligatoria.
+# Dove trovarli (gratis, 20 min): local.ch · Google Maps "Schreiner Zürich" · Gelbe Seiten ·
+# registri di categoria (Gewerbeverband, Handwerkerverband) · Instagram hashtag locali.
+# Regola: PMI 5-30 dipendenti, sito visibilmente vecchio, mestiere con margini
+# (Handwerk, Zahnarzt, Anwalt, Immobilien, Gastro, Fitness, Coiffeur, Garage).
+url,nome_azienda,contatto,note
+https://esempio-schreinerei.ch,Schreinerei Muster AG,info@esempio.ch,trovata su local.ch Zürich
+https://esempio-zahnarzt.ch,Zahnarztpraxis Muster,,Instagram @praxis_muster

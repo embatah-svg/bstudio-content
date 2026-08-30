@@ -1,0 +1,16 @@
+{
+  "name": "bstudio-content",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "B.Studio — contenuti social + motore di acquisizione clienti",
+  "scripts": {
+    "audit": "node _acquisizione/audit.mjs",
+    "acquisizione": "node _acquisizione/run.mjs",
+    "publish": "node _scripts/daily-publish.mjs",
+    "export": "node _scripts/export-carousels.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}

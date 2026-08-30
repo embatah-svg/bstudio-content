@@ -18,3 +18,7 @@ Thumbs.db
 _scripts/.replied.json
 
 # (i PNG in _export/ e i .md SONO inclusi: servono come asset pubblici per l'API)
+
+# Acquisizione — dati di terzi: il repo è PUBBLICO, questi file non vanno pubblicati
+_acquisizione/prospects.csv
+_acquisizione/pipeline.csv

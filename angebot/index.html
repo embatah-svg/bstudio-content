@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sofort-Fix in 48 Stunden — B.Studio</title>
+<meta name="description" content="Die drei Punkte, die Ihre Website heute Kunden kosten — behoben in 48 Stunden. Fixpreis CHF 490. Vorher: kostenloser Website-Check.">
+<meta property="og:title" content="Ihre Website verliert Kunden. In 48 Stunden nicht mehr.">
+<meta property="og:description" content="Fixpreis CHF 490 · Sofort-Fix der drei kritischsten Punkte · B.Studio, Premium Brand & Web Design.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0908;--ink2:#100F0A;--gold:#C8A96E;--gold-hi:#E4CE9A;--cream:#F0ECD8;
+--muted:rgba(240,236,216,.58);--line:rgba(240,236,216,.10);--red:#c97b6e;
+--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.65;
+ background-image:radial-gradient(70% 45% at 50% 0%,rgba(200,169,110,.12),transparent 70%);background-repeat:no-repeat}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(40px,7.5vw,72px);line-height:1.03;letter-spacing:-.015em;margin-top:26px}
+h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4.6vw,40px);line-height:1.15}
+h2 em{font-style:italic;font-weight:400;color:var(--gold)}
+h3{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--cream)}
+p.lead{color:var(--muted);font-size:19px;margin-top:22px;max-width:60ch}
+p.lead strong{color:var(--cream);font-weight:500}
+section{padding:82px 0;border-top:1px solid var(--line)}
+header.hero{padding:74px 0 82px}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;letter-spacing:.14em;
+ text-transform:uppercase;font-size:13px;padding:18px 34px;border-radius:4px;text-decoration:none;border:0;cursor:pointer;
+ transition:transform .15s ease,background .15s ease}
+.btn:hover{background:var(--gold-hi);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid rgba(200,169,110,.4)}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;align-items:center}
+.note{color:var(--muted);font-size:14px}
+/* problema */
+.symptoms{margin-top:34px;display:grid;gap:0}
+.sym{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.sym .x{color:var(--red);font-size:20px;line-height:1.3;flex-shrink:0}
+.sym b{font-weight:500;color:var(--cream)}
+.sym span{color:var(--muted)}
+/* offerta */
+.card{margin-top:38px;padding:42px 38px;border-radius:22px;
+ background:linear-gradient(135deg,rgba(200,169,110,.16),rgba(200,169,110,.04));border:1px solid rgba(200,169,110,.34)}
+.price{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.price .n{font-family:var(--serif);font-size:clamp(44px,8vw,64px);font-weight:900;color:var(--gold-hi);line-height:1}
+.price .u{color:var(--muted);font-size:15px}
+ul.check{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px}
+ul.check li{display:flex;gap:14px;font-size:17px;align-items:flex-start}
+ul.check li::before{content:"✓";color:var(--gold);flex-shrink:0;font-weight:700}
+.guarantee{margin-top:30px;padding:18px 22px;border-left:2px solid var(--gold);background:rgba(200,169,110,.06);font-size:16px}
+/* processo */
+.steps{counter-reset:s;margin-top:34px}
+.step{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--line)}
+.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:30px;font-weight:900;
+ color:transparent;-webkit-text-stroke:1px rgba(200,169,110,.6);line-height:1.1}
+.step p{color:var(--muted);margin-top:6px}
+/* pacchetti */
+.pkgs{margin-top:32px}
+.pkg{display:flex;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.pkg .n{font-family:var(--serif);font-size:21px;font-weight:700}
+.pkg .n small{display:block;font-family:var(--sans);font-size:15px;font-weight:300;color:var(--muted);margin-top:4px;max-width:52ch}
+.pkg .p{font-family:var(--serif);font-size:23px;font-weight:900;color:var(--gold-hi);white-space:nowrap}
+/* form */
+form{margin-top:34px;display:grid;gap:18px}
+label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}
+input,textarea{width:100%;background:rgba(240,236,216,.04);border:1px solid var(--line);border-radius:8px;
+ padding:15px 16px;color:var(--cream);font-family:var(--sans);font-size:16px;font-weight:300}
+input:focus,textarea:focus{outline:0;border-color:rgba(200,169,110,.55);background:rgba(240,236,216,.06)}
+textarea{min-height:110px;resize:vertical}
+.hp{position:absolute;left:-9999px}
+.formnote{color:var(--muted);font-size:13px}
+.formnote a{color:var(--gold)}
+/* faq */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-size:18px;color:var(--cream);font-weight:400;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:14px;max-width:66ch}
+footer{padding:52px 0 70px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;
+ display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:var(--gold);text-decoration:none}
+@media(max-width:620px){.card{padding:32px 24px}.step{grid-template-columns:1fr}.step::before{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">B.Studio · Brand &amp; Web Design</div>
+  <h1>Ihre Website verliert<br>gerade Kunden.<br><em>In 48 Stunden nicht mehr.</em></h1>
+  <p class="lead">Ich schaue mir Ihre Seite auf einem echten Handy an, messe sie durch und sage Ihnen
+  ehrlich, welche <strong>drei Punkte</strong> Sie heute Anfragen kosten. Wenn Sie wollen, behebe ich
+  sie — <strong>Fixpreis, 48 Stunden, kein Abo</strong>.</p>
+  <div class="btnrow">
+    <a class="btn" href="#check">Kostenlosen Check anfordern</a>
+    <a class="btn ghost" href="#sofortfix">Sofort-Fix · CHF 490</a>
+  </div>
+  <p class="note" style="margin-top:20px">Antwort innert 24 Stunden · Kein Verkaufsgespräch · Deutsch, Italienisch, Englisch</p>
+</div></header>
+
+<section><div class="wrap">
+  <h2>Die Seite ist nicht <em>hässlich</em>.<br>Sie ist undicht.</h2>
+  <p class="lead">Die meisten KMU-Websites verlieren Kunden nicht am Design, sondern an fünf banalen Stellen.
+  Erkennen Sie eine davon wieder?</p>
+  <div class="symptoms">
+    <div class="sym"><span class="x">✕</span><div><b>Auf dem Handy dauert es über drei Sekunden.</b>
+      <span>Rund die Hälfte der Besucher ist weg, bevor Ihr Angebot überhaupt geladen ist.</span></div></div>
+    <div class="sym"><span class="x">✕</span><div><b>Man sieht oben keinen einzigen Button.</b>
+      <span>Wer nicht in fünf Sekunden weiss, was er tun soll, tut nichts.</span></div></div>
+    <div class="sym"><span class="x">✕</span><div><b>Die Telefonnummer ist nicht anklickbar.</b>
+      <span>Wer abtippen muss, ruft nicht an. Der kürzeste Weg zum Auftrag ist zu.</span></div></div>
+    <div class="sym"><span class="x">✕</span><div><b>Beim Teilen per WhatsApp erscheint ein grauer Kasten.</b>
+      <span>Ihre Empfehlung sieht aus wie ein toter Link — genau im Moment der Weiterempfehlung.</span></div></div>
+    <div class="sym"><span class="x">✕</span><div><b>Kein Impressum, keine Datenschutzerklärung.</b>
+      <span>In der Schweiz Pflicht (UWG Art. 3 Abs. 1 lit. s, revDSG) — und ein Vertrauenssignal, das fehlt.</span></div></div>
+  </div>
+  <p class="lead">Keiner dieser Punkte ist ein Projekt. Zusammen sind sie der Unterschied zwischen
+  einer Website, die Sie repräsentiert, und einer, die Sie Geld kostet.</p>
+</div></section>
+
+<section id="sofortfix"><div class="wrap">
+  <div class="eyebrow">Das Angebot</div>
+  <h2 style="margin-top:22px">Sofort-Fix</h2>
+  <div class="card">
+    <div class="price"><span class="n">CHF 490</span><span class="u">Fixpreis · inkl. MwSt. · keine Folgekosten</span></div>
+    <p style="color:var(--muted);font-size:17px">Die drei kritischsten Punkte Ihrer bestehenden Website — behoben und live,
+    innerhalb von 48 Stunden nach Ihrer Freigabe.</p>
+    <ul class="check">
+      <li>Vollständiger Check mit Messwerten und Screenshots (den bekommen Sie vorab, gratis)</li>
+      <li>Behebung der drei Punkte mit dem grössten Effekt auf Anfragen</li>
+      <li>Mobile-Optimierung des ersten Bildschirms — dort entscheidet sich alles</li>
+      <li>Klickbare Telefonnummer, Kontaktweg, klarer Handlungsaufruf</li>
+      <li>Impressum &amp; Datenschutz-Basis, falls sie fehlen</li>
+      <li>Kurzes Video (2 Min), in dem ich zeige, was ich geändert habe und warum</li>
+    </ul>
+    <div class="guarantee"><strong style="color:var(--gold);font-weight:500">Meine Zusage:</strong>
+      Nicht innerhalb von 48 Stunden live — Sie zahlen nichts. Ohne Diskussion.</div>
+    <div class="btnrow">
+      <a class="btn" href="#check">Ja, Check anfordern</a>
+      <span class="note">Erst der Check. Bezahlt wird erst, wenn Sie den Fix wollen.</span>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>So läuft es ab</h2>
+  <div class="steps">
+    <div class="step"><div><h3>Sie schicken mir die Adresse Ihrer Website</h3>
+      <p>Ein Feld im Formular unten. Mehr brauche ich nicht.</p></div></div>
+    <div class="step"><div><h3>Ich prüfe sie — von Hand, nicht per Tool-PDF</h3>
+      <p>Echtes Handy-Format, gemessene Ladezeit, jeder Klick durchgetestet. Sie bekommen den Check
+      innert 24 Stunden. Kostenlos, und Sie behalten ihn — auch wenn Sie nie wieder von mir hören wollen.</p></div></div>
+    <div class="step"><div><h3>Sie entscheiden</h3>
+      <p>Sie machen es selbst, Ihr bisheriger Dienstleister macht es, oder ich mache es für CHF 490.
+      Alle drei Wege sind für mich in Ordnung.</p></div></div>
+    <div class="step"><div><h3>48 Stunden später ist es live</h3>
+      <p>Mit kurzem Video, in dem ich jede Änderung erkläre. Kein Fachjargon.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Wenn mehr nötig ist</h2>
+  <p class="lead">Manchmal ist die alte Seite nicht zu retten. Dann gilt dasselbe Prinzip:
+  <strong>Fixpreis, klarer Termin, kein Stundensatz.</strong></p>
+  <div class="pkgs">
+    <div class="pkg"><div class="n">Website Neu<small>Custom gebaut, mobil-first, SEO-Basis, Kontaktformular,
+      Impressum &amp; Datenschutz. Kein Baukasten-Template.</small></div><div class="p">ab CHF 1'500</div></div>
+    <div class="pkg"><div class="n">Marke + Website<small>Logo, Farben, Typografie und die komplette Website
+      als ein zusammenhängendes System.</small></div><div class="p">CHF 2'800</div></div>
+    <div class="pkg"><div class="n">Brand Essenziale<small>Logo, Farbpalette, Typografie, Anwendungsbeispiele —
+      wenn die Website noch warten kann.</small></div><div class="p">CHF 800</div></div>
+  </div>
+</div></section>
+
+<section id="check"><div class="wrap">
+  <div class="eyebrow">Kostenloser Check</div>
+  <h2 style="margin-top:22px">Schicken Sie mir Ihre <em>Adresse</em>.</h2>
+  <p class="lead">Innert 24 Stunden bekommen Sie den vollständigen Check — mit Screenshots, Messwerten
+  und den drei Punkten, die Sie am meisten kosten. Ohne Gegenleistung, ohne Anruf.</p>
+
+  <!-- Formspree: YOUR_FORM_ID durch die eigene Form-ID von https://formspree.io ersetzen (Gratis-Plan reicht) -->
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+    <div>
+      <label for="website">Ihre Website *</label>
+      <input id="website" name="website" type="text" inputmode="url" required placeholder="www.ihre-firma.ch">
+    </div>
+    <div>
+      <label for="email">E-Mail für den Check *</label>
+      <input id="email" name="email" type="email" required placeholder="name@ihre-firma.ch">
+    </div>
+    <div>
+      <label for="firma">Firma</label>
+      <input id="firma" name="firma" type="text" placeholder="Muster AG">
+    </div>
+    <div>
+      <label for="nachricht">Gibt es etwas, das Sie besonders stört?</label>
+      <textarea id="nachricht" name="nachricht" placeholder="Optional — z. B. „wir bekommen kaum Anfragen über die Seite&quot;"></textarea>
+    </div>
+    <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="_subject" value="Neue Check-Anfrage über bstudio-design.ch">
+    <button class="btn" type="submit">Check anfordern</button>
+    <p class="formnote">Ihre Daten nutze ich ausschliesslich, um Ihnen den Check zu schicken. Keine Weitergabe,
+    kein Newsletter. Details in der <a href="#datenschutz">Datenschutzerklärung</a>.</p>
+  </form>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Was Sie wahrscheinlich <em>noch</em> fragen</h2>
+  <details><summary>Warum ist der Check gratis?</summary>
+    <p>Weil er mich rund 30 Minuten kostet und Ihnen sofort zeigt, ob ich weiss, wovon ich rede.
+    Das ist ehrlicher als jede Referenzliste. Etwa vier von fünf Empfängern kaufen nie etwas — damit rechne ich.</p></details>
+  <details><summary>Ich habe die Seite von meinem Neffen / einem Baukasten. Peinlich?</summary>
+    <p>Überhaupt nicht. Der Check bewertet die Seite, nicht Sie. Und in etwa der Hälfte der Fälle
+    reichen kleine Eingriffe an genau der bestehenden Seite.</p></details>
+  <details><summary>Was, wenn ich den Check bekomme und alles selbst mache?</summary>
+    <p>Dann haben Sie eine bessere Website und ich einen Kontakt, der weiss, was ich kann.
+    Jeder Punkt im Check enthält den konkreten Fix — bewusst so geschrieben, dass er auch ohne mich umsetzbar ist.</p></details>
+  <details><summary>Warum Fixpreis statt Stundensatz?</summary>
+    <p>Weil Sie am Anfang wissen sollen, was am Ende auf der Rechnung steht. Wenn ich mich verschätze,
+    ist das mein Problem, nicht Ihres.</p></details>
+  <details><summary>Arbeiten Sie nur in der Schweiz?</summary>
+    <p>Schwerpunkt Schweiz, auf Deutsch, Italienisch oder Englisch. Alles läuft remote —
+    Sie brauchen keinen Termin vor Ort.</p></details>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;width:100%">
+  <div>B.Studio · Premium Brand &amp; Web Design<br>
+    <a href="https://www.bstudio-design.ch">www.bstudio-design.ch</a></div>
+  <div id="datenschutz">Impressum &amp; Datenschutz: <a href="https://www.bstudio-design.ch">bstudio-design.ch</a><br>
+    Preise inkl. MwSt. · Fixpreise ohne versteckte Folgekosten</div>
+</div></footer>
+
+</body>
+</html>

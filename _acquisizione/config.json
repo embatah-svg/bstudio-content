@@ -1,0 +1,13 @@
+{
+  "name": "Emanuele",
+  "studio": "B.Studio",
+  "site": "www.bstudio-design.ch",
+  "email": "embatah@gmail.com",
+  "phone": "",
+  "instagram": "",
+  "pakete": [
+    { "n": "Sofort-Fix", "d": "Die 3 kritischen Punkte oben — behoben, live, in 48 Stunden.", "p": "CHF 490" },
+    { "n": "Website Neu", "d": "Custom, mobil-first, SEO-Basis, Kontaktformular, Impressum & Datenschutz.", "p": "ab CHF 1'500" },
+    { "n": "Marke + Website", "d": "Logo, Farben, Typografie und die komplette Website als ein System.", "p": "CHF 2'800" }
+  ]
+}
