@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 32" width="40" height="32" role="img" aria-label="Secondo Livello">
+  <g fill="none" stroke="#0d0c10" stroke-width="2" stroke-linecap="square">
+    <path d="M9 6 H31 L20 19 Z"/>
+    <path d="M20 19 V26"/>
+    <path d="M13.5 26.5 H26.5"/>
+  </g>
+  <path d="M13.2 10.2 H26.8" fill="none" stroke="#c8a25c" stroke-width="2" stroke-linecap="square"/>
+</svg>
