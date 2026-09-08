@@ -50,6 +50,7 @@ function sign(x,y,type,size,glyph){
   if (type === 'stop') return s + `<polygon points="${oct(size)}" fill="${P.red}" stroke="${P.ink}" stroke-width="2"/><text x="0" y="7" font-family="Archivo" font-weight="700" font-size="15" fill="#fff" text-anchor="middle">STOP</text></g>`;
   if (type === 'end') return s + `<circle r="${size}" fill="#fff" stroke="${P.grey}" stroke-width="4"/><line x1="${-size*.7}" y1="${-size*.7}" x2="${size*.7}" y2="${size*.7}" stroke="${P.ink}" stroke-width="4"/>${glyph}</g>`;
   if (type === 'info') return s + `<rect x="${-size}" y="${-size*.72}" width="${size*2}" height="${size*1.44}" rx="4" fill="${P.blue}" stroke="${P.ink}" stroke-width="1.5"/>${glyph}</g>`;
+  if (type === 'zone') return s + `<rect x="${-size*.9}" y="${-size*.65}" width="${size*1.8}" height="${size*1.3}" rx="4" fill="#fff" stroke="${P.ink}" stroke-width="4"/>${glyph}</g>`;
   return s + '</g>';
 }
 function oct(r){ let p=[]; for(let i=0;i<8;i++){const a=Math.PI/8+i*Math.PI/4; p.push((r*Math.cos(a)).toFixed(1)+','+(r*Math.sin(a)).toFixed(1));} return p.join(' '); }
@@ -84,6 +85,14 @@ function gOneway(c){ return `<path d="M-14 0 H14 M6 -8 L14 0 L6 8" stroke="${c}"
 function gDeadEnd(c){ return `<g stroke="${c}" stroke-width="3" fill="none" stroke-linecap="round"><line x1="-14" y1="0" x2="10" y2="0"/><line x1="6" y1="-9" x2="6" y2="9"/></g>`; }
 function gFuel(c){ return `<g fill="none" stroke="${c}" stroke-width="2.2"><rect x="-8" y="-12" width="14" height="24" rx="2"/><path d="M6 -6 h4 a3 3 0 0 1 3 3 v10" /></g>`; }
 function gGiveWayInner(c){ return `<path d="M0 8 L8 -6 L-8 -6 Z" fill="none" stroke="${c}" stroke-width="3" stroke-linejoin="round"/>`; }
+function gArrowsPriority(giveWay){
+  const upW = giveWay?7:3, upC = giveWay?'#fff':P.red, downW = giveWay?3:7, downC = giveWay?P.red:'#fff';
+  return `<path d="M0 -18 L0 2" stroke="${upC}" stroke-width="${upW}" stroke-linecap="round"/><path d="M-6 -10 L0 -18 L6 -10" stroke="${upC}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0 2 L0 18" stroke="${downC}" stroke-width="${downW}" stroke-linecap="round"/><path d="M-6 10 L0 18 L6 10" stroke="${downC}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+function gWheelchair(c){ return `<g fill="none" stroke="${c}" stroke-width="2.2"><circle cx="0" cy="9" r="8"/><circle cx="-6" cy="-11" r="3" fill="${c}" stroke="none"/><path d="M0 9 L0 -3 L8 -3 M0 -3 L-4 9"/></g>`; }
+function gLoadIcon(c){ return `<g fill="none" stroke="${c}" stroke-width="2.2"><rect x="-14" y="-6" width="20" height="12" rx="2"/><rect x="6" y="-4" width="8" height="10"/><circle cx="-8" cy="8" r="2.6" fill="${c}" stroke="none"/><circle cx="10" cy="8" r="2.6" fill="${c}" stroke="none"/></g>`; }
+function gEndAll(c){ return `<g stroke="${c}" stroke-width="2.4" stroke-linecap="round"><line x1="-10" y1="8" x2="-2" y2="-10"/><line x1="2" y1="8" x2="10" y2="-10"/></g>`; }
 
 function signSVG(type,size,inner,bg){
   const box = (size||30)+18;
@@ -146,7 +155,15 @@ const SIGN_ICON = {
   motorway_i: signSVG('info',26, `${car(-8,4,0,'#dfeaf2')}`, P.green),
   motorway_end_i: signSVG('info',26, `${car(-8,4,0,'#dfeaf2')}${gDiagBar('#fff')}`, P.grey),
   fuel_i: signSVG('info',26, gFuel('#fff'), P.blue),
-  tunnel_i: signSVG('info',26, gTunnel('#fff'), P.blue)
+  tunnel_i: signSVG('info',26, gTunnel('#fff'), P.blue),
+
+  yield_to_oncoming: signSVG('mandatory',30, gArrowsPriority(true)),
+  priority_over_oncoming: signSVG('mandatory',30, gArrowsPriority(false)),
+  disabled_parking_i: signSVG('info',26, gWheelchair('#fff'), P.blue),
+  loading_zone_i: signSVG('info',26, gLoadIcon('#fff'), P.blue),
+  zone30_i: signSVG('zone',30, `<text x="0" y="-8" font-family="Archivo" font-size="9" text-anchor="middle" fill="${P.ink}">ZONE</text>${gNum('30',P.ink,22)}`),
+  begegnungszone_i: signSVG('zone',30, `<text x="0" y="-8" font-family="Archivo" font-size="8" text-anchor="middle" fill="${P.ink}">BEGEGNUNGSZONE</text>${gNum('20',P.ink,20)}`),
+  ende_beschraenkung: signSVG('end',30, gEndAll(P.ink))
 };
 
 const SCENES = {
@@ -423,5 +440,67 @@ const SCENES = {
   schild_kinder: frame(sign(200,110,'danger',68,gKids(P.ink)), P.paper),
   schild_tempo_verbot: frame(sign(200,110,'prohib',68,gNum('30',P.ink,38)), P.paper),
   schild_ueberholverbot: frame(sign(200,110,'prohib',68,`${car(-11,-4,0,P.red)}${car(9,9,0,P.ink)}${gDiagBar(P.red)}`), P.paper),
-  schild_kettenpflicht: frame(sign(200,110,'mandatory',68,gChain('#fff')), P.paper)
+  schild_kettenpflicht: frame(sign(200,110,'mandatory',68,gChain('#fff')), P.paper),
+
+  /* ---------- weitere Szenen ---------- */
+  glatteis: frame(`
+    <rect x="0" y="90" width="400" height="70" fill="#c9dae4"/>
+    <path d="M0 100 Q100 108 200 100 T400 102" stroke="#eef6fa" stroke-width="6" fill="none" opacity=".8"/>
+    ${car(140,120,-6,P.red)}
+    <path d="M60 145 Q100 150 140 146" stroke="#8fa9b8" stroke-width="2" fill="none"/>
+  `, '#c9dae4'),
+
+  herbstlaub: frame(`
+    <rect x="0" y="90" width="400" height="70" fill="${P.road}"/>
+    ${[0,1,2,3,4,5].map(i=>`<ellipse cx="${40+i*62}" cy="${110+((i%2)*20)}" rx="8" ry="5" fill="#C87A2A" transform="rotate(${i*35} ${40+i*62} ${110+((i%2)*20)})"/>`).join('')}
+    ${car(150,125,-4,P.red)}
+  `),
+
+  behindertenparkplatz: frame(`
+    <rect width="400" height="230" fill="${P.paper}"/>
+    <rect x="120" y="60" width="160" height="110" fill="none" stroke="${P.blue}" stroke-width="3" stroke-dasharray="10 6"/>
+    <circle cx="200" cy="100" r="14" fill="${P.blue}"/>
+    <path d="M192 108 h16 M200 108 v-16" stroke="#fff" stroke-width="3"/>
+    <text x="200" y="150" font-family="Archivo" font-size="13" text-anchor="middle" fill="${P.ink}">Ausweis erforderlich</text>
+  `, P.paper),
+
+  ladezone: frame(`
+    <rect x="0" y="90" width="400" height="70" fill="${P.road}"/>
+    ${[0,1,2,3,4].map(i=>`<rect x="${40+i*24}" y="90" width="12" height="70" fill="${P.yellow}" opacity=".7"/>`).join('')}
+    ${truck(180,120,0,P.grey)}
+    <rect x="150" y="150" width="26" height="20" fill="${P.grey}" opacity=".6"/>
+  `),
+
+  fussgaenger_kopfhoerer: frame(`
+    <rect x="0" y="70" width="400" height="90" fill="${P.road}"/>
+    ${car(60,110,0,P.red)}${ped(260,50,P.ink)}
+    <path d="M256 38 a6 6 0 1 1 0 12 M264 38 a6 6 0 1 1 0 12" stroke="${P.blue}" stroke-width="2" fill="none"/>
+    <path d="M262 40 Q272 30 280 45" stroke="${P.blue}" stroke-width="1.5" fill="none"/>
+  `),
+
+  lkw_toter_winkel: frame(`
+    <rect width="400" height="230" fill="${P.paper}"/>
+    ${truck(150,140,0,P.grey)}
+    <path d="M126 118 L20 40 L20 200 Z" fill="${P.red}" opacity=".18"/>
+    <path d="M126 118 L20 40 L20 200 Z" stroke="${P.red}" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+    <text x="30" y="120" font-family="Archivo" font-size="12" fill="${P.red}">toter Winkel</text>
+  `, P.paper),
+
+  kreisel_lkw: frame(`
+    ${dash(0,115,130,115)}${dash(270,115,400,115)}
+    <circle cx="200" cy="115" r="58" fill="${P.road}" stroke="#fff" stroke-width="4"/>
+    <circle cx="200" cy="115" r="22" fill="${P.green}" opacity=".5"/>
+    ${truck(160,140,30,P.grey)}${car(230,60,10,P.red)}
+  `),
+
+  feuerwehrzufahrt: frame(`
+    <rect x="0" y="60" width="400" height="130" fill="${P.paper}"/>
+    <rect x="150" y="60" width="100" height="130" fill="${P.red}" opacity=".12"/>
+    ${[0,1,2,3].map(i=>`<rect x="${155+i*24}" y="${70+ (i%2)*8}" width="14" height="10" fill="${P.red}" transform="rotate(-20 ${155+i*24} ${70+(i%2)*8})"/>`).join('')}
+    <text x="200" y="210" font-family="Archivo" font-size="12" text-anchor="middle" fill="${P.red}">Feuerwehrzufahrt freihalten</text>
+  `, P.paper),
+
+  schild_vortritt_gegenverkehr: frame(sign(200,110,'mandatory',68,gArrowsPriority(true)), P.paper),
+  schild_zone30: frame(sign(200,110,'zone',68,`<text x="0" y="-14" font-family="Archivo" font-size="14" text-anchor="middle" fill="${P.ink}">ZONE</text>${gNum('30',P.ink,40)}`), P.paper),
+  ende_beschraenkung: frame(sign(200,110,'end',68,gEndAll(P.ink)), P.paper)
 };

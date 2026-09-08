@@ -362,6 +362,8 @@ function pruefungIntro() {
   view.innerHTML = `<h1>Prüfung simulieren</h1>
   <p class="lede">50 Fragen, 45 Minuten. Jede falsch beantwortete Frage gibt 3 Fehlerpunkte. Ab mehr als 15 Fehlerpunkten ist die Prüfung nicht bestanden – du darfst also höchstens 5 Fragen falsch haben.</p>
   <div class="card ar" dir="rtl" lang="ar">50 سؤالاً في 45 دقيقة. كل سؤال خاطئ = 3 نقاط خطأ. تُعتبر راسباً إذا تجاوزت 15 نقطة، أي يُسمح لك بـ 5 أخطاء كحد أقصى.</div>
+  <p class="lede" style="margin-top:14px;font-size:13px">Die Fragen werden nach Themenschwerpunkt gemischt gezogen (mehr zu Vortritt, Signalen und Manövern), ähnlich wie im echten Aufbau der Prüfung – keine offizielle asa-Formel.<br>
+  <span class="ar" dir="rtl" lang="ar" style="display:block;margin-top:4px">يتم اختيار الأسئلة بشكل موزون حسب المحاور (المزيد عن الأولوية والإشارات والمناورات)، على غرار بنية الامتحان الحقيقي — دون اعتماد صيغة رسمية.</span></p>
   ${best !== null ? `<p class="lede" style="margin-top:16px">Bestes Ergebnis bisher: <b>${best}%</b></p>` : ''}
   <div class="actions"><button class="btn" data-exam="1">Prüfung starten</button></div>`;
 }
@@ -408,8 +410,38 @@ function startQuiz(kind) {
   state.quiz = { list: idx, pos: 0, sel: [], checked: false, right: 0, exam: false, kind };
   renderQ();
 }
+/* Gewichtung nach Themenschwerpunkt, angelehnt an die übliche Verteilung der
+   Basistheorieprüfung – eine Annäherung, keine offizielle asa-Formel. */
+const EXAM_WEIGHTS = {
+  grundregeln: 6, signale: 11, tempo: 9, vortritt: 13, manoever: 10,
+  autobahn: 7, mensch: 7, fahrzeug: 7, umwelt: 3, notfall: 5,
+  ausweis: 4, verkehrsteilnehmer: 5, bahnuebergang: 5, parken_halten: 4, ladung_transport: 4
+};
+function examDraw(size) {
+  size = size || 50;
+  const byChap = {};
+  MODULES.forEach(m => { byChap[m.id] = shuffle(FRAGEN.map((_, i) => i).filter(i => FRAGEN[i].c === m.id)); });
+  const totalWeight = MODULES.reduce((s, m) => s + (EXAM_WEIGHTS[m.id] || 1), 0);
+  const raw = MODULES.map(m => ({ id: m.id, exact: size * (EXAM_WEIGHTS[m.id] || 1) / totalWeight }));
+  raw.forEach(r => { r.count = Math.min(Math.floor(r.exact), byChap[r.id].length); });
+  let assigned = raw.reduce((s, r) => s + r.count, 0);
+  const remainders = raw.slice().sort((a, b) => (b.exact - Math.floor(b.exact)) - (a.exact - Math.floor(a.exact)));
+  let ri = 0;
+  while (assigned < size && ri < remainders.length * 3) {
+    const r = remainders[ri % remainders.length];
+    if (r.count < byChap[r.id].length) { r.count++; assigned++; }
+    ri++;
+  }
+  let picked = [];
+  raw.forEach(r => { picked = picked.concat(byChap[r.id].slice(0, r.count)); });
+  if (picked.length < size) {
+    const rest = shuffle(FRAGEN.map((_, i) => i).filter(i => !picked.includes(i)));
+    picked = picked.concat(rest.slice(0, size - picked.length));
+  }
+  return shuffle(picked).slice(0, size);
+}
 function startExam() {
-  const idx = shuffle(FRAGEN.map((_, i) => i)).slice(0, Math.min(50, FRAGEN.length));
+  const idx = examDraw(Math.min(50, FRAGEN.length));
   state.quiz = { list: idx, pos: 0, sel: [], checked: false, right: 0, exam: true, wrongN: 0, end: Date.now() + 45 * 60000 };
   tick();
   renderQ();
