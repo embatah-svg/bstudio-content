@@ -502,5 +502,54 @@ const SCENES = {
 
   schild_vortritt_gegenverkehr: frame(sign(200,110,'mandatory',68,gArrowsPriority(true)), P.paper),
   schild_zone30: frame(sign(200,110,'zone',68,`<text x="0" y="-14" font-family="Archivo" font-size="14" text-anchor="middle" fill="${P.ink}">ZONE</text>${gNum('30',P.ink,40)}`), P.paper),
-  ende_beschraenkung: frame(sign(200,110,'end',68,gEndAll(P.ink)), P.paper)
+  ende_beschraenkung: frame(sign(200,110,'end',68,gEndAll(P.ink)), P.paper),
+
+  /* ---------- weitere Szenen (Runde 3) ---------- */
+  kinder_ball: frame(`
+    <rect x="0" y="90" width="400" height="70" fill="${P.road}"/>
+    ${car(90,120,0,P.red)}${ped(230,60,P.ink)}
+    <circle cx="270" cy="115" r="9" fill="${P.yellow}" stroke="${P.ink}" stroke-width="1.5"/>
+  `),
+
+  fahrradstrasse: frame(`
+    <rect x="0" y="80" width="400" height="90" fill="${P.road}"/>
+    <rect x="0" y="80" width="400" height="90" fill="${P.red}" opacity=".12"/>
+    ${bike(120,110,0,P.ink)}${bike(200,140,0,P.ink)}${car(300,125,0,P.red)}
+  `),
+
+  geisterfahrer: frame(`
+    <rect x="0" y="40" width="400" height="150" fill="${P.road}"/>${dash(0,90,400,90)}${dash(0,140,400,140)}
+    ${car(300,115,0,P.blue)}${car(140,115,180,P.red)}
+    ${sign(80,55,'danger',24,'<path d=\"M0 -8 L0 8 M0 14 L0 15\" stroke=\"'+P.ink+'\" stroke-width=\"4\" stroke-linecap=\"round\"/>')}
+  `),
+
+  baustelle_ampel: frame(`
+    <rect x="0" y="90" width="400" height="60" fill="${P.road}"/>
+    ${[0,1,2].map(i=>`<path d="${140+i*30} 150 L${148+i*30} 118 L${156+i*30} 150 Z" fill="${P.yellow}" stroke="${P.ink}" stroke-width="1.5"/>`).join('')}
+    <rect x="60" y="55" width="16" height="45" rx="4" fill="${P.ink}"/>
+    <circle cx="68" cy="65" r="6" fill="${P.red}"/><circle cx="68" cy="85" r="6" fill="#3a1418"/>
+    ${car(220,120,0,P.red)}
+  `),
+
+  stauende_autobahn: frame(`
+    <rect x="0" y="30" width="400" height="170" fill="${P.road}"/>${dash(0,80,400,80)}${dash(0,130,400,130)}
+    ${car(300,55,0,P.grey)}${car(300,105,0,P.blue)}${car(300,160,0,P.grey)}
+    ${car(120,60,0,P.red)}
+    <text x="20" y="30" font-family="Archivo" font-size="13" fill="${P.yellow}">Stauende!</text>
+  `),
+
+  fussgaengerstreifen_nacht: frame(`
+    <rect width="400" height="230" fill="#14161c"/>
+    <rect x="0" y="70" width="400" height="90" fill="#2a2d34"/>
+    ${[0,1,2,3,4,5,6].map(i=>`<rect x="${60+i*30}" y="70" width="16" height="90" fill="#55585f"/>`).join('')}
+    ${car(30,115,0,P.red)}
+    <path d="M46 111 L170 90 L170 140 L46 119 Z" fill="${P.yellow}" opacity=".2"/>
+    ${ped(255,50,'#e8e4da')}
+  `, '#14161c'),
+
+  linksabbiegen_gegenverkehr: frame(`
+    <rect x="0" y="90" width="400" height="60" fill="${P.road}"/><rect x="170" y="0" width="60" height="230" fill="${P.road}"/>
+    ${dash(0,120,150,120)}${dash(250,120,400,120)}${dash(200,0,200,90)}${dash(200,150,200,230)}
+    ${car(130,120,0,P.blue)}${arrow(160,105,45,'#fff')}${car(300,120,180,P.red)}
+  `)
 };
