@@ -1,0 +1,17 @@
+{
+  "name": "Theorie B Schweiz – Deutsch / العربية",
+  "short_name": "Theorie B",
+  "description": "Lern-App für die Basistheorieprüfung Kategorie B in der Schweiz, zweisprachig Deutsch–Arabisch.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBFAF7",
+  "theme_color": "#F2C230",
+  "orientation": "portrait",
+  "lang": "de-CH",
+  "dir": "ltr",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

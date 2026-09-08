@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="36" fill="#1A1D22"/>
+  <g transform="translate(96 96) rotate(45)">
+    <rect x="-46" y="-46" width="92" height="92" rx="12" fill="#F2C230" stroke="#1A1D22" stroke-width="6"/>
+  </g>
+  <text x="96" y="112" font-family="Archivo, Arial, sans-serif" font-weight="700" font-size="64" fill="#1A1D22" text-anchor="middle">B</text>
+</svg>
