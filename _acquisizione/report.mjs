@@ -196,7 +196,7 @@ section{margin-top:64px}
   </section>
 
   <div class="foot">
-    <div>${esc(cfg.studio)} · Premium Brand &amp; Web Design · <a href="https://${esc(cfg.site)}">${esc(cfg.site)}</a></div>
+    <div>${esc(cfg.studio)} · Premium Brand &amp; Web Design · <a href="https://${esc(cfg.site)}">${esc(cfg.site)}</a> · ${esc(cfg.phone)}</div>
     <div>Check erstellt am ${esc(dateStr)} · unaufgefordert, aber ehrlich gemeint.</div>
   </div>
 </div>

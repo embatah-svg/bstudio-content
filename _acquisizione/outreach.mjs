@@ -64,7 +64,7 @@ Behalten Sie ihn einfach. Wenn Sie wollen, dass ich Punkt 1 behebe, antworten Si
 
 Freundliche Grüsse
 ${cfg.name}
-${cfg.studio} · ${cfg.site}
+${cfg.studio} · ${cfg.site} · ${cfg.phone}
 
 —
 Sie erhalten diese Nachricht einmalig und persönlich, weil ich Ihre Website konkret angeschaut habe.
@@ -109,7 +109,7 @@ Das ist bei Ihnen ein Nachmittag Arbeit, nicht ein Projekt.
 Wenn es gerade nicht passt, sagen Sie einfach kurz Bescheid — dann hake ich nicht weiter nach.
 
 Freundliche Grüsse
-${cfg.name} · ${cfg.studio}`;
+${cfg.name} · ${cfg.studio} · ${cfg.site} · ${cfg.phone}`;
 
   const followup2 = `Betreff: Letzte Nachricht zu ${a.host}
 
@@ -124,7 +124,7 @@ Und falls es irgendwann doch soweit ist: ${cfg.pakete[0].n} ${cfg.pakete[0].p},
 ${cfg.pakete[1].n} ${cfg.pakete[1].p}. Immer Fixpreis, kein Stundensatz.
 
 Alles Gute für Ihr Geschäft.
-${cfg.name} · ${cfg.studio} · ${cfg.site}`;
+${cfg.name} · ${cfg.studio} · ${cfg.site} · ${cfg.phone}`;
 
   const md = `# Outreach — ${a.host}
 
