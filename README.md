@@ -1,63 +1,20 @@
-# 📦 B.Studio — Pacchetto Contenuti 30 Giorni (TikTok + Instagram)
+# 📦 B.Studio — Content Repository
 
-Sistema completo per scalare i social e acquisire clienti via funnel **"Commento → DM"**.
-Mercato: Svizzera tedesca · Lingua contenuti: **tedesco** · Periodo: **2026-06-08 → 2026-07-07**.
+Repository dei contenuti e dei progetti di B.Studio, organizzato in **progetti indipendenti** sotto `projects/`, ognuno con la propria documentazione, i propri asset e i propri script.
 
-## 🧭 Da dove inizio (in ordine)
-1. **`STRATEGIA-30-GIORNI.md`** — il cervello: pubblico, pilastri, calendario completo, KPI, "differenza siti web"
-2. **`SPRINT-7-GIORNI.md`** — cosa fai ogni giorno nei primi 7 giorni per le prime conversazioni
-3. **`FUNNEL-COMMENTO-DM.md`** — script copia-incolla (tedesco) per commenti e DM
-4. **`ANALISI-TREND-E-HOOK.md`** — ricerca trend 2026, 25+ hook in tedesco, hashtag, orari (fonti live)
-5. **`_TEMPLATE-BRIEF.md`** — struttura standard di ogni brief
+## 🗂️ Progetti
 
-## 📁 Struttura
-```
-instagram/  →  30 cartelle datate (YYYY-MM-DD_tagNN) · ogni cartella: BRIEF.md (+ HTML nei giorni hero)
-tiktok/     →  30 cartelle datate · ogni cartella: BRIEF.md (+ cover HTML nei giorni hero)
-```
+| Progetto | Cosa contiene |
+|---|---|
+| [`projects/bstudio-social/`](projects/bstudio-social/README.md) | Campagna 30 giorni Instagram + TikTok (funnel "Commento → DM"), Svizzera tedesca. Brief giornalieri, caroselli, reel, script di auto-publish Meta. |
+| [`projects/etsy-promo/`](projects/etsy-promo/) | Promo del prodotto Etsy "Website-Templates" (carosello + story) e script di pubblicazione dedicato. |
+| [`projects/baupro-solutions/`](projects/baupro-solutions/README.md) | Sito vetrina statico per BauPro Solutions GmbH (Bau & Renovation, Bern). |
 
-## ⭐ Giorni HERO (grafiche/video già finiti) — Tag 01–07
-| Tag | Tema | File pronti |
-|-----|------|-------------|
-| 01 | 3 Fehler, die dein Logo billig machen | IG `post-tag01-carousel.html` (7 slide) · TT `tk-tag01-cover.html` · Video **BrandDiagnose** |
-| 02 | Der 5-Sekunden-Test | BRIEF completi IG+TT |
-| 03 | Canva-Logo vs. echtes Brand | BRIEF completi IG+TT |
-| 04 | Wo deine Website Kunden verliert | BRIEF completi IG+TT |
-| 05 | Mini-Tipp: 1 Farbe, die teuer wirkt | BRIEF · Video **MiniTipp** |
-| 06 | Günstige vs. teure Website | IG `post-tag06-carousel.html` (6 slide) · Video **WebsiteUnterschied** |
-| 07 | Vorher/Nachher + Angebot | BRIEF completi IG+TT |
+## ⚠️ Da sapere dopo la riorganizzazione (2026-09-13)
 
-## 🎬 Video Remotion (cartella `../b-studio-design-video`)
-4 composizioni registrate (1080×1920 @ 30fps). Render:
-```bash
-cd ../b-studio-design-video
-npm run dev                                              # anteprima live in Remotion Studio
-npx remotion render BrandDiagnose out/tag01.mp4          # 3 Fehler (Tag 01)
-npx remotion render WebsiteUnterschied out/tag06.mp4     # Günstige vs. teure (Tag 06)
-npx remotion render MiniTipp out/tag05.mp4               # Mini-Tipp template (Tag 05+)
-npx remotion render BStudioDesign out/showcase.mp4       # showcase laptop 3D
-```
-> `MiniTipp` ha props riutilizzabili (`tippNumber`, `titel`, `regel`, `beispiel`) → riusalo per tutti i Mini-Tipp del mese cambiando i testi.
+- **Cartelle spostate**: tutto ciò che prima stava alla radice del repo (`instagram/`, `tiktok/`, `_assets/`, `_reels/`, `_scripts/`, i vari `.md` di strategia, `baupro-solutions/`) ora vive dentro `projects/<nome-progetto>/`. Gli script sono stati aggiornati di conseguenza (percorsi relativi + prefisso negli URL pubblici `raw.githubusercontent.com`).
+- **`baupro-solutions` era pubblicata online?** Se il sito è collegato a un deploy (Vercel/Netlify/altro) che punta alla root del repo o a `baupro-solutions/`, aggiorna la "Root Directory" del progetto di hosting su `projects/baupro-solutions` dopo questo spostamento, altrimenti il prossimo deploy automatico può rompersi.
+- **Cron di pubblicazione disattivato**: `.github/workflows/daily-publish.yml` girava ogni giorno per pubblicare in automatico su Instagram, ma la campagna `bstudio-social` risulta ferma da metà giugno 2026 — i giorni `tag09`→`tag33` sono ancora in stato `"ready"` (mai pubblicati), verosimilmente perché l'`ACCESS_TOKEN` Meta (dura ~60 giorni) è scaduto. Il cron è stato commentato per non consumare minuti Actions a vuoto; resta lanciabile a mano da workflow_dispatch. Per riprendere la campagna: genera un nuovo `ACCESS_TOKEN` long-lived, aggiorna il secret, poi riattiva lo `schedule:` nel workflow.
+- **File spazzatura rimossi**: alcuni file vuoti e senza senso alla radice (`p.status`, `x.tag`, `x.tag+'`, `x.type`) sono stati eliminati — probabilmente residui di un comando di terminale eseguito per errore.
 
-## 🖼️ Esportare i carousel HTML in immagini (automatico)
-Un comando converte TUTTI gli HTML in PNG 1080×1920 (uno per slide) in una cartella `_export/` accanto a ogni file:
-```bash
-node bstudio-content-30days/_scripts/export-carousels.mjs
-```
-Usa puppeteer (già installato). Scala a tutti i 30 giorni: appena crei nuovi `post-*.html`, rilancialo e genera i PNG mancanti.
-
-## 📲 Auto-publish su Instagram (Meta Graph API)
-Guida completa + vincoli reali in **`PUBLISHING-META.md`**. In breve:
-```bash
-cp _scripts/publish-queue.example.json _scripts/publish-queue.json   # poi metti status:"ready"
-# .env con IG_USER_ID, ACCESS_TOKEN, ASSET_BASE_URL (asset ospitati pubblicamente)
-node _scripts/publish-instagram.mjs --tag tag01 --dry-run   # simulazione
-node _scripts/publish-instagram.mjs --all                   # pubblica i "ready"
-```
-Pubblica carousel + reel e posta in automatico il **primo commento col trigger** (che poi fissi a mano). Il DM lo mandi TU. ⚠️ TikTok è separato (TikTok Content Posting API).
-
-## 🎯 Trigger commento (variati per post)
-`CHECK` (audit logo/brand) · `WEBCHECK` (analisi sito) · `TIPP` (mini-guida) · `VORHER` (before/after) · `PREISE` (listino) · `INFO` (generico) · `START` (slot/chiamata)
-
-## ✅ Routine giornaliera minima
-Posta 1 Reel + 1 TikTok del giorno → fissa il commento-trigger → rispondi a TUTTI i commenti entro 1h → manda TU il DM col valore → 3-5 outreach a freddo. (Dettagli in `SPRINT-7-GIORNI.md`.)
+Per i dettagli operativi di ciascun progetto, vedi il README dentro la sua cartella.
