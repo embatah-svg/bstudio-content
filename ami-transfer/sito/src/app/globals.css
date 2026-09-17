@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --petrol: #0f1a1f;
+  --petrol-2: #16262e;
+  --blue: #24506b;
+  --steel: #8d98a3;
+  --paper: #e9eae6;
+  --paper-2: #dcded8;
+  --ink: #131a1e;
+  --yellow: #e8b400;
+}
+
+@theme inline {
+  --color-petrol: var(--petrol);
+  --color-petrol-2: var(--petrol-2);
+  --color-blue: var(--blue);
+  --color-steel: var(--steel);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-yellow: var(--yellow);
+  --font-heading: var(--font-archivo);
+  --font-body: var(--font-plex);
+  --radius-none: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading), "Arial Narrow", Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
