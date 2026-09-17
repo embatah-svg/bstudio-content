@@ -130,7 +130,13 @@ sezione.
   - `public/brand/` — emblema ufficiale (da amitransfer.com) in versione blu e bianca;
     `public/images/` — fotogrammi reali del video aziendale (senza volti) come placeholder.
 - Pagine fatte: home, azienda, linee-transfer, lavorazioni (+4 figlie), settori (+3 figlie),
-  come-lavoriamo, service, contatti, lavora-con-noi, note-legali, privacy. Solo IT.
+  come-lavoriamo, service, contatti, lavora-con-noi, note-legali, privacy.
+- **Multilingua IT/EN/DE/FR/ES/PT** con URL localizzati (`/en/processes/drilling`,
+  `/de/bearbeitungen/bohren`): route `src/app/[locale]/[section]/[slug]`, dizionari in
+  `src/i18n/<lingua>/{ui,pages,lavorazioni,settori}.ts` (l'italiano fa da schema tipizzato),
+  `href()`/`alternates()` in `src/i18n/index.ts`, hreflang + sitemap automatici, `/` → `/it`.
+  Le traduzioni sono state scritte da Claude: prima del go-live servono una revisione tecnica
+  madrelingua (soprattutto DE e PT) come previsto dal piano §10.
 - Palette ricalibrata sul blu dell'emblema (`--blue #005a80`, `--petrol #0b2230`).
   Il giallo resta solo per le CTA.
 
