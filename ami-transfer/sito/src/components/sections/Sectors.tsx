@@ -1,17 +1,12 @@
-const SECTORS = [
-  {
-    title: "Automotive",
-    text: "Componenti tubolari per impianti di scarico, climatizzazione e sistemi frenanti, su volumi di serie.",
-  },
-  {
-    title: "Building",
-    text: "Tubo per impianti idrotermosanitari, ponteggi e carpenteria leggera.",
-  },
-  {
-    title: "Elettrodomestico",
-    text: "Scambiatori di calore, gruppi termici e componenti per il bianco.",
-  },
-];
+import Link from "next/link";
+import { SETTORI } from "@/content/settori";
+
+const HOME_TEXT: Record<string, string> = {
+  automotive:
+    "Componenti tubolari per impianti di scarico, climatizzazione e sistemi frenanti, su volumi di serie.",
+  building: "Tubo per impianti idrotermosanitari, ponteggi e carpenteria leggera.",
+  elettrodomestico: "Scambiatori di calore, gruppi termici e componenti per il bianco.",
+};
 
 export default function Sectors() {
   return (
@@ -27,11 +22,18 @@ export default function Sectors() {
           </p>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 min-[760px]:grid-cols-3">
-          {SECTORS.map((s) => (
-            <div key={s.title} className="min-h-[180px] border-l-4 border-blue bg-paper-2 px-[26px] py-[30px]">
-              <h3 className="mb-[10px] text-[22px]">{s.title}</h3>
-              <p className="m-0 text-[15.5px] text-[#4a575f]">{s.text}</p>
-            </div>
+          {SETTORI.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/settori/${s.slug}`}
+              className="flex min-h-[180px] flex-col border-l-4 border-blue bg-paper-2 px-[26px] py-[30px] no-underline transition-colors duration-[120ms] hover:border-yellow"
+            >
+              <h3 className="mb-[10px] text-[22px]">{s.name}</h3>
+              <p className="m-0 text-[15.5px] text-[#4a575f]">{HOME_TEXT[s.slug]}</p>
+              <span className="mt-auto pt-5 font-heading text-[15px] font-bold text-blue">
+                Vedi i componenti che produciamo
+              </span>
+            </Link>
           ))}
         </div>
       </div>

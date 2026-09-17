@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 const ITEMS = [
   "Ricambi originali e componenti a fine vita segnalati prima che si fermino",
   "Retrofit di quadro e PLC su linee ancora meccanicamente sane",
@@ -19,13 +21,20 @@ export default function Service() {
             intervento parte da dove serve.
           </p>
         </div>
-        <ul className="m-0 list-disc pl-5 text-[16px] text-[#cfe0ec]">
-          {ITEMS.map((item) => (
-            <li key={item} className="mb-[10px]">
-              {item}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className="m-0 list-disc pl-5 text-[16px] text-[#cfe0ec]">
+            {ITEMS.map((item) => (
+              <li key={item} className="mb-[10px]">
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
+            <Button href="/service" variant="primary">
+              Identifica la tua linea
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 const DEPARTMENTS = [
   {
     title: "Progettazione",
@@ -46,6 +48,11 @@ export default function Departments() {
               <p className="m-0 text-[15.5px] text-[#9db0bb]">{d.text}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-10">
+          <Button href="/come-lavoriamo" variant="secondary">
+            Come lavoriamo
+          </Button>
         </div>
       </div>
     </section>

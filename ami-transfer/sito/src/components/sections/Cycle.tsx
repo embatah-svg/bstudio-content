@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 const STATIONS = [
   {
     n: "Stazione 1",
@@ -56,6 +58,11 @@ export default function Cycle() {
               <p className="m-0 text-[15.5px] text-[#4a575f]">{s.text}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-10">
+          <Button href="/lavorazioni" variant="outline-dark">
+            Vedi tutte le lavorazioni sul tubo
+          </Button>
         </div>
       </div>
     </section>

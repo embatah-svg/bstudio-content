@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
+/* Palette ancorata al blu del marchio A.M.I. (emblema: #004868 → #005880). */
 :root {
-  --petrol: #0f1a1f;
-  --petrol-2: #16262e;
-  --blue: #24506b;
+  --petrol: #0b2230;
+  --petrol-2: #113244;
+  --blue: #005a80;
   --steel: #8d98a3;
   --paper: #e9eae6;
   --paper-2: #dcded8;
@@ -25,51 +26,54 @@
   --radius-none: 0px;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+/* Nel layer base, così le utility Tailwind (layer utilities) vincono sempre. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body), -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-heading), "Arial Narrow", Helvetica, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
-  margin: 0;
-}
-
-p {
-  margin: 0 0 1em;
-}
-
-a {
-  color: inherit;
-}
-
-:focus-visible {
-  outline: 3px solid var(--yellow);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body), -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading), "Arial Narrow", Helvetica, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

@@ -21,8 +21,8 @@ export default function Hero() {
             costruite e collaudate nel nostro stabilimento di Manerbio.
           </p>
           <div className="pointer-events-auto mt-[30px] flex flex-wrap gap-[14px]">
-            <Button href="#contatti" variant="primary">
-              Richiedi uno studio di fattibilità
+            <Button href="/contatti" variant="primary">
+              Invia il disegno del pezzo
             </Button>
             <Button href="#ciclo" variant="secondary">
               Guarda come lavora la linea

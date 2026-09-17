@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-const BLUE = 0x24506b;
+const BLUE = 0x005a80;
+const BG = 0x0b2230;
 const DARK = 0x1b262c;
 const STEEL = 0xaab4be;
 const YELLOW = 0xe8b400;
@@ -30,8 +31,8 @@ export default function TransferLineScene() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0f1a1f);
-    scene.fog = new THREE.Fog(0x0f1a1f, 26, 64);
+    scene.background = new THREE.Color(BG);
+    scene.fog = new THREE.Fog(BG, 26, 64);
 
     const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 200);
 

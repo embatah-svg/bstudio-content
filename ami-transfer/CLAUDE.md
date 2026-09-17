@@ -115,16 +115,33 @@ sezione.
 ## Stato attuale
 
 - `docs/piano-sito.md` — piano completo approvato come base di lavoro
-- `prototipo/home.html` — homepage statica con l'animazione 3D della linea (three.js r128,
-  indexaggio + discesa teste). Serve come riferimento visivo e sorgente per il componente
-  `TransferLine`. **Non è il sito**: va riscritta in Next.js.
+- `docs/video-analisi.md` — analisi per fotogrammi dei 5 video YouTube (2009, 240p) e del
+  video aziendale LinkedIn "materializing ideas" (2021, 720p): lavorazioni viste, sede,
+  reparti, robot. Letture visive, da validare con Riccardo prima di usarle come claim.
+- `prototipo/home.html` — prototipo statico originale, ormai superato dal sito.
+- `sito/` — **il sito Next.js 16 (App Router, TypeScript, Tailwind v4)**. Avvio:
+  `cd sito && npm run dev`. Struttura:
+  - `src/lib/site.ts` — dati verificati, nav, CTA (unica fonte per recapiti e P.IVA)
+  - `src/content/lavorazioni.ts`, `src/content/settori.ts` — contenuti delle pagine figlie
+  - `src/components/three/` — hero 3D (dynamic import, no SSR)
+  - `src/components/ui/Todo.tsx` — segnaposto visibile `DA CONFERMARE`, usato ovunque manchi un dato
+  - `src/app/api/richiesta/route.ts` — form fattibilità: valida e inoltra a `RICHIESTA_ENDPOINT`
+    (env). Senza endpoint risponde 503 con fallback email. Va configurato con l'azienda.
+  - `public/brand/` — emblema ufficiale (da amitransfer.com) in versione blu e bianca;
+    `public/images/` — fotogrammi reali del video aziendale (senza volti) come placeholder.
+- Pagine fatte: home, azienda, linee-transfer, lavorazioni (+4 figlie), settori (+3 figlie),
+  come-lavoriamo, service, contatti, lavora-con-noi, note-legali, privacy. Solo IT.
+- Palette ricalibrata sul blu dell'emblema (`--blue #005a80`, `--petrol #0b2230`).
+  Il giallo resta solo per le CTA.
 
 ## Prossimi passi
 
 1. Milestone 0 — messa in sicurezza (serve accesso a hosting e DNS)
-2. Raccolta materiali da Riccardo: vedi §17 del piano
-3. Scaffold Next.js + design system
-4. Homepage, poi pagine interne
+2. Raccolta materiali da Riccardo: vedi §17 del piano — in particolare logo vettoriale,
+   elenco lavorazioni reali, range dimensionali, un caso autorizzato
+3. Configurare la ricezione del form (`RICHIESTA_ENDPOINT`) con l'azienda
+4. Sostituire i segnaposto `DA CONFERMARE` man mano che arrivano i dati
+5. Versione EN (traduzione professionale), referenze, deploy Vercel
 
 ## Da chiedere a Riccardo
 
