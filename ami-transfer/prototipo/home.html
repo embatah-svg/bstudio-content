@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A.M.I. — Linee transfer per lavorazione tubo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --petrol:#0F1A1F;
+    --petrol-2:#16262E;
+    --blue:#24506B;
+    --steel:#8D98A3;
+    --paper:#E9EAE6;
+    --paper-2:#DCDED8;
+    --ink:#131A1E;
+    --yellow:#E8B400;
+    --h:"Archivo","Arial Narrow",Helvetica,sans-serif;
+    --b:"IBM Plex Sans",-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  :root:not([data-theme="light"]){color-scheme:light}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--b);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--h);font-weight:800;letter-spacing:-.02em;line-height:1.02;margin:0}
+  p{margin:0 0 1em}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+  /* ---- nav ---- */
+  header{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .mark{font-family:var(--h);font-weight:800;font-size:26px;letter-spacing:.14em;color:#fff}
+  .mark span{color:var(--yellow)}
+  .nav nav{display:flex;gap:28px;font-size:15px}
+  .nav nav a{color:#cfd8de;text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+  .nav nav a:hover{border-color:var(--yellow);color:#fff}
+  @media(max-width:860px){.nav nav{display:none}}
+
+  /* ---- hero ---- */
+  .hero{position:relative;height:100svh;min-height:620px;background:var(--petrol);overflow:hidden}
+  #stage{position:absolute;inset:0;display:block}
+  .hero-copy{position:absolute;left:0;right:0;bottom:0;padding-bottom:7vh;pointer-events:none}
+  .hero h1{
+    color:#fff;font-size:clamp(40px,7.2vw,92px);max-width:16ch;
+    text-shadow:0 2px 40px rgba(15,26,31,.65);
+  }
+  .hero .sub{
+    color:#b8c6cf;max-width:46ch;margin-top:20px;font-size:clamp(16px,1.6vw,19px);
+    text-shadow:0 2px 24px rgba(15,26,31,.8);
+  }
+  .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;pointer-events:auto}
+  .btn{
+    display:inline-block;padding:15px 26px;font-family:var(--h);font-weight:700;
+    font-size:16px;text-decoration:none;border:1px solid transparent;
+  }
+  .btn-y{background:var(--yellow);color:#17130a}
+  .btn-y:hover{background:#ffc91f}
+  .btn-o{border-color:#5d707c;color:#e7eef2}
+  .btn-o:hover{border-color:#fff}
+  .hint{
+    position:absolute;right:max(4vw,16px);bottom:7vh;color:#7f929e;font-size:13px;
+    letter-spacing:.04em;pointer-events:none
+  }
+  @media(max-width:700px){.hint{display:none}}
+
+  /* ---- pitch rule: motif = passo di indexaggio ---- */
+  .pitch{height:14px;display:flex;border-top:1px solid rgba(19,26,30,.25)}
+  .pitch i{flex:1;border-right:1px solid rgba(19,26,30,.18)}
+  .pitch i:nth-child(4n+1){border-color:rgba(19,26,30,.5)}
+
+  /* ---- numeri ---- */
+  .facts{background:var(--petrol-2);color:#e7eef2;padding:54px 0}
+  .facts .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+  .facts b{display:block;font-family:var(--h);font-size:clamp(34px,4vw,54px);font-weight:800;color:#fff}
+  .facts small{color:#93a5b0;font-size:14.5px;line-height:1.4;display:block;margin-top:6px}
+  @media(max-width:760px){.facts .grid{grid-template-columns:1fr 1fr;gap:26px}}
+
+  section.pad{padding:clamp(64px,9vw,120px) 0}
+  .lede{max-width:62ch}
+  h2{font-size:clamp(30px,4.4vw,50px);max-width:20ch}
+  .lede p{margin-top:22px;color:#3b4850}
+
+  /* ---- ciclo (sequenza reale) ---- */
+  .cycle{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(19,26,30,.2)}
+  .st{background:var(--paper);padding:26px 24px 30px}
+  .st .n{font-family:var(--h);font-weight:700;font-size:15px;color:var(--blue);
+    display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .st .n:after{content:"";height:1px;flex:1;background:rgba(36,80,107,.35)}
+  .st h3{font-size:21px;margin-bottom:8px}
+  .st p{font-size:15.5px;color:#4a575f;margin:0}
+  @media(max-width:860px){.cycle{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.cycle{grid-template-columns:1fr}}
+
+  /* ---- reparti ---- */
+  .dark{background:var(--petrol);color:#e7eef2}
+  .dark h2{color:#fff}
+  .dark .lede p{color:#a9bac4}
+  .deps{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 44px}
+  .dep{border-top:2px solid var(--yellow);padding-top:16px}
+  .dep h3{font-size:19px;color:#fff;margin-bottom:8px}
+  .dep p{font-size:15.5px;color:#9db0bb;margin:0}
+  @media(max-width:860px){.deps{grid-template-columns:1fr 1fr;gap:28px}}
+  @media(max-width:520px){.deps{grid-template-columns:1fr}}
+
+  /* ---- settori ---- */
+  .sectors{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .sec{background:var(--paper-2);padding:30px 26px;border-left:4px solid var(--blue);min-height:180px}
+  .sec h3{font-size:22px;margin-bottom:10px}
+  .sec p{font-size:15.5px;color:#4a575f;margin:0}
+  @media(max-width:760px){.sectors{grid-template-columns:1fr}}
+
+  /* ---- service ---- */
+  .service{background:var(--blue);color:#fff}
+  .service h2{color:#fff}
+  .service .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  .service p{color:#cfe0ec}
+  .service ul{margin:0;padding-left:20px;color:#cfe0ec;font-size:16px}
+  .service li{margin-bottom:10px}
+  @media(max-width:860px){.service .cols{grid-template-columns:1fr;gap:32px}}
+
+  /* ---- contatto ---- */
+  .contact .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .contact address{font-style:normal;font-size:17px;line-height:1.9;color:#3b4850}
+  .contact address a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(36,80,107,.35)}
+  @media(max-width:760px){.contact .cols{grid-template-columns:1fr;gap:28px}}
+
+  footer{background:var(--petrol);color:#7d8f9a;font-size:14px;padding:34px 0}
+  footer .row{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="mark">A<span>.</span>M<span>.</span>I<span>.</span></div>
+    <nav>
+      <a href="#ciclo">La linea</a>
+      <a href="#reparti">Reparti</a>
+      <a href="#settori">Settori</a>
+      <a href="#service">Service</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <canvas id="stage"></canvas>
+  <div class="hero-copy">
+    <div class="wrap">
+      <h1>Il tubo entra grezzo, esce finito.</h1>
+      <p class="sub">Linee transfer lineari per la lavorazione del tubo: progettate, programmate, costruite e collaudate nel nostro stabilimento di Manerbio.</p>
+      <div class="actions">
+        <a class="btn btn-y" href="#contatti">Richiedi uno studio di fattibilità</a>
+        <a class="btn btn-o" href="#ciclo">Guarda come lavora la linea</a>
+      </div>
+    </div>
+  </div>
+  <div class="hint">trascina per ruotare</div>
+</div>
+
+<div class="facts">
+  <div class="wrap grid">
+    <div><b>1978</b><small>l'anno della prima linea uscita da Manerbio</small></div>
+    <div><b>7.000</b><small>metri quadri di stabilimento</small></div>
+    <div><b>20+</b><small>linee dedicate ogni anno</small></div>
+    <div><b>1</b><small>interlocutore, dalla progettazione al collaudo</small></div>
+  </div>
+</div>
+
+<section class="pad" id="ciclo">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Una sola linea, sei stazioni, un pezzo finito a ogni passo.</h2>
+      <p>La linea avanza a passo fisso: a ogni indexaggio tutte le stazioni lavorano contemporaneamente sul proprio tratto di tubo. Il tempo ciclo è quello della stazione più lenta, non della somma delle lavorazioni.</p>
+    </div>
+    <div class="cycle">
+      <div class="st"><div class="n">Stazione 1</div><h3>Carico</h3><p>Alimentazione automatica da fascio o da barra, con controllo di presenza pezzo.</p></div>
+      <div class="st"><div class="n">Stazione 2</div><h3>Calibratura</h3><p>Ripresa del diametro e della circolarità prima delle lavorazioni successive.</p></div>
+      <div class="st"><div class="n">Stazione 3</div><h3>Foratura</h3><p>Unità operative dedicate, posizionate sul passo richiesto dal disegno cliente.</p></div>
+      <div class="st"><div class="n">Stazione 4</div><h3>Tranciatura</h3><p>Asportazione senza truciolo dove la geometria del pezzo lo consente.</p></div>
+      <div class="st"><div class="n">Stazione 5</div><h3>Filettatura</h3><p>Gruppi maschiatori sincronizzati con il ciclo di indexaggio.</p></div>
+      <div class="st"><div class="n">Stazione 6</div><h3>Controllo e scarico</h3><p>Verifica dimensionale in linea e separazione automatica dello scarto.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="pitch"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<section class="pad dark" id="reparti">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Dalla progettazione al collaudo, tutto sotto lo stesso tetto.</h2>
+      <p>Ogni fase critica della linea è interna. Significa un solo interlocutore, tempi che non dipendono da terzi e la possibilità di rimettere mano alla macchina anche a dieci anni dalla consegna.</p>
+    </div>
+    <div class="deps">
+      <div class="dep"><h3>Progettazione</h3><p>Ufficio tecnico dedicato, modellazione 3D dell'intera linea prima di tagliare il primo pezzo.</p></div>
+      <div class="dep"><h3>Programmazione PLC</h3><p>Logiche di automazione scritte in casa: la macchina resta modificabile nel tempo.</p></div>
+      <div class="dep"><h3>Carpenteria pesante</h3><p>Strutture elettrosaldate costruite internamente per sostenere le unità operative.</p></div>
+      <div class="dep"><h3>Lavorazioni meccaniche</h3><p>Centri di lavoro e alesatrici per basamenti e strutture di grandi dimensioni.</p></div>
+      <div class="dep"><h3>Controllo qualità</h3><p>Personale e strumenti di misura dedicati, sui componenti in arrivo e sui pezzi prodotti.</p></div>
+      <div class="dep"><h3>Montaggio e collaudo</h3><p>Impianti elettrici, oleodinamici e pneumatici, messa a punto e collaudo finale in stabilimento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="settori">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Chi ci porta un pezzo, non un capitolato.</h2>
+      <p>Partiamo dal disegno del pezzo e dalla produttività richiesta, e costruiamo la linea intorno a quelli.</p>
+    </div>
+    <div class="sectors">
+      <div class="sec"><h3>Automotive</h3><p>Componenti tubolari per impianti di scarico, climatizzazione e sistemi frenanti, su volumi di serie.</p></div>
+      <div class="sec"><h3>Building</h3><p>Tubo per impianti idrotermosanitari, ponteggi e carpenteria leggera.</p></div>
+      <div class="sec"><h3>Elettrodomestico</h3><p>Scambiatori di calore, gruppi termici e componenti per il bianco.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad service" id="service">
+  <div class="wrap cols">
+    <div>
+      <h2>La linea che avete comprato vent'anni fa la conosciamo ancora.</h2>
+      <p>Abbiamo l'archivio di ogni commessa che è uscita da Manerbio: schemi, programmi, distinte. Per questo un ricambio si identifica in giornata e un intervento parte da dove serve.</p>
+    </div>
+    <ul>
+      <li>Ricambi originali e componenti a fine vita segnalati prima che si fermino</li>
+      <li>Retrofit di quadro e PLC su linee ancora meccanicamente sane</li>
+      <li>Modifica della linea per un pezzo nuovo o un ciclo diverso</li>
+      <li>Assistenza in remoto e in campo, in tutta Europa</li>
+    </ul>
+  </div>
+</section>
+
+<section class="pad contact" id="contatti">
+  <div class="wrap cols">
+    <div>
+      <h2>Mandateci il disegno del pezzo.</h2>
+      <p style="max-width:44ch;color:#3b4850">Vi diciamo se una linea transfer è la strada giusta, con quale tempo ciclo e con quale configurazione. Senza impegno.</p>
+      <a class="btn btn-y" href="mailto:info@amitransfer.com">Scrivi all'ufficio tecnico</a>
+    </div>
+    <address>
+      A.M.I. — Automazione Meccanica Industriale S.r.l.<br>
+      Strada per Porzano 4/C<br>
+      25025 Manerbio (BS), Italia<br><br>
+      <a href="tel:+390309380655">+39 030 9380655</a><br>
+      <a href="mailto:info@amitransfer.com">info@amitransfer.com</a>
+    </address>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div>A.M.I. Automazione Meccanica Industriale S.r.l. — P.I. 00593180987</div>
+    <div>Manerbio (BS), Italia</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var canvas = document.getElementById('stage');
+  if(!window.THREE) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0F1A1F);
+  scene.fog = new THREE.Fog(0x0F1A1F, 26, 64);
+
+  var camera = new THREE.PerspectiveCamera(34, 1, 0.1, 200);
+
+  // lights
+  scene.add(new THREE.HemisphereLight(0x9fc0d8, 0x0b1216, 0.55));
+  var key = new THREE.DirectionalLight(0xffffff, 1.05); key.position.set(9,15,11); scene.add(key);
+  var fill = new THREE.DirectionalLight(0x74a8d6, 0.45); fill.position.set(-12,6,-9); scene.add(fill);
+
+  var root = new THREE.Group(); scene.add(root);
+
+  var BLUE = 0x24506B, DARK = 0x1b262c, STEEL = 0xaab4be;
+  function mat(c,m,r){ return new THREE.MeshStandardMaterial({color:c, metalness:m, roughness:r}); }
+
+  // floor grid
+  var grid = new THREE.GridHelper(80, 40, 0x24404e, 0x17272f);
+  grid.position.y = -1.2; root.add(grid);
+
+  // bed
+  var bed = new THREE.Mesh(new THREE.BoxGeometry(30,1.1,4.4), mat(BLUE,0.35,0.55));
+  bed.position.y = -0.35; root.add(bed);
+  [-1.5,1.5].forEach(function(z){
+    var rail = new THREE.Mesh(new THREE.BoxGeometry(30,0.28,0.55), mat(STEEL,0.9,0.3));
+    rail.position.set(0,0.32,z); root.add(rail);
+  });
+
+  // tube + marker rings (rendono visibile l'avanzamento a passo)
+  var tube = new THREE.Group(); root.add(tube);
+  var tubeMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.34,0.34,34,28), mat(0xc2ccd6,0.95,0.22));
+  tubeMesh.rotation.z = Math.PI/2; tubeMesh.position.y = 0.95; tube.add(tubeMesh);
+  var PITCH = 4.2;
+  for(var i=-4;i<=4;i++){
+    var ring = new THREE.Mesh(new THREE.TorusGeometry(0.37,0.045,8,24), mat(0xE8B400,0.6,0.4));
+    ring.rotation.y = Math.PI/2;
+    ring.position.set(i*PITCH - PITCH/2, 0.95, 0);
+    tube.add(ring);
+  }
+
+  // stations
+  var stations = [];
+  [-2,-1,0,1,2].forEach(function(k){
+    var g = new THREE.Group(); g.position.x = k*PITCH; root.add(g);
+    [-1.9,1.9].forEach(function(z){
+      var col = new THREE.Mesh(new THREE.BoxGeometry(0.55,4.6,0.55), mat(BLUE,0.35,0.55));
+      col.position.set(0,1.9,z); g.add(col);
+    });
+    var beam = new THREE.Mesh(new THREE.BoxGeometry(1.6,0.7,4.6), mat(BLUE,0.35,0.55));
+    beam.position.y = 4.4; g.add(beam);
+
+    var head = new THREE.Group(); head.position.y = 3.2; g.add(head);
+    var body = new THREE.Mesh(new THREE.BoxGeometry(1.05,1.2,1.05), mat(DARK,0.6,0.45));
+    head.add(body);
+    var spindle = new THREE.Mesh(new THREE.CylinderGeometry(0.11,0.11,1.0,14), mat(0xd8dee5,0.95,0.2));
+    spindle.position.y = -1.05; head.add(spindle);
+
+    var glow = new THREE.PointLight(0xE8B400, 0, 4.5); glow.position.set(0,1.0,0); g.add(glow);
+    stations.push({head:head, spindle:spindle, glow:glow});
+  });
+
+  // camera / interaction
+  var yaw = -0.5, targetYaw = -0.5, dragging = false, lastX = 0, idle = 0;
+  function place(){
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w,h,false);
+    camera.aspect = w/h;
+    var narrow = w < 780;
+    camera.fov = narrow ? 44 : 34;
+    camera.updateProjectionMatrix();
+    camera.position.set(0, narrow ? 7.5 : 6.4, narrow ? 27 : 24);
+    camera.lookAt(0, 1.4, 0);
+  }
+  window.addEventListener('resize', place);
+
+  canvas.addEventListener('pointerdown', function(e){ dragging=true; lastX=e.clientX; idle=0; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointerup', function(){ dragging=false; });
+  canvas.addEventListener('pointermove', function(e){
+    if(!dragging) return;
+    targetYaw += (e.clientX - lastX) * 0.005; lastX = e.clientX; idle = 0;
+    targetYaw = Math.max(-1.25, Math.min(0.25, targetYaw));
+  });
+
+  var clock = new THREE.Clock();
+  var T = 2.7;
+  function ease(x){ return x<0.5 ? 4*x*x*x : 1-Math.pow(-2*x+2,3)/2; }
+
+  function frame(){
+    requestAnimationFrame(frame);
+    var t = clock.getElapsedTime();
+    var p = (t % T) / T;
+
+    // indexaggio: 0 → 0.40, poi fermo
+    var adv = p < 0.40 ? ease(p/0.40) : 1;
+    tube.position.x = (adv * PITCH) - PITCH;
+
+    // lavorazione: 0.48 → 0.92
+    var cut = 0;
+    if(p > 0.48 && p < 0.92){
+      var q = (p - 0.48) / 0.44;
+      cut = Math.sin(q * Math.PI);
+    }
+    stations.forEach(function(s){
+      s.head.position.y = 3.2 - cut * 1.35;
+      s.spindle.rotation.y += cut * 0.9 + 0.02;
+      s.glow.intensity = cut * 2.2;
+    });
+
+    if(!dragging){ idle += 0.016; if(idle > 2.5) targetYaw += 0.0004; }
+    targetYaw = Math.max(-1.25, Math.min(0.25, targetYaw));
+    yaw += (targetYaw - yaw) * 0.06;
+    root.rotation.y = yaw;
+
+    renderer.render(scene, camera);
+  }
+
+  place();
+  if(reduce){ renderer.render(scene, camera); } else { frame(); }
+})();
+</script>
+</body>
+</html>
