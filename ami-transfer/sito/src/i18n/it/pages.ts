@@ -64,7 +64,7 @@ export const pages = {
       "Costituita il 23 marzo 1978",
       "7.000 m² di stabilimento e 600 m² di uffici",
       "Oltre 20 linee dedicate ogni anno",
-      "Fatturato 2023: 7,46 milioni di euro (bilancio depositato)",
+      "Fatturato 2024: 8,11 milioni di euro (bilancio depositato)",
       "Espositore a Tube Düsseldorf nelle edizioni 2022, 2024 e 2026",
     ],
     staff: "Organico:",

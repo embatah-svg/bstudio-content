@@ -66,7 +66,7 @@ export const pages: Pages = {
       "Constituída a 23 de março de 1978",
       "7.000 m² de fábrica e 600 m² de escritórios",
       "Mais de 20 linhas dedicadas por ano",
-      "Volume de negócios 2023: 7,46 milhões de euros (contas depositadas)",
+      "Volume de negócios 2024: 8,11 milhões de euros (contas depositadas)",
       "Expositor na Tube Düsseldorf em 2022, 2024 e 2026",
     ],
     staff: "Efetivo:",

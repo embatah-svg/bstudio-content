@@ -66,7 +66,7 @@ export const pages: Pages = {
       "Founded on 23 March 1978",
       "7,000 m² of plant and 600 m² of offices",
       "Over 20 dedicated lines every year",
-      "2023 turnover: €7.46 million (filed accounts)",
+      "2024 turnover: €8.11 million (filed accounts)",
       "Exhibitor at Tube Düsseldorf in 2022, 2024 and 2026",
     ],
     staff: "Headcount:",

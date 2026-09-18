@@ -1,0 +1,7 @@
+{
+  "name": "ami-proposta-pdf",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": { "pdf-lib": "^1.17.1", "pdfjs-dist": "^4.10.38", "puppeteer-core": "^23.0.0" }
+}

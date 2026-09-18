@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Copertina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; }
+  body { width: 210mm; height: 297mm; background: #0F1A1F; color: #E9EAE6; font-family: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; position: relative; overflow: hidden; }
+  .band { position: absolute; left: 0; top: 0; width: 6mm; height: 297mm; background: #24506B; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(233,234,230,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(233,234,230,.05) 1px, transparent 1px); background-size: 12mm 12mm; }
+  .top { position: absolute; left: 24mm; top: 22mm; right: 20mm; display: flex; justify-content: space-between; align-items: center; }
+  .top img { height: 16mm; width: auto; }
+  .top .who { font-size: 9pt; letter-spacing: .16em; text-transform: uppercase; color: #8D98A3; text-align: right; line-height: 1.5; }
+  .title { position: absolute; left: 24mm; top: 96mm; right: 24mm; }
+  .kicker { font-size: 9.5pt; letter-spacing: .2em; text-transform: uppercase; color: #8D98A3; margin-bottom: 8mm; }
+  h1 { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 38pt; line-height: 1.02; margin: 0 0 6mm; letter-spacing: -.01em; color: #E9EAE6; }
+  h1 span { color: #8D98A3; font-weight: 500; }
+  .sub { font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 15pt; color: #E9EAE6; margin: 0 0 10mm; max-width: 150mm; line-height: 1.3; }
+  .pitch { width: 60mm; height: 2px; background: repeating-linear-gradient(90deg, #E8B400 0 6mm, transparent 6mm 9mm); margin-bottom: 8mm; }
+  .lead { font-size: 10.5pt; line-height: 1.55; color: #DCDED8; max-width: 140mm; }
+  .meta { position: absolute; left: 24mm; right: 24mm; bottom: 20mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8mm; border-top: 1px solid rgba(233,234,230,.18); padding-top: 6mm; font-size: 8.5pt; line-height: 1.5; color: #8D98A3; }
+  .meta b { display: block; color: #E9EAE6; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; font-size: 7.5pt; margin-bottom: 1.5mm; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="band"></div>
+  <div class="top">
+    <img src="ami-emblem-white.png" alt="A.M.I.">
+    <div class="who">Proposta preliminare<br>per la Direzione di A.M.I. S.r.l.</div>
+  </div>
+  <div class="title">
+    <div class="kicker">Engineering Knowledge &amp; Reuse Platform</div>
+    <h1>AMI Engineering<br>Intelligence</h1>
+    <p class="sub">Trasformare quarantasette anni di linee transfer in un sistema che gli ingegneri possono interrogare, riutilizzare, verificare e documentare.</p>
+    <div class="pitch"></div>
+    <p class="lead">Analisi tecnica ed economica di una piattaforma di riuso della conoscenza progettuale: ricerca intelligente dei progetti storici, confronto tra commesse, libreria di moduli, assistenza alla fattibilità, ai calcoli e al software PLC, generazione documentale. Con proposta di Proof of Concept misurabile.</p>
+  </div>
+  <div class="meta">
+    <div><b>Preparato da</b>B.Studio Design<br>Consulenza AI &amp; sistemi per l'ingegneria</div>
+    <div><b>Data</b>Settembre 2026<br>Versione 1.0 · Bozza per discussione</div>
+    <div><b>Riservatezza</b>Documento riservato.<br>Contiene stime preliminari da verificare.</div>
+  </div>
+</body>
+</html>

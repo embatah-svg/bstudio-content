@@ -66,7 +66,7 @@ export const pages: Pages = {
       "Gegründet am 23. März 1978",
       "7.000 m² Werksfläche und 600 m² Büros",
       "Über 20 kundenspezifische Linien pro Jahr",
-      "Umsatz 2023: 7,46 Mio. € (hinterlegter Jahresabschluss)",
+      "Umsatz 2024: 8,11 Mio. € (hinterlegter Jahresabschluss)",
       "Aussteller auf der Tube Düsseldorf 2022, 2024 und 2026",
     ],
     staff: "Mitarbeiterzahl:",

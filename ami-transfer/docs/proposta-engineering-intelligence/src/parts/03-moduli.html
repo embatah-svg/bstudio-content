@@ -1,0 +1,278 @@
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">7</span>Moduli del sistema</h2>
+  </div>
+  <p>La piattaforma è composta da otto moduli funzionali costruiti sopra una base comune: l'indice dei progetti storici. I moduli sono indipendenti e attivabili in sequenza; i primi tre (ricerca, confronto, riuso) producono valore da soli e sono l'oggetto del Proof of Concept. Gli altri si aggiungono quando la base è stabile e gli ingegneri la usano.</p>
+
+  <div class="diag">
+    <svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8D98A3"/></marker></defs>
+      <!-- sources -->
+      <g font-size="10.5" fill="#131A1E">
+        <rect x="10" y="20" width="150" height="290" fill="#F3F4F1" stroke="#C9CCC6"/>
+        <text x="85" y="40" text-anchor="middle" font-weight="600" font-size="11" fill="#0F1A1F">Sorgenti (restano in AMI)</text>
+        <rect x="22" y="55" width="126" height="34" fill="#fff" stroke="#8D98A3"/><text x="85" y="70" text-anchor="middle">NAS di commessa</text><text x="85" y="83" text-anchor="middle" font-size="9" fill="#4A545C">cartelle, PDF, DWG, IPT/IAM</text>
+        <rect x="22" y="97" width="126" height="34" fill="#fff" stroke="#8D98A3"/><text x="85" y="112" text-anchor="middle">Inventor / Vault</text><text x="85" y="125" text-anchor="middle" font-size="9" fill="#4A545C">assiemi, distinte, iProperties</text>
+        <rect x="22" y="139" width="126" height="34" fill="#fff" stroke="#8D98A3"/><text x="85" y="154" text-anchor="middle">TIA Portal</text><text x="85" y="167" text-anchor="middle" font-size="9" fill="#4A545C">blocchi, tag, allarmi, HMI</text>
+        <rect x="22" y="181" width="126" height="34" fill="#fff" stroke="#8D98A3"/><text x="85" y="196" text-anchor="middle">Offerte e e-mail</text><text x="85" y="209" text-anchor="middle" font-size="9" fill="#4A545C">specifiche, richieste cliente</text>
+        <rect x="22" y="223" width="126" height="34" fill="#fff" stroke="#8D98A3"/><text x="85" y="238" text-anchor="middle">Manuali e collaudi</text><text x="85" y="251" text-anchor="middle" font-size="9" fill="#4A545C">verbali, liste ricambi</text>
+        <rect x="22" y="265" width="126" height="34" fill="#FBF7E6" stroke="#E8B400"/><text x="85" y="280" text-anchor="middle">Conoscenza tacita</text><text x="85" y="293" text-anchor="middle" font-size="9" fill="#4A545C">interviste, note approvate</text>
+      </g>
+      <!-- core -->
+      <g font-size="10.5" fill="#131A1E">
+        <line x1="160" y1="165" x2="195" y2="165" stroke="#8D98A3" marker-end="url(#arr)"/>
+        <rect x="196" y="20" width="160" height="290" fill="#E7EEF3" stroke="#24506B"/>
+        <text x="276" y="40" text-anchor="middle" font-weight="600" font-size="11" fill="#0F1A1F">Base comune</text>
+        <rect x="208" y="55" width="136" height="44" fill="#fff" stroke="#24506B"/><text x="276" y="72" text-anchor="middle">Estrazione ed</text><text x="276" y="86" text-anchor="middle">arricchimento documenti</text>
+        <rect x="208" y="107" width="136" height="44" fill="#fff" stroke="#24506B"/><text x="276" y="124" text-anchor="middle">Modello dati progetto</text><text x="276" y="138" text-anchor="middle" font-size="9" fill="#4A545C">parametri, moduli, revisioni</text>
+        <rect x="208" y="159" width="136" height="44" fill="#fff" stroke="#24506B"/><text x="276" y="176" text-anchor="middle">Indice ibrido</text><text x="276" y="190" text-anchor="middle" font-size="9" fill="#4A545C">metadati + testo + vettori</text>
+        <rect x="208" y="211" width="136" height="44" fill="#fff" stroke="#24506B"/><text x="276" y="228" text-anchor="middle">Citazioni e audit</text><text x="276" y="242" text-anchor="middle" font-size="9" fill="#4A545C">ogni risposta → fonte</text>
+        <rect x="208" y="263" width="136" height="36" fill="#fff" stroke="#24506B"/><text x="276" y="285" text-anchor="middle">Permessi e versioni</text>
+      </g>
+      <!-- modules -->
+      <g font-size="10.5" fill="#131A1E">
+        <line x1="356" y1="165" x2="391" y2="165" stroke="#8D98A3" marker-end="url(#arr)"/>
+        <rect x="392" y="20" width="318" height="290" fill="#fff" stroke="#C9CCC6"/>
+        <text x="551" y="40" text-anchor="middle" font-weight="600" font-size="11" fill="#0F1A1F">Moduli per gli ingegneri</text>
+        <g>
+          <rect x="404" y="55" width="145" height="36" fill="#0F1A1F"/><text x="476" y="70" text-anchor="middle" fill="#E9EAE6" font-weight="500">8 · Project Search</text><text x="476" y="84" text-anchor="middle" fill="#8D98A3" font-size="9">PoC</text>
+          <rect x="557" y="55" width="145" height="36" fill="#0F1A1F"/><text x="629" y="70" text-anchor="middle" fill="#E9EAE6" font-weight="500">9 · Project Comparison</text><text x="629" y="84" text-anchor="middle" fill="#8D98A3" font-size="9">PoC</text>
+          <rect x="404" y="99" width="145" height="36" fill="#0F1A1F"/><text x="476" y="114" text-anchor="middle" fill="#E9EAE6" font-weight="500">10 · Module Reuse</text><text x="476" y="128" text-anchor="middle" fill="#8D98A3" font-size="9">PoC</text>
+          <rect x="557" y="99" width="145" height="36" fill="#24506B"/><text x="629" y="114" text-anchor="middle" fill="#E9EAE6" font-weight="500">11 · Feasibility Assistant</text><text x="629" y="128" text-anchor="middle" fill="#DCDED8" font-size="9">Produzione</text>
+          <rect x="404" y="143" width="145" height="36" fill="#24506B"/><text x="476" y="158" text-anchor="middle" fill="#E9EAE6" font-weight="500">12 · Calculation Assistant</text><text x="476" y="172" text-anchor="middle" fill="#DCDED8" font-size="9">Produzione</text>
+          <rect x="557" y="143" width="145" height="36" fill="#24506B"/><text x="629" y="158" text-anchor="middle" fill="#E9EAE6" font-weight="500">13 · PLC Copilot</text><text x="629" y="172" text-anchor="middle" fill="#DCDED8" font-size="9">Produzione / Piattaforma</text>
+          <rect x="404" y="187" width="145" height="36" fill="#24506B"/><text x="476" y="202" text-anchor="middle" fill="#E9EAE6" font-weight="500">14 · Document Generation</text><text x="476" y="216" text-anchor="middle" fill="#DCDED8" font-size="9">Produzione</text>
+          <rect x="557" y="187" width="145" height="36" fill="#FBF7E6" stroke="#E8B400"/><text x="629" y="202" text-anchor="middle" font-weight="500">15 · Knowledge Capture</text><text x="629" y="216" text-anchor="middle" fill="#4A545C" font-size="9">Trasversale, dal PoC</text>
+        </g>
+        <rect x="404" y="240" width="298" height="58" fill="#F3F4F1" stroke="#C9CCC6"/>
+        <text x="553" y="258" text-anchor="middle" font-weight="600" fill="#0F1A1F">Revisione e approvazione umana</text>
+        <text x="553" y="274" text-anchor="middle" font-size="9.5" fill="#4A545C">Nessun output esce dal sistema senza un ingegnere che lo approva.</text>
+        <text x="553" y="288" text-anchor="middle" font-size="9.5" fill="#4A545C">Le approvazioni alimentano l'indice: il sistema impara da AMI, non da internet.</text>
+      </g>
+    </svg>
+  </div>
+  <p class="note">Figura 3 · Architettura funzionale: sorgenti esistenti, base comune e otto moduli. I moduli in nero sono nel perimetro del Proof of Concept; quelli in blu nelle fasi successive (§25).</p>
+
+  <table>
+    <thead><tr><th style="width:5%">#</th><th style="width:24%">Modulo</th><th>Domanda a cui risponde</th><th style="width:20%">Fase</th></tr></thead>
+    <tbody>
+      <tr><td>8</td><td>Intelligent Project Search</td><td>"Quale macchina abbiamo già fatto che assomiglia a questa richiesta?"</td><td>PoC</td></tr>
+      <tr><td>9</td><td>Project Comparison Engine</td><td>"Cosa cambia tra la richiesta e la commessa X, e cosa comporta?"</td><td>PoC</td></tr>
+      <tr><td>10</td><td>Module Reuse Engine</td><td>"Quali gruppi posso riusare tali e quali, quali vanno modificati, quali verificati?"</td><td>PoC</td></tr>
+      <tr><td>11</td><td>Engineering Feasibility Assistant</td><td>"È fattibile con quello che sappiamo fare? Cosa mi manca per rispondere?"</td><td>Produzione</td></tr>
+      <tr><td>12</td><td>Structural Calculation Assistant</td><td>"Quali verifiche servono, con quali parametri, e cosa dicono i risultati?"</td><td>Produzione</td></tr>
+      <tr><td>13</td><td>Siemens PLC Copilot</td><td>"Quale blocco abbiamo già scritto per questo, e come lo adatto?"</td><td>Produzione / Piattaforma</td></tr>
+      <tr><td>14</td><td>Automatic Document Generation</td><td>"Prepara la bozza di manuale, distinta, ricambi e allarmi a partire dal progetto approvato."</td><td>Produzione</td></tr>
+      <tr><td>15</td><td>Knowledge Capture</td><td>"Perché avevamo scelto così? Chi lo sa? Registriamolo."</td><td>Trasversale</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">8</span>Intelligent Project Search</h2>
+  </div>
+  <p class="lead">Ricerca dei progetti storici per contenuto tecnico, non per nome di file. Combina tre tecniche complementari, perché nessuna delle tre da sola è affidabile su un archivio industriale.</p>
+  <div class="grid3">
+    <div class="box"><h4>Metadati strutturati</h4><p>Cliente, anno, settore, tipo di lavorazione, diametro tubo, numero stazioni, tempo ciclo, PLC. Estratti dai documenti e validati. Permettono filtri esatti: "tubo Ø 30–40, foratura, 2019–2024".</p></div>
+    <div class="box"><h4>Ricerca testuale</h4><p>Termini esatti nei documenti: codici, sigle interne, nomi di componenti commerciali. Indispensabile per ritrovare "quel gruppo con il cilindro Festo DSBC-63".</p></div>
+    <div class="box"><h4>Ricerca semantica (vettoriale)</h4><p>Trova documenti simili per significato anche con parole diverse: "pioli inseriti nei montanti" trova anche "inserimento traversini". Usa un database vettoriale (pgvector) sul testo estratto.</p></div>
+  </div>
+  <h3>Come funziona per l'ingegnere</h3>
+  <p>L'ingegnere descrive la richiesta in linguaggio naturale o carica il disegno del pezzo e l'offerta. Il sistema restituisce le commesse più vicine con un punteggio di somiglianza, i parametri principali affiancati e, per ciascuna, i file di origine. Ogni risultato è cliccabile fino al documento sul NAS: il sistema non copia l'archivio, lo indicizza.</p>
+  <table>
+    <thead><tr><th style="width:26%">Campo estratto</th><th>Da dove</th><th style="width:22%">Affidabilità attesa</th></tr></thead>
+    <tbody>
+      <tr><td>Cliente, anno, settore</td><td>Nome cartella, offerta, frontespizio manuale</td><td>Alta</td></tr>
+      <tr><td>Tipo di lavorazioni e sequenza stazioni</td><td>Layout, manuale, programma PLC</td><td>Alta con revisione</td></tr>
+      <tr><td>Diametro, spessore, lunghezza tubo</td><td>Disegno del pezzo, offerta, ricette HMI</td><td>Media: valori spesso ripetuti in modo incoerente</td></tr>
+      <tr><td>Tempo ciclo e cadenza</td><td>Offerta, verbale di collaudo</td><td>Media: il valore di collaudo va preferito a quello di offerta</td></tr>
+      <tr><td>Gruppi e moduli utilizzati</td><td>Struttura assiemi Inventor, distinta</td><td>Dipende dalla coerenza dei nomi negli assiemi</td></tr>
+      <tr><td>Problemi noti e soluzioni</td><td>E-mail, verbali, note di service</td><td>Bassa senza Knowledge Capture (§15)</td></tr>
+    </tbody>
+  </table>
+  <p class="note">La colonna "affidabilità attesa" è una stima basata su archivi comparabili; il PoC la sostituisce con misure reali (§24, KPI "accuratezza di estrazione").</p>
+  <div class="callout"><div class="t">Obiettivo misurabile</div><p>Data una richiesta di test, la commessa più pertinente compare tra i primi tre risultati in almeno l'80% dei casi (KPI top-3). Sotto questa soglia il modulo non è utile e il progetto non procede.</p></div>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">9</span>Project Comparison Engine</h2>
+  </div>
+  <p class="lead">Dato un progetto nuovo e uno o più progetti storici, produce una tabella di confronto parametro per parametro e classifica ogni elemento in tre stati. Ogni riga cita la fonte.</p>
+  <div class="grid3">
+    <div class="box" style="border-top:3px solid #1F6B3A"><h4>Riutilizzabile</h4><p>Il parametro è uguale o rientra nel range già coperto dal gruppo storico. Esempio: lunghezza tubo 2.400 mm con alimentatore già validato fino a 3.000 mm.</p></div>
+    <div class="box" style="border-top:3px solid #B88400"><h4>Da modificare</h4><p>Il parametro cambia e il sistema identifica quali componenti sono coinvolti. Esempio: passo pioli diverso, quindi programma assi e riferimenti di posizionamento.</p></div>
+    <div class="box" style="border-top:3px solid #B0413E"><h4>Da verificare</h4><p>Il cambiamento ha effetti che richiedono calcolo o giudizio. Esempio: tempo ciclo ridotto del 30%, quindi verifica dinamica dei gruppi in movimento.</p></div>
+  </div>
+  <h3>Esempio sul caso della scala</h3>
+  <table>
+    <thead><tr><th style="width:24%">Parametro</th><th style="width:14%">Commessa 2021</th><th style="width:14%">Richiesta 2026</th><th style="width:16%">Stato</th><th>Impatto e fonte</th></tr></thead>
+    <tbody>
+      <tr><td>Diametro montante</td><td class="num">Ø 40 × 1,5</td><td class="num">Ø 40 × 1,5</td><td><span class="tag ok">Riutilizzabile</span></td><td>Fixture di bloccaggio e bussole invariate — <span class="mono">21-0xx/ASM/BLOCC-01.iam</span></td></tr>
+      <tr><td>Diametro piolo</td><td class="num">Ø 20</td><td class="num">Ø 25</td><td><span class="tag mid">Da modificare</span></td><td>Stampi di foratura e punzoni; verifica gioco inserimento — distinta stazione 3</td></tr>
+      <tr><td>Numero pioli</td><td class="num">8</td><td class="num">12</td><td><span class="tag mid">Da modificare</span></td><td>Sequenza PLC (FB_Foratura), ricetta HMI, capacità caricatore pioli</td></tr>
+      <tr><td>Passo pioli</td><td class="num">280 mm</td><td class="num">250 mm</td><td><span class="tag mid">Da modificare</span></td><td>Posizioni asse di avanzamento; nessun impatto meccanico se entro corsa</td></tr>
+      <tr><td>Tempo ciclo</td><td class="num">45 s</td><td class="num">30 s</td><td><span class="tag bad">Da verificare</span></td><td>Dinamica assi, pneumatica, verifica strutturale traversa mobile — verbale collaudo 2021 segnala vibrazione a 40 s</td></tr>
+      <tr><td>Lunghezza montante</td><td class="num">2.400 mm</td><td class="num">2.800 mm</td><td><span class="tag bad">Da verificare</span></td><td>Alimentatore validato fino a 3.000 mm ma scarico solo fino a 2.500 — nota service 2022</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Valori illustrativi: i codici di commessa e i numeri in tabella non provengono da progetti AMI reali e servono a mostrare il formato dell'output.</p>
+  <p>Il valore del confronto non sta nella tabella in sé, che un progettista esperto sa costruire, ma nel fatto che il sistema la costruisce in minuti a partire dai documenti reali e non dimentica la nota di service del 2022. L'ingegnere corregge gli stati e le correzioni vengono registrate: la volta successiva il sistema sa che quel gruppo di scarico ha un limite a 2.500 mm.</p>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">10</span>Module Reuse Engine</h2>
+  </div>
+  <p class="lead">Una libreria esplicita dei gruppi funzionali che AMI ha già progettato, con varianti, limiti d'uso, commesse in cui sono stati usati e problemi noti. Non sostituisce Inventor o Vault: li rende interrogabili per funzione.</p>
+  <h3>Tassonomia proposta</h3>
+  <table>
+    <thead><tr><th style="width:20%">Famiglia</th><th>Esempi di moduli</th><th style="width:30%">Parametri che definiscono la variante</th></tr></thead>
+    <tbody>
+      <tr><td>Feeding</td><td>Caricatori a magazzino, alimentatori a gradini, svolgitori</td><td>Range lunghezza e diametro, cadenza, orientamento</td></tr>
+      <tr><td>Transfer</td><td>Portali, catene a passo, navette, pinze di trasferimento</td><td>Passo, carico, corsa, precisione di posizionamento</td></tr>
+      <tr><td>Positioning</td><td>Riferimenti di battuta, centratori, assi di avanzamento</td><td>Ripetibilità, corsa, velocità</td></tr>
+      <tr><td>Clamping</td><td>Morse, fixture pneumatiche e idrauliche, contro-punte</td><td>Forza, range diametro, tempo di chiusura</td></tr>
+      <tr><td>Processing</td><td>Unità di foratura, tranciatura, filettatura, calibratura, piegatura</td><td>Forza/coppia, utensile, potenza, ciclo</td></tr>
+      <tr><td>Inspection &amp; Vision</td><td>Controllo presenza, misura, telecamere, sistemi di scarto</td><td>Tolleranza, tempo di misura, integrazione PLC</td></tr>
+      <tr><td>Servo axes</td><td>Assi elettrici, motori e azionamenti, riduttori</td><td>Coppia, velocità, inerzia, profilo di moto</td></tr>
+      <tr><td>Pneumatics</td><td>Isole valvole, cilindri standard, trattamento aria</td><td>Pressione, portata, cicli di vita</td></tr>
+      <tr><td>Safety</td><td>Ripari, barriere, circuiti di sicurezza, PL richiesto</td><td>Categoria/PL, zone, procedure di reset</td></tr>
+      <tr><td>HMI &amp; PLC</td><td>Blocchi standard, pagine HMI, gestione ricette, allarmi</td><td>Versione TIA, CPU, librerie usate</td></tr>
+    </tbody>
+  </table>
+  <h3>Cosa contiene una scheda modulo</h3>
+  <div class="grid2">
+    <div class="box"><h4>Identità e fonti</h4><p>Nome, famiglia, assieme Inventor di riferimento, commesse in cui è stato usato, revisione corrente, progettista.</p></div>
+    <div class="box"><h4>Limiti d'uso</h4><p>Range di parametri validati in collaudo (non a catalogo), condizioni in cui ha dato problemi, modifiche fatte in seguito e perché.</p></div>
+    <div class="box"><h4>Dipendenze</h4><p>Blocchi PLC associati, pagine HMI, componenti commerciali critici, tempi di approvvigionamento noti.</p></div>
+    <div class="box"><h4>Documentazione</h4><p>Sezioni di manuale, elenco ricambi e allarmi riutilizzabili: la base per la generazione documentale (§14).</p></div>
+  </div>
+  <div class="callout"><div class="t">Punto di attenzione</div><p>La libreria è utile solo se i limiti d'uso sono quelli reali. Il valore sta nel registrare "validato fino a 3.000 mm in commessa X" e non "fino a 3.000 mm" senza fonte. La fase di catalogazione iniziale richiede tempo degli ingegneri AMI (stimato in §24) e va pianificata come lavoro, non come effetto collaterale.</p></div>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">11</span>Engineering Feasibility Assistant</h2>
+  </div>
+  <p class="lead">Supporta la fase di offerta: data una richiesta cliente, produce una valutazione preliminare di fattibilità su tre livelli e, soprattutto, l'elenco delle informazioni mancanti per rispondere con sicurezza.</p>
+  <div class="grid3">
+    <div class="box" style="border-top:3px solid #1F6B3A"><h4>🟢 Fattibile con moduli esistenti</h4><p>La richiesta rientra nei range validati di moduli già costruiti. Il sistema elenca le commesse di riferimento e i moduli coinvolti.</p></div>
+    <div class="box" style="border-top:3px solid #B88400"><h4>🟡 Fattibile con modifiche</h4><p>Uno o più parametri escono dai range validati ma restano vicini. Il sistema indica quali moduli vanno adattati e quali verifiche servono.</p></div>
+    <div class="box" style="border-top:3px solid #B0413E"><h4>🔴 Da valutare con progettazione</h4><p>Richiesta fuori dall'esperienza registrata o con parametri incompatibili tra loro. Il sistema lo dice esplicitamente invece di indovinare.</p></div>
+  </div>
+  <h3>Le domande contano più del semaforo</h3>
+  <p>L'output più utile per l'ufficio commerciale è la lista delle informazioni mancanti, formulata come domande da fare al cliente prima dell'offerta. Esempio per il caso della scala:</p>
+  <ul>
+    <li>Il materiale del montante è acciaio S235 o alluminio? Cambia la forza di taglio e il dimensionamento degli stampi.</li>
+    <li>La tolleranza sul passo dei pioli è ±0,5 mm o ±0,1 mm? Nel secondo caso serve un riferimento meccanico, non solo l'asse.</li>
+    <li>I pioli arrivano già tagliati a misura o vanno tagliati in linea? Cambia il numero di stazioni.</li>
+    <li>Il tempo ciclo di 30 s è per scala completa o per piolo? La differenza è un fattore 12.</li>
+  </ul>
+  <div class="callout warn"><div class="t">Limite dichiarato</div><p>La valutazione è preliminare e si basa solo su ciò che è registrato. Un 🟢 significa "AMI ha già fatto qualcosa di simile e documentato", non "il progetto è approvato". La responsabilità dell'offerta resta all'ufficio tecnico e commerciale.</p></div>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">12</span>Structural Calculation Assistant</h2>
+  </div>
+  <p class="lead">L'AI non fa i calcoli. Estrae i parametri dai documenti, li passa a un motore di calcolo deterministico (formule verificate, fogli di calcolo AMI esistenti o software dedicato), interpreta i risultati in linguaggio tecnico e li sottopone all'ingegnere.</p>
+  <div class="flow">
+    <div class="s ai"><b>1 · Richiesta</b>"Verifica la traversa mobile della stazione 3 con ciclo a 30 s."</div>
+    <div class="s ai"><b>2 · Estrazione parametri</b>Massa, corsa, accelerazione, materiale, sezione: letti dal modello e dalla distinta, con fonte per ciascuno.</div>
+    <div class="s"><b>3 · Motore di calcolo</b>Formule esplicite, versionate e verificate da AMI. Nessun numero "generato" dal modello linguistico.</div>
+    <div class="s ai"><b>4 · Interpretazione</b>"Coefficiente di sicurezza 1,6 contro 2,0 richiesto: la sezione attuale non è sufficiente a 30 s."</div>
+    <div class="s human"><b>5 · Revisione</b>L'ingegnere verifica parametri e risultato, corregge, decide.</div>
+    <div class="s human"><b>6 · Approvazione</b>Il calcolo approvato viene archiviato con firma, data e revisione.</div>
+  </div>
+  <div class="legend"><span><i class="a"></i>AI</span><span><i class="n"></i>Calcolo deterministico</span><span><i class="h"></i>Umano</span></div>
+  <h3>Due cose che devono restare separate</h3>
+  <table>
+    <thead><tr><th style="width:50%">Raccomandazione AI</th><th>Calcolo validato</th></tr></thead>
+    <tbody>
+      <tr><td>"Ti suggerisco di verificare la traversa perché il tempo ciclo è sceso del 33% e in commessa 2021 c'era una nota di vibrazione."</td><td>Risultato numerico prodotto da formule esplicite, con parametri tracciati, rivisto e approvato da un ingegnere.</td></tr>
+      <tr><td>Utile per non dimenticare verifiche. Può essere sbagliata. Non ha valore contrattuale.</td><td>Ha valore tecnico e può entrare nel fascicolo. È l'unico output che il sistema definisce "verificato".</td></tr>
+      <tr><td>Etichettata sempre come "suggerimento" nell'interfaccia.</td><td>Etichettata con nome dell'approvatore, data e versione del motore di calcolo.</td></tr>
+    </tbody>
+  </table>
+  <p>Questa separazione è la ragione per cui il modulo è realistico. I modelli linguistici sono inaffidabili nell'aritmetica e nella meccanica applicata quando lavorano "a mente"; sono invece affidabili nel leggere un documento, estrarre valori e spiegare un risultato. Il progetto usa ciascuno strumento per ciò che sa fare.</p>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">13</span>Siemens PLC Copilot</h2>
+  </div>
+  <p class="lead">Assistenza alla scrittura e all'adattamento del software PLC e HMI Siemens a partire dai blocchi che AMI ha già scritto e collaudato. Nessun deploy autonomo, in nessuna fase del progetto.</p>
+  <h3>Cosa fa</h3>
+  <ul>
+    <li><strong>Trova il blocco giusto.</strong> "Come gestiamo il caricatore pioli con conteggio?" restituisce i blocchi funzione usati nelle commesse simili, con commenti e versione TIA.</li>
+    <li><strong>Propone adattamenti.</strong> Dato il confronto di progetto (§9), suggerisce quali blocchi vanno parametrizzati diversamente e quali interfacce cambiano.</li>
+    <li><strong>Genera bozze.</strong> Tabelle di variabili, struttura degli allarmi, commenti e documentazione del programma coerenti con le convenzioni AMI.</li>
+    <li><strong>Spiega codice esistente.</strong> Utile in service e per l'inserimento di nuovi tecnici: "cosa fa questo FB e da chi è richiamato".</li>
+  </ul>
+  <h3>Flusso obbligatorio</h3>
+  <div class="flow">
+    <div class="s ai"><b>Suggerimento</b>Il copilota propone blocco, modifica o bozza, citando le commesse di origine.</div>
+    <div class="s human"><b>Revisione</b>Il programmatore legge, accetta o scarta.</div>
+    <div class="s human"><b>Modifica</b>In TIA Portal, dal programmatore. Il sistema non scrive nel progetto.</div>
+    <div class="s"><b>Simulazione</b>PLCSIM o banco: verifica del comportamento.</div>
+    <div class="s human"><b>Validazione</b>Collaudo interno secondo procedura AMI.</div>
+    <div class="s human"><b>Deploy</b>Solo dal tecnico autorizzato, in macchina.</div>
+  </div>
+  <div class="legend"><span><i class="a"></i>AI</span><span><i class="n"></i>Strumento</span><span><i class="h"></i>Umano</span></div>
+  <h3>Integrazione tecnica</h3>
+  <p>TIA Portal espone l'interfaccia Openness, che consente di esportare blocchi e tabelle in XML e di leggere la struttura del progetto. Nel PoC e nella fase di produzione il copilota lavora in sola lettura su esportazioni XML e sorgenti SCL: legge e propone, non scrive nel progetto. Un'eventuale scrittura assistita (creazione di bozze di blocchi in un progetto di lavoro separato) è un'opzione della fase piattaforma, da valutare solo dopo dodici mesi di uso in lettura.</p>
+  <div class="callout warn"><div class="t">Sicurezza funzionale</div><p>Le funzioni di sicurezza (F-PLC, circuiti di arresto, ripari interbloccati) sono escluse dal perimetro del copilota. Non vengono né suggerite né modificate dal sistema. Il rischio non giustifica il beneficio.</p></div>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">14</span>Automatic Document Generation</h2>
+  </div>
+  <p class="lead">Genera bozze di documentazione tecnica a partire dai dati approvati del progetto: manuali d'uso e manutenzione, elenchi ricambi, distinte base commentate, tabelle allarmi con istruzioni per l'operatore. In italiano e nelle lingue dei clienti AMI.</p>
+  <div class="grid2">
+    <div class="box"><h4>Da dove parte</h4><p>Dalle sezioni di manuale associate ai moduli (§10), dalla distinta Inventor, dalla tabella allarmi TIA e dalle decisioni registrate nel confronto di progetto. Non "inventa" contenuti: assembla, adatta e segnala.</p></div>
+    <div class="box"><h4>Cosa produce</h4><p>Un documento in bozza con tre tipi di evidenza: testo ripreso tal quale da documenti approvati, testo adattato (con la modifica evidenziata), sezioni mancanti da scrivere. Il redattore lavora sulle seconde e sulle terze.</p></div>
+    <div class="box"><h4>Traduzione</h4><p>IT, EN, DE, FR, ES con glossario terminologico AMI vincolante (es. "stazione", "traversa", "caricatore" con la traduzione approvata). Il glossario è un asset del progetto e cresce con l'uso. La revisione finale di un traduttore tecnico resta necessaria per i manuali consegnati al cliente.</p></div>
+    <div class="box"><h4>Impatto delle modifiche</h4><p>Quando cambia un modulo o un parametro, il sistema elenca le sezioni di manuale, le righe di distinta e gli allarmi da aggiornare. È la funzione che evita che una sezione non più valida resti nel manuale della macchina nuova.</p></div>
+  </div>
+  <h3>Cosa resta manuale</h3>
+  <p>La valutazione dei rischi ai fini della marcatura CE, le istruzioni di sicurezza e tutto ciò che ha valore legale restano di competenza umana. Il sistema può preparare la struttura e segnalare le sezioni da aggiornare, ma non produce contenuti di sicurezza da consegnare senza revisione.</p>
+  <div class="callout"><div class="t">Stima d'effetto, da misurare</div><p>In aziende comparabili la parte di manuale ripresa da documenti precedenti supera spesso i due terzi del contenuto. Se il dato vale anche per AMI, il tempo di redazione può ridursi in modo sensibile; il PoC misura quanto (§24, KPI "tempo di preparazione documentazione"). Nessun numero è promesso in questa fase.</p></div>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte II · Cosa</div>
+    <h2><span class="n">15</span>Knowledge Capture: la conoscenza tacita diventa patrimonio</h2>
+  </div>
+  <p class="lead">Il modulo più semplice dal punto di vista tecnico e il più importante dal punto di vista aziendale. Raccoglie, in forma strutturata e approvata, la conoscenza che oggi esiste solo nell'esperienza delle persone.</p>
+  <h3>Come si raccoglie</h3>
+  <ul>
+    <li><strong>Dalle correzioni.</strong> Ogni volta che un ingegnere corregge un output del sistema ("no, quel gruppo non regge oltre 2.500 mm"), la correzione viene salvata come nota di conoscenza con autore, data e commessa di riferimento.</li>
+    <li><strong>Dalle domande senza risposta.</strong> Quando il sistema non trova un'informazione, registra la domanda. Le domande ricorrenti diventano l'agenda delle interviste.</li>
+    <li><strong>Dalle interviste guidate.</strong> Sessioni brevi (30–45 minuti) con Riccardo e i tecnici senior su un progetto alla volta: "perché avete scelto così, cosa non rifareste, cosa ha dato problemi in collaudo". Trascritte, strutturate e sottoposte ad approvazione dell'intervistato.</li>
+    <li><strong>Dal service.</strong> Interventi e soluzioni registrati per commessa e modulo, così che il problema visto su una macchina informi la progettazione della successiva.</li>
+  </ul>
+  <h3>Cosa contiene una nota di conoscenza</h3>
+  <table>
+    <thead><tr><th style="width:22%">Campo</th><th>Contenuto</th><th style="width:26%">Perché è obbligatorio</th></tr></thead>
+    <tbody>
+      <tr><td>Affermazione</td><td>Una frase tecnica verificabile: "Il caricatore tipo B non è adatto sotto Ø 20 per rischio incastro"</td><td>Deve poter essere smentita o confermata</td></tr>
+      <tr><td>Fonte</td><td>Persona che l'ha fornita e, se esiste, documento o commessa che la sostiene</td><td>Senza fonte non è conoscenza, è opinione</td></tr>
+      <tr><td>Contesto</td><td>Modulo, famiglia, range di parametri a cui si applica</td><td>Evita generalizzazioni sbagliate</td></tr>
+      <tr><td>Stato</td><td>Proposta / approvata / superata, con revisione e data</td><td>La conoscenza cambia: una nota del 2019 può non valere più</td></tr>
+      <tr><td>Approvatore</td><td>Chi ha confermato la nota</td><td>Responsabilità chiara</td></tr>
+    </tbody>
+  </table>
+  <p>Il sistema usa solo le note approvate nelle sue risposte e le cita come tali: "Nota di conoscenza approvata da R. (2026-03), riferita a commessa 21-0xx". Questo è ciò che rende la piattaforma affidabile nel tempo e diversa da un assistente generico: risponde con quello che AMI ha deciso che è vero.</p>
+</div>

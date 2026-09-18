@@ -32,8 +32,8 @@ Il piano completo — analisi, posizionamento, sitemap, design system, SEO, road
 | Sede | Strada per Porzano 4/C, 25025 Manerbio (BS) |
 | P.IVA / C.F. | 00593180987 / 00971730171 — REA BS 222549 |
 | ATECO | 28.4 |
-| Fatturato 2023 | 7.464.217 € — utile 454.263 € |
-| Organico | 11-50 (LinkedIn) · 20-49 (stime camerali) — `[DA CONFERMARE]` |
+| Fatturato 2024 | 8.109.246 € — utile 1.216.724 € (2023: 7.464.217 € / 454.263 €; serie 2020→2024: 4,10 · 6,41 · 6,80 · 7,46 · 8,11 M€; fonti fatturatoitalia.it + reportaziende.it). Un portale mostra un 2025 "3,2 M€" incoerente: non usarlo senza visura |
+| Organico | 31 dipendenti (fatturatoitalia.it) · fascia 20-49 · 11-50 (LinkedIn) — composizione ufficio tecnico `[DA CONFERMARE]` |
 | Telefono | +39 030 9380654 / +39 030 9380655 |
 | Email | info@amitransfer.com |
 | Stabilimento | 7.000 m² + 600 m² uffici · oltre 20 linee dedicate/anno (fonte: loro sito) |
@@ -155,6 +155,15 @@ sezione.
   bandiere) o da Accept-Language; `/` non è mai servita direttamente.
 - Revisioni esterne fatte il 2026-09-18 (designer, UX B2B, traduttore): le correzioni
   applicate sono nei commit; resta da fare una revisione madrelingua finale prima del go-live.
+- `docs/proposta-engineering-intelligence/` — **proposta esecutiva "AMI Engineering
+  Intelligence"** (PDF, 28 pagine, IT) per la Direzione AMI: piattaforma di riuso della
+  conoscenza progettuale (ricerca, confronto, libreria moduli, fattibilità, calcoli, PLC
+  copilot, documentazione, knowledge capture), benchmark con fonti verificate, modello ROI a
+  scenari (tutte ipotesi etichettate), PoC 5–10 k€ con KPI. Sorgenti in `src/` (HTML + SVG,
+  render con `node build.mjs`: serve `npm install` in `src/` e Chrome/Edge installato).
+  Regola del documento: ogni numero porta l'etichetta Dato AMI verificato / Benchmark /
+  Ipotesi / Scenario / Riferimento; McKinsey, WEF e lo studio HBS/BCG non sono citati come
+  verificati perché le pagine non erano raggiungibili durante la stesura.
 
 ## Prossimi passi
 

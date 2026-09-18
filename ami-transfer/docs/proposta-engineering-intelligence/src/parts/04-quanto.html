@@ -1,0 +1,367 @@
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte III · Quanto</div>
+    <h2><span class="n">16</span>Benchmark esterni: cosa dicono le fonti</h2>
+  </div>
+  <p class="lead">Nessuno studio pubblicato misura l'effetto di un sistema come quello proposto in un'azienda di macchine speciali da trenta persone. I benchmark che seguono servono a stabilire ordini di grandezza plausibili e limiti, non a promettere risultati. Sono riportati solo studi le cui pagine sono state aperte e lette durante la stesura; i numeri più citati ma non verificabili sono elencati a parte.</p>
+
+  <figure>
+    <div class="fh"><div class="ft">Figura 4 · Effetti misurati dell'AI generativa in studi controllati (non in ambito progettazione meccanica)</div><span class="tag bench">Benchmark esterno</span></div>
+    <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg">
+      <!-- axis: 0 at x=400; scale 2.4px per %; labels right-aligned at x=270 -->
+      <g font-size="10" fill="#131A1E">
+        <line x1="280" y1="10" x2="280" y2="205" stroke="#E9EAE6"/>
+        <line x1="520" y1="10" x2="520" y2="205" stroke="#E9EAE6"/>
+        <line x1="400" y1="10" x2="400" y2="205" stroke="#131A1E"/>
+        <g transform="translate(0,14)"><text x="270" y="13" text-anchor="end">Customer support, produttività media</text><rect x="400" y="2" width="33.6" height="14" fill="#24506B"/><text x="440" y="13">+14%</text></g>
+        <g transform="translate(0,40)"><text x="270" y="13" text-anchor="end">Customer support, lavoratori meno esperti</text><rect x="400" y="2" width="81.6" height="14" fill="#24506B"/><text x="488" y="13">+34%</text></g>
+        <g transform="translate(0,66)"><text x="270" y="13" text-anchor="end">Scrittura professionale, tempo impiegato</text><rect x="304" y="2" width="96" height="14" fill="#8D98A3"/><text x="395" y="13" text-anchor="end" fill="#fff">−40%</text></g>
+        <g transform="translate(0,92)"><text x="270" y="13" text-anchor="end">Scrittura professionale, qualità valutata</text><rect x="400" y="2" width="43.2" height="14" fill="#24506B"/><text x="449" y="13">+18%</text></g>
+        <g transform="translate(0,118)"><text x="270" y="13" text-anchor="end">Programmazione, velocità su un task standard</text><rect x="400" y="2" width="133.9" height="14" fill="#24506B"/><text x="540" y="13">+55,8%</text></g>
+        <g transform="translate(0,144)"><text x="270" y="13" text-anchor="end">Sviluppatori esperti su codice proprio, tempo</text><rect x="400" y="2" width="45.6" height="14" fill="#B0413E"/><text x="452" y="13">+19% (più lenti)</text></g>
+        <g transform="translate(0,170)"><text x="270" y="13" text-anchor="end">Iniziative AI che hanno reso il ROI atteso (CEO)</text><rect x="400" y="2" width="60" height="14" fill="#E8B400"/><text x="466" y="13">25% delle iniziative</text></g>
+      </g>
+      <g font-size="9" fill="#4A545C">
+        <text x="400" y="222" text-anchor="middle">0</text>
+        <text x="280" y="222" text-anchor="middle">−50%</text>
+        <text x="520" y="222" text-anchor="middle">+50%</text>
+        <text x="20" y="242">Fonti: B1 Brynjolfsson et al. 2023/2025 · B2 Noy &amp; Zhang 2023 · B3 Peng et al. 2023 · B4 METR 2025 · B5 IBM IBV 2025 (§26)</text>
+      </g>
+    </svg>
+    <figcaption>Le barre non sono confrontabili tra loro: misurano grandezze diverse (produttività, tempo, qualità, velocità) in contesti diversi. Il messaggio è duplice: l'effetto è reale e più forte per chi ha meno esperienza; può essere nullo o negativo quando il compito è complesso e la persona è esperta, come è il caso dei progettisti AMI. Per questo il modello economico (§17) usa percentuali di risparmio molto inferiori a quelle degli studi.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th style="width:18%">Dato</th><th style="width:22%">Fonte, anno</th><th style="width:14%">Settore, campione</th><th style="width:20%">Cosa misura</th><th>Limiti per AMI</th></tr></thead>
+    <tbody>
+      <tr><td>+14% problemi risolti per ora; +34% per i meno esperti; effetto minimo sugli esperti</td><td>Brynjolfsson, Li, Raymond, "Generative AI at Work", NBER WP 31161, 2023 (QJE 2025) — B1</td><td>Customer support software, 5.179 agenti</td><td>Produttività sul campo con assistente AI, studio controllato</td><td>Non è progettazione; il beneficio si concentra sui meno esperti</td></tr>
+      <tr><td>Tempo −40%, qualità +18%</td><td>Noy &amp; Zhang, Science, 2023 — B2</td><td>453 professionisti laureati</td><td>Task di scrittura di 20–30 minuti con ChatGPT, esperimento pre-registrato</td><td>Task brevi di scrittura: pertinente solo per documentazione (§14)</td></tr>
+      <tr><td>Task completato 55,8% più velocemente</td><td>Peng et al., arXiv 2302.06590, 2023 — B3</td><td>95 sviluppatori, un task standard</td><td>Velocità con GitHub Copilot</td><td>Un solo task; studio del venditore dello strumento</td></tr>
+      <tr><td>Sviluppatori esperti 19% più lenti con AI; credevano di essere più veloci del 20%</td><td>METR, luglio 2025 — B4</td><td>16 sviluppatori open source, 246 task reali</td><td>Tempo di completamento con e senza strumenti AI, studio randomizzato</td><td>Campione piccolo, ma è il caso più vicino a "esperto su codice proprio": avvertimento diretto per AMI</td></tr>
+      <tr><td>Solo 25% delle iniziative AI ha reso il ROI atteso; 16% scalate</td><td>IBM Institute for Business Value, CEO Study, maggio 2025 — B5</td><td>2.000 CEO, 33 paesi</td><td>Percezione dei CEO sul ritorno degli investimenti AI</td><td>Autodichiarato; spiega perché il PoC viene prima dell'investimento</td></tr>
+      <tr><td>15% dichiara ROI significativo e misurabile; payback tipico 2–4 anni; 6% sotto 1 anno</td><td>Deloitte, "AI ROI: the paradox…", ottobre 2025 — B6</td><td>1.854 dirigenti, Europa e Medio Oriente</td><td>Percezione del ritorno su AI generativa</td><td>Percezione, non misura contabile; conferma l'importanza di un perimetro piccolo e misurabile</td></tr>
+      <tr><td>32% del tempo degli ingegneri in attività senza valore aggiunto; di questo, 23% ricerca informazioni e 12% ricrea dati non trovati; 20% del tempo su informazioni obsolete</td><td>Tech-Clarity, "Reducing Non-Value Added Work in Engineering", 2014 — B7</td><td>248 aziende manifatturiere</td><td>Autovalutazione della ripartizione del tempo degli ingegneri</td><td>2014, finanziato da un fornitore PLM; il 23% è quota del 32%, cioè circa il 7% del tempo totale</td></tr>
+      <tr><td>96% dichiara costi significativi da perdite di produttività ingegneristica</td><td>Tech-Clarity, "Engineering Time Wasters", 2022 — B8</td><td>228 aziende manifatturiere</td><td>Percezione del problema</td><td>Rapporto completo dietro registrazione</td></tr>
+      <tr><td>15–35% del tempo dei lavoratori della conoscenza a cercare informazioni; successo nella ricerca non oltre il 50%</td><td>IDC (Feldman), in KMWorld, 2004 — B9</td><td>Lavoratori della conoscenza, USA</td><td>Stima del tempo di ricerca</td><td>Dati 1999–2003, metodologia non esposta; da usare solo come intervallo ampio</td></tr>
+      <tr><td>30–40% dei codici articolo sono duplicati; costo di gestione di un nuovo codice 4.500–23.000 $/anno</td><td>Aberdeen Group, citato da Digital Engineering, 2017 — B10</td><td>Manifattura discreta</td><td>Duplicazione di parti e costo di un codice</td><td>Rapporto originale non reperito: solo citazione di stampa</td></tr>
+      <tr><td>Aziende migliori 2,8× più puntuali e 3,1× più nel budget nelle modifiche tecniche</td><td>Aberdeen Group, "Engineering Change Management 2.0", 2007 — B11</td><td>Oltre 100 aziende</td><td>Gestione delle modifiche (ECM)</td><td>2007; rapporti relativi, non costi assoluti</td></tr>
+      <tr><td>Le modifiche tecniche pesano circa 13% del valore in sviluppo e 5,5% in produzione</td><td>Miller, AFIT, 2022 — B12</td><td>2.434 contratti difesa USA</td><td>Costo delle Engineering Change Order</td><td>Settore difesa: ordine di grandezza, non trasferibile</td></tr>
+      <tr><td>92% delle organizzazioni non cattura sistematicamente la conoscenza di chi va in pensione; 85% dei vertici la considera una minaccia</td><td>Deloitte Insights, "The $9 trillion knowledge exodus", giugno 2026 — B13</td><td>Organizzazioni USA, campione non dichiarato</td><td>Perdita di conoscenza tacita</td><td>Campione non descritto; contesto USA</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="page break">
+  <figure>
+    <div class="fh"><div class="ft">Figura 5 · Come si ripartisce il tempo degli ingegneri secondo Tech-Clarity (2014)</div><span class="tag bench">Benchmark esterno</span></div>
+    <svg viewBox="0 0 720 152" xmlns="http://www.w3.org/2000/svg">
+      <!-- 700px = 100% → 7px per % -->
+      <g font-size="10">
+        <rect x="10" y="20" width="476" height="40" fill="#DCDED8"/><text x="248" y="45" text-anchor="middle" fill="#131A1E">Lavoro a valore aggiunto · 68%</text>
+        <rect x="486" y="20" width="52" height="40" fill="#0F1A1F"/><text x="512" y="45" text-anchor="middle" fill="#E9EAE6" font-size="9">7,4%</text>
+        <rect x="538" y="20" width="27" height="40" fill="#24506B"/><text x="551" y="45" text-anchor="middle" fill="#E9EAE6" font-size="9">3,8</text>
+        <rect x="565" y="20" width="40" height="40" fill="#5E7A8F"/><text x="585" y="45" text-anchor="middle" fill="#E9EAE6" font-size="9">5,8%</text>
+        <rect x="605" y="20" width="36" height="40" fill="#8D98A3"/><text x="623" y="45" text-anchor="middle" fill="#131A1E" font-size="9">5,1%</text>
+        <rect x="641" y="20" width="69" height="40" fill="#C9CCC6"/><text x="675" y="45" text-anchor="middle" fill="#131A1E" font-size="9">9,9%</text>
+      </g>
+      <g font-size="9" fill="#4A545C">
+        <rect x="486" y="76" width="9" height="9" fill="#0F1A1F"/><text x="499" y="84">Cercare informazioni</text>
+        <rect x="486" y="92" width="9" height="9" fill="#24506B"/><text x="499" y="100">Ricreare dati non trovati</text>
+        <rect x="486" y="108" width="9" height="9" fill="#5E7A8F"/><text x="499" y="116">Raccogliere dati per altri</text>
+        <rect x="610" y="76" width="9" height="9" fill="#8D98A3"/><text x="623" y="84">Check-in/out file</text>
+        <rect x="610" y="92" width="9" height="9" fill="#C9CCC6"/><text x="623" y="100">Altro senza valore</text>
+        <text x="10" y="130">Il 32% senza valore aggiunto è scomposto secondo le quote del rapporto (23% / 12% / 18% / 16% / 31%).</text>
+        <text x="10" y="145">Cercare e ricreare informazioni valgono insieme circa l'11% del tempo totale: è l'area che il sistema aggredisce direttamente.</text>
+      </g>
+    </svg>
+    <figcaption>Fonte B7. Autovalutazione di 248 aziende manifatturiere, 2014, studio finanziato da un fornitore PLM: il valore è indicativo. Applicato all'ipotesi di 9.600 h/anno dell'ufficio tecnico AMI, l'11% corrisponde a circa 1.050 ore: lo stesso ordine di grandezza dello scenario conservativo del §17.</figcaption>
+  </figure>
+
+  <div class="callout warn">
+    <div class="t">Numeri che circolano e che questo documento non usa</div>
+    <ul style="margin-bottom:0">
+      <li><strong>"2,5 ore al giorno a cercare informazioni" (IDC, 2001).</strong> Dichiarata dall'autrice stessa come stima generica; la versione del 2004 parla di un intervallo 15–35%.</li>
+      <li><strong>"19% della settimana a cercare informazioni" (McKinsey, 2012) e "2,6–4,4 trilioni di dollari" (McKinsey, 2023).</strong> Studi reali, ma le pagine originali non sono risultate raggiungibili durante la stesura: non riportati come verificati.</li>
+      <li><strong>"Le aziende faro aumentano la produttività del 40–50%" (WEF Lighthouse).</strong> Non verificato; riguarda grandi gruppi con investimenti non comparabili.</li>
+      <li><strong>"Le modifiche dopo il rilascio costano il 75% in più", "risparmio del 60% sulle traduzioni", "ROI del 345%".</strong> Materiale commerciale di fornitori o studi commissionati: esclusi.</li>
+      <li><strong>"+25% di velocità per i consulenti BCG con GPT-4" (Harvard, 2023).</strong> Studio noto e serio, ma la pagina non è risultata accessibile durante la stesura; citato solo come riferimento.</li>
+    </ul>
+  </div>
+
+  <h3>Cosa se ne ricava per AMI</h3>
+  <ol>
+    <li><strong>L'effetto esiste ed è misurabile,</strong> ma varia da +50% a −19% a seconda del compito e dell'esperienza. Le medie di settore non predicono il caso AMI: solo una misura interna lo fa.</li>
+    <li><strong>Il beneficio maggiore è per chi ha meno esperienza.</strong> Per AMI significa: inserimento più rapido di nuovi tecnici e minore dipendenza dai senior per le domande di ricerca, non "i senior lavorano più veloci".</li>
+    <li><strong>Il tempo di ricerca e ricostruzione delle informazioni è un'area reale,</strong> stimata attorno al 10% del tempo degli ingegneri nelle fonti disponibili. È la base dello scenario conservativo.</li>
+    <li><strong>La maggior parte dei progetti AI non rende quanto atteso.</strong> Le cause ricorrenti sono perimetro troppo ampio, dati non pronti, assenza di misura. Il PoC è disegnato contro queste tre cause.</li>
+  </ol>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte III · Quanto</div>
+    <h2><span class="n">17</span>Modello ROI per AMI: ipotesi e scenari</h2>
+  </div>
+  <p class="lead">Il modello stima le ore che il sistema può restituire all'ufficio tecnico in tre scenari e le traduce in valore economico con un costo orario esplicito. Ogni ipotesi è dichiarata e va sostituita con le misure del PoC. Il risultato è un ordine di grandezza, non una previsione.</p>
+
+  <h3>Ipotesi di base</h3>
+  <table>
+    <thead><tr><th style="width:30%">Ipotesi</th><th style="width:16%">Valore</th><th>Fondamento</th></tr></thead>
+    <tbody>
+      <tr><td>Persone equivalenti nell'ufficio tecnico</td><td class="num">6</td><td><span class="tag hyp">Ipotesi</span> Progettazione meccanica, software PLC/HMI, documentazione. Da confermare con AMI.</td></tr>
+      <tr><td>Ore lavorate per persona e anno</td><td class="num">1.600</td><td><span class="tag bench">Benchmark</span> Tabelle ministeriali costo del lavoro metalmeccanici, D.D. 103/2025 (fonte C2)</td></tr>
+      <tr><td>Costo orario pieno di riferimento</td><td class="num">35 €/h</td><td><span class="tag hyp">Ipotesi</span> Tra i 31–35 €/h dei livelli B2–A1 delle tabelle CCNL (minimi più oneri, senza superminimi), i 32,8 €/h medi della manifattura italiana (Eurostat 2025, fonte C1) e i 34–36 k€ di RAL mediana per progettisti e programmatori PLC (Indeed 2026, fonte C3, ×1,4–1,5 per il costo aziendale). Sensibilità a 30 e 40 €/h in tabella.</td></tr>
+      <tr><td>Ore annue nelle attività interessate</td><td class="num">6.900</td><td><span class="tag hyp">Ipotesi</span> Ripartizione di Figura 2, circa il 72% della capacità.</td></tr>
+      <tr><td>Percentuali di risparmio per area</td><td>vedi tabella</td><td><span class="tag hyp">Ipotesi</span> Volutamente inferiori ai benchmark (§16): scenario conservativo tra 10% e 30% per area.</td></tr>
+      <tr><td>Costi ricorrenti del sistema</td><td class="num">5.000 €/anno</td><td><span class="tag hyp">Ipotesi</span> Consumo API del modello, hosting su VM esistente, aggiornamenti minori. Da misurare nel PoC.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Ore recuperabili per area e scenario</h3>
+  <table>
+    <thead><tr><th style="width:30%">Area</th><th class="num">Ore/anno oggi</th><th class="num">Conservativo</th><th class="num">Base</th><th class="num">Alto</th><th style="width:18%">Natura del beneficio</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Ricerca informazioni su progetti storici</td><td class="num">1.200</td><td class="num">20% · 240</td><td class="num">35% · 420</td><td class="num">50% · 600</td><td>Capacità</td></tr>
+      <tr><td>2 · Offerte e analisi di fattibilità</td><td class="num">700</td><td class="num">15% · 105</td><td class="num">25% · 175</td><td class="num">40% · 280</td><td>Capacità, tempi di risposta</td></tr>
+      <tr><td>3 · Riuso e adattamento gruppi meccanici</td><td class="num">1.500</td><td class="num">10% · 150</td><td class="num">20% · 300</td><td class="num">30% · 450</td><td>Capacità, meno rework</td></tr>
+      <tr><td>4 · Calcoli e dimensionamenti</td><td class="num">300</td><td class="num">10% · 30</td><td class="num">20% · 60</td><td class="num">30% · 90</td><td>Capacità, tracciabilità</td></tr>
+      <tr><td>5 · Software PLC e HMI</td><td class="num">900</td><td class="num">10% · 90</td><td class="num">20% · 180</td><td class="num">30% · 270</td><td>Capacità</td></tr>
+      <tr><td>6 · Documentazione tecnica</td><td class="num">800</td><td class="num">25% · 200</td><td class="num">40% · 320</td><td class="num">55% · 440</td><td>Capacità</td></tr>
+      <tr><td>7 · Traduzioni tecniche</td><td class="num">200</td><td class="num">30% · 60</td><td class="num">50% · 100</td><td class="num">60% · 120</td><td>Risparmio di cassa se esterne</td></tr>
+      <tr><td>8 · Gestione modifiche (ECN)</td><td class="num">400</td><td class="num">15% · 60</td><td class="num">25% · 100</td><td class="num">35% · 140</td><td>Capacità, errori evitati</td></tr>
+      <tr><td>9 · Service e ricambi</td><td class="num">500</td><td class="num">15% · 75</td><td class="num">25% · 125</td><td class="num">40% · 200</td><td>Capacità, tempi di risposta</td></tr>
+      <tr><td>10 · Affiancamento e trasferimento conoscenza</td><td class="num">400</td><td class="num">10% · 40</td><td class="num">20% · 80</td><td class="num">30% · 120</td><td>Capacità, rischio ridotto</td></tr>
+      <tr class="total"><td>Totale ore recuperate</td><td class="num">6.900</td><td class="num">1.050</td><td class="num">1.860</td><td class="num">2.710</td><td></td></tr>
+      <tr class="total"><td>Quota della capacità dell'ufficio tecnico</td><td></td><td class="num">10,9%</td><td class="num">19,4%</td><td class="num">28,2%</td><td></td></tr>
+      <tr class="total"><td>Valore lordo a 35 €/h</td><td></td><td class="num">36.750 €</td><td class="num">65.100 €</td><td class="num">94.850 €</td><td></td></tr>
+      <tr><td>Sensibilità: a 30 €/h · a 40 €/h</td><td></td><td class="num">31.500 · 42.000</td><td class="num">55.800 · 74.400</td><td class="num">81.300 · 108.400</td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="note"><span class="tag scen">Scenario</span> Tutte le righe derivano da ipotesi. Lo scenario conservativo coincide, per ordine di grandezza, con la quota di tempo di ricerca e ricostruzione delle fonti esterne (Figura 5). Lo scenario alto presuppone un archivio ben catalogato e un uso quotidiano da parte di tutto l'ufficio tecnico: non va usato per decidere l'investimento.</p>
+</div>
+
+<div class="page break">
+  <div class="grid2" style="grid-template-columns: 1.25fr 1fr">
+    <figure style="margin-top:0">
+      <div class="fh"><div class="ft">Figura 6 · Ore recuperate per scenario, per area</div><span class="tag scen">Scenario</span></div>
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- scale: 0.09 px per hour; base y=250 -->
+        <g font-size="9.5" fill="#4A545C">
+          <line x1="50" y1="10" x2="50" y2="250" stroke="#131A1E"/><line x1="50" y1="250" x2="390" y2="250" stroke="#131A1E"/>
+          <text x="44" y="254" text-anchor="end">0</text>
+          <text x="44" y="209" text-anchor="end">500</text><line x1="46" y1="205" x2="50" y2="205" stroke="#131A1E"/>
+          <text x="44" y="164" text-anchor="end">1.000</text><line x1="46" y1="160" x2="50" y2="160" stroke="#131A1E"/>
+          <text x="44" y="119" text-anchor="end">1.500</text><line x1="46" y1="115" x2="50" y2="115" stroke="#131A1E"/>
+          <text x="44" y="74" text-anchor="end">2.000</text><line x1="46" y1="70" x2="50" y2="70" stroke="#131A1E"/>
+          <text x="44" y="29" text-anchor="end">2.500</text><line x1="46" y1="25" x2="50" y2="25" stroke="#131A1E"/>
+        </g>
+        <!-- Conservativo: ricerca 240, offerte 105, riuso 150, plc 90, doc 200, altri 265 (30+60+60+75+40) = 1050 -->
+        <g>
+          <rect x="80" y="228.4" width="60" height="21.6" fill="#0F1A1F"/>
+          <rect x="80" y="219" width="60" height="9.4" fill="#24506B"/>
+          <rect x="80" y="205.5" width="60" height="13.5" fill="#5E7A8F"/>
+          <rect x="80" y="197.4" width="60" height="8.1" fill="#8D98A3"/>
+          <rect x="80" y="179.4" width="60" height="18" fill="#E8B400"/>
+          <rect x="80" y="155.5" width="60" height="23.9" fill="#C9CCC6"/>
+          <text x="110" y="150" text-anchor="middle" font-size="10" font-weight="600" fill="#0F1A1F">1.050 h</text>
+          <text x="110" y="266" text-anchor="middle" font-size="10" fill="#131A1E">Conservativo</text>
+        </g>
+        <!-- Base: 420,175,300,180,320, altri 465 (60+100+100+125+80) = 1860 -->
+        <g>
+          <rect x="190" y="212.2" width="60" height="37.8" fill="#0F1A1F"/>
+          <rect x="190" y="196.45" width="60" height="15.75" fill="#24506B"/>
+          <rect x="190" y="169.45" width="60" height="27" fill="#5E7A8F"/>
+          <rect x="190" y="153.25" width="60" height="16.2" fill="#8D98A3"/>
+          <rect x="190" y="124.45" width="60" height="28.8" fill="#E8B400"/>
+          <rect x="190" y="82.6" width="60" height="41.85" fill="#C9CCC6"/>
+          <text x="220" y="77" text-anchor="middle" font-size="10" font-weight="600" fill="#0F1A1F">1.860 h</text>
+          <text x="220" y="266" text-anchor="middle" font-size="10" fill="#131A1E">Base</text>
+        </g>
+        <!-- Alto: 600,280,450,270,440, altri 670 (90+120+140+200+120) = 2710 -->
+        <g>
+          <rect x="300" y="196" width="60" height="54" fill="#0F1A1F"/>
+          <rect x="300" y="170.8" width="60" height="25.2" fill="#24506B"/>
+          <rect x="300" y="130.3" width="60" height="40.5" fill="#5E7A8F"/>
+          <rect x="300" y="106" width="60" height="24.3" fill="#8D98A3"/>
+          <rect x="300" y="66.4" width="60" height="39.6" fill="#E8B400"/>
+          <rect x="300" y="6.1" width="60" height="60.3" fill="#C9CCC6"/>
+          <text x="330" y="40" text-anchor="middle" font-size="10" font-weight="600" fill="#0F1A1F">2.710 h</text>
+          <text x="330" y="266" text-anchor="middle" font-size="10" fill="#131A1E">Alto</text>
+        </g>
+        <g font-size="8.5" fill="#4A545C">
+          <rect x="60" y="280" width="8" height="8" fill="#0F1A1F"/><text x="71" y="287">Ricerca</text>
+          <rect x="112" y="280" width="8" height="8" fill="#24506B"/><text x="123" y="287">Offerte</text>
+          <rect x="164" y="280" width="8" height="8" fill="#5E7A8F"/><text x="175" y="287">Riuso mecc.</text>
+          <rect x="236" y="280" width="8" height="8" fill="#8D98A3"/><text x="247" y="287">PLC</text>
+          <rect x="272" y="280" width="8" height="8" fill="#E8B400"/><text x="283" y="287">Documentaz.</text>
+          <rect x="344" y="280" width="8" height="8" fill="#C9CCC6"/><text x="355" y="287">Altre</text>
+        </g>
+      </svg>
+      <figcaption>Ore/anno per scenario, dalla tabella del §17. "Altre" raggruppa calcoli, traduzioni, modifiche, service e affiancamento.</figcaption>
+    </figure>
+    <figure style="margin-top:0">
+      <div class="fh"><div class="ft">Figura 7 · Natura del beneficio, scenario base</div><span class="tag scen">Scenario</span></div>
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- donut: capacity 1760/1860 = 94.6% ; cash 100/1860 = 5.4% -->
+        <circle cx="150" cy="130" r="80" fill="none" stroke="#24506B" stroke-width="34"/>
+        <circle cx="150" cy="130" r="80" fill="none" stroke="#E8B400" stroke-width="34" stroke-dasharray="27.1 475.5" transform="rotate(-90 150 130)"/>
+        <text x="150" y="124" text-anchor="middle" font-size="22" font-weight="700" fill="#0F1A1F">94,6%</text>
+        <text x="150" y="142" text-anchor="middle" font-size="9.5" fill="#4A545C">capacità liberata</text>
+        <g font-size="9.5" fill="#131A1E">
+          <rect x="30" y="240" width="10" height="10" fill="#24506B"/><text x="45" y="249">Capacità liberata: 1.760 h (resta in AMI)</text>
+          <rect x="30" y="262" width="10" height="10" fill="#E8B400"/><text x="45" y="271">Risparmio di cassa: ~100 h di traduzioni esterne</text>
+        </g>
+      </svg>
+      <figcaption>Quasi tutto il beneficio è capacità, non riduzione di costi. Diventa denaro solo se AMI la usa: più offerte, consegne più puntuali, meno straordinari, meno assunzioni rinviate. Il risparmio di cassa diretto è piccolo e da misurare.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Capacità liberata e risparmio di costo: perché la distinzione conta</h3>
+  <p>Un'ora recuperata non è un euro risparmiato. Se l'ufficio tecnico ha sei persone prima e dopo, il costo del personale non cambia. Ciò che cambia è quanto lavoro passa attraverso quelle sei persone. Il valore economico si realizza in tre modi, tutti da verificare con AMI: <strong>più commesse gestite</strong> con lo stesso organico (con un fatturato in crescita da 4,1 a 8,1 M€ in quattro anni, è l'ipotesi più realistica), <strong>meno ritardi e rework</strong> che oggi costano ore di officina e collaudo, e <strong>meno rischio</strong> di perdita di conoscenza, che non ha un prezzo finché non si manifesta. Il risparmio di cassa diretto (traduzioni e servizi esterni, eventuale rework evitato) va misurato: in questo documento vale "Da misurare durante PoC".</p>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte III · Quanto</div>
+    <h2><span class="n">18</span>Costi del progetto e tempi di ritorno</h2>
+  </div>
+  <p class="lead">Stime preliminari per fase, con intervalli ampi perché il perimetro effettivo dipende da ciò che il PoC rivela sull'archivio. Nessun importo è un'offerta.</p>
+  <table>
+    <thead><tr><th style="width:16%">Fase</th><th style="width:16%">Stima</th><th style="width:14%">Durata</th><th>Contenuto</th><th style="width:22%">Cosa determina il costo</th></tr></thead>
+    <tbody>
+      <tr><td>Proof of Concept</td><td class="num">5–10 k€</td><td>4–8 settimane</td><td>Indice su 5–10 progetti; ricerca, confronto e libreria moduli in versione essenziale; misura dei KPI; rapporto</td><td>Eterogeneità dei formati; disponibilità dell'ingegnere di riferimento</td></tr>
+      <tr><td>Produzione</td><td class="num">20–40 k€</td><td>3–5 mesi</td><td>Intero archivio; fattibilità, calcoli, documentazione; autenticazione, permessi, audit; formazione</td><td>Numero di commesse; qualità dei dati; integrazioni Inventor/Vault</td></tr>
+      <tr><td>Piattaforma</td><td class="num">40–100 k€</td><td>6–12 mesi</td><td>PLC Copilot in lettura, integrazione TIA Openness, traduzioni con glossario, connettori, eventuale modello on-premise</td><td>Profondità delle integrazioni; scelta cloud/on-premise; hardware GPU</td></tr>
+      <tr><td>Ricorrenti</td><td class="num">3–8 k€/anno</td><td>continuativo</td><td>Consumo API, hosting, aggiornamenti minori, supporto</td><td>Volume d'uso; modello scelto</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><span class="tag hyp">Ipotesi</span> Gli importi sono stime preliminari di B.Studio Design basate su progetti comparabili, da confermare con un'offerta dopo il PoC. Il tempo interno di AMI (validazione, interviste, catalogazione) non è incluso e va considerato: stimato in 40–80 ore per il PoC e 150–300 ore per la produzione.</p>
+
+  <div class="grid2" style="grid-template-columns: 1fr 1.3fr">
+    <figure style="margin-top:0">
+      <div class="fh"><div class="ft">Figura 8 · Investimento cumulato per fase (k€)</div><span class="tag hyp">Ipotesi</span></div>
+      <svg viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+        <!-- scale: 1.2px per k€; base y=210 -->
+        <g font-size="9" fill="#4A545C">
+          <line x1="40" y1="10" x2="40" y2="210" stroke="#131A1E"/><line x1="40" y1="210" x2="290" y2="210" stroke="#131A1E"/>
+          <text x="34" y="214" text-anchor="end">0</text>
+          <text x="34" y="154" text-anchor="end">50</text><line x1="36" y1="150" x2="40" y2="150" stroke="#131A1E"/>
+          <text x="34" y="94" text-anchor="end">100</text><line x1="36" y1="90" x2="40" y2="90" stroke="#131A1E"/>
+          <text x="34" y="34" text-anchor="end">150</text><line x1="36" y1="30" x2="40" y2="30" stroke="#131A1E"/>
+        </g>
+        <!-- PoC: min 5 max 10 -->
+        <rect x="60" y="204" width="50" height="6" fill="#0F1A1F"/><rect x="60" y="198" width="50" height="6" fill="#0F1A1F" opacity=".35"/>
+        <text x="85" y="192" text-anchor="middle" font-size="9" fill="#131A1E">5–10</text><text x="85" y="226" text-anchor="middle" font-size="9">PoC</text>
+        <!-- +Produzione: min 25 max 50 -->
+        <rect x="135" y="180" width="50" height="30" fill="#24506B"/><rect x="135" y="150" width="50" height="30" fill="#24506B" opacity=".35"/>
+        <text x="160" y="144" text-anchor="middle" font-size="9" fill="#131A1E">25–50</text><text x="160" y="226" text-anchor="middle" font-size="9">+ Produzione</text>
+        <!-- +Piattaforma: min 65 max 150 -->
+        <rect x="210" y="132" width="50" height="78" fill="#5E7A8F"/><rect x="210" y="30" width="50" height="102" fill="#5E7A8F" opacity=".35"/>
+        <text x="235" y="24" text-anchor="middle" font-size="9" fill="#131A1E">65–150</text><text x="235" y="226" text-anchor="middle" font-size="9">+ Piattaforma</text>
+        <text x="40" y="244" font-size="8.5" fill="#4A545C">Pieno: minimo dell'intervallo · Chiaro: fino al massimo</text>
+      </svg>
+      <figcaption>Ogni fase è una decisione separata: la spesa cumulata massima si raggiunge solo se ogni fase precedente ha dimostrato valore misurato.</figcaption>
+    </figure>
+    <figure style="margin-top:0">
+      <div class="fh"><div class="ft">Figura 9 · Tempo di ritorno in funzione delle ore recuperate (35 €/h, ricorrenti 5 k€/anno)</div><span class="tag scen">Scenario</span></div>
+      <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+        <!-- x: hours 500..2500 → x = 50 + (h-500)*0.16 (500→50, 2500→370); y: months 0..60 → y = 200 - m*3 -->
+        <g font-size="9" fill="#4A545C">
+          <line x1="50" y1="10" x2="50" y2="200" stroke="#131A1E"/><line x1="50" y1="200" x2="380" y2="200" stroke="#131A1E"/>
+          <text x="44" y="204" text-anchor="end">0</text>
+          <text x="44" y="168" text-anchor="end">12</text><line x1="50" y1="164" x2="380" y2="164" stroke="#E9EAE6"/>
+          <text x="44" y="132" text-anchor="end">24</text><line x1="50" y1="128" x2="380" y2="128" stroke="#E9EAE6"/>
+          <text x="44" y="96" text-anchor="end">36</text><line x1="50" y1="92" x2="380" y2="92" stroke="#E9EAE6"/>
+          <text x="44" y="60" text-anchor="end">48</text><line x1="50" y1="56" x2="380" y2="56" stroke="#E9EAE6"/>
+          <text x="44" y="24" text-anchor="end">60</text>
+          <text x="50" y="214" text-anchor="middle">500</text><text x="130" y="214" text-anchor="middle">1.000</text><text x="210" y="214" text-anchor="middle">1.500</text><text x="290" y="214" text-anchor="middle">2.000</text><text x="370" y="214" text-anchor="middle">2.500</text>
+          <text x="215" y="230" text-anchor="middle">ore recuperate per anno</text>
+          <text x="14" y="110" transform="rotate(-90 14 110)" text-anchor="middle">mesi</text>
+        </g>
+        <!-- 30k: 500→28.8, 1000→12, 1500→7.6, 2000→5.5, 2500→4.4 -->
+        <polyline points="50,113.6 130,164 210,177.2 290,183.5 370,186.8" fill="none" stroke="#0F1A1F" stroke-width="2"/>
+        <!-- 60k: 57.6, 24, 15.2, 11.1, 8.7 -->
+        <polyline points="50,27.2 130,128 210,154.4 290,166.7 370,173.9" fill="none" stroke="#24506B" stroke-width="2"/>
+        <!-- 100k: 96 (clip at 60→ off chart), 40, 25.3, 18.5, 14.5 -->
+        <polyline points="83,10 130,80 210,124.1 290,144.5 370,156.5" fill="none" stroke="#8D98A3" stroke-width="2" stroke-dasharray="5 3"/>
+        <!-- scenario markers -->
+        <line x1="138" y1="10" x2="138" y2="200" stroke="#E8B400" stroke-dasharray="3 3"/><text x="141" y="18" font-size="8.5" fill="#7A5A00">Conservativo 1.050 h</text>
+        <line x1="267.6" y1="10" x2="267.6" y2="200" stroke="#E8B400" stroke-dasharray="3 3"/><text x="270" y="18" font-size="8.5" fill="#7A5A00">Base 1.860 h</text>
+        <g font-size="9" fill="#131A1E">
+          <line x1="230" y1="40" x2="250" y2="40" stroke="#0F1A1F" stroke-width="2"/><text x="254" y="43">30 k€</text>
+          <line x1="290" y1="40" x2="310" y2="40" stroke="#24506B" stroke-width="2"/><text x="314" y="43">60 k€</text>
+          <line x1="230" y1="54" x2="250" y2="54" stroke="#8D98A3" stroke-width="2" stroke-dasharray="5 3"/><text x="254" y="57">100 k€</text>
+        </g>
+      </svg>
+      <figcaption>Payback = investimento / (ore × 35 € − 5.000 €) × 12. Curve per tre livelli di investimento cumulato. Sotto le 700 ore l'investimento da 100 k€ non rientra in tre anni: è la ragione per cui la fase piattaforma si decide solo dopo la produzione.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Se il sistema recuperasse…</h3>
+  <table>
+    <thead><tr><th>Ore/anno recuperate</th><th class="num">Valore lordo (35 €/h)</th><th class="num">Valore netto (−5 k€ ricorrenti)</th><th class="num">Payback con 30 k€</th><th class="num">Payback con 60 k€</th><th class="num">Payback con 100 k€</th></tr></thead>
+    <tbody>
+      <tr><td>500 h (circa 3% della capacità)</td><td class="num">17.500 €</td><td class="num">12.500 €</td><td class="num">29 mesi</td><td class="num">58 mesi</td><td class="num">96 mesi</td></tr>
+      <tr><td>1.000 h (vicino allo scenario conservativo)</td><td class="num">35.000 €</td><td class="num">30.000 €</td><td class="num">12 mesi</td><td class="num">24 mesi</td><td class="num">40 mesi</td></tr>
+      <tr><td>1.500 h</td><td class="num">52.500 €</td><td class="num">47.500 €</td><td class="num">8 mesi</td><td class="num">15 mesi</td><td class="num">25 mesi</td></tr>
+      <tr><td>2.000 h (vicino allo scenario base)</td><td class="num">70.000 €</td><td class="num">65.000 €</td><td class="num">6 mesi</td><td class="num">11 mesi</td><td class="num">18 mesi</td></tr>
+      <tr><td>2.500 h (vicino allo scenario alto)</td><td class="num">87.500 €</td><td class="num">82.500 €</td><td class="num">4 mesi</td><td class="num">9 mesi</td><td class="num">15 mesi</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><span class="tag scen">Scenario</span> Il "valore" è capacità liberata valorizzata al costo orario, non cassa (§17). La lettura corretta è: "con 30 k€ il progetto si ripaga in un anno se recupera almeno 1.000 ore, cioè circa il 10% del tempo dell'ufficio tecnico". Il PoC serve a stabilire se quel 10% è realistico per AMI.</p>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte III · Quanto</div>
+    <h2><span class="n">19</span>Confronto con l'assunzione di personale</h2>
+  </div>
+  <p class="lead">Il confronto più onesto non è "sistema contro ingegnere", perché il sistema non progetta. È "come aumentare la capacità dell'ufficio tecnico": assumendo, con il sistema, o con entrambi.</p>
+  <table>
+    <thead><tr><th style="width:24%">Criterio</th><th>Assunzione di un progettista</th><th>Sistema proposto (scenario base)</th></tr></thead>
+    <tbody>
+      <tr><td>Capacità aggiunta</td><td>Circa 1.600 h/anno di una persona, dopo l'inserimento</td><td>Circa 1.860 h/anno distribuite su tutto l'ufficio, senza nuove persone da coordinare <span class="tag scen">Scenario</span></td></tr>
+      <tr><td>Costo annuo</td><td>Ordine di 50–60 k€ di costo aziendale per un profilo esperto (tabelle CCNL livello B3: 55 k€ ai minimi; RAL mediane 34–36 k€ ×1,4–1,5) <span class="tag bench">Benchmark</span></td><td>3–8 k€ ricorrenti dopo un investimento iniziale di 25–50 k€ (PoC + produzione) <span class="tag hyp">Ipotesi</span></td></tr>
+      <tr><td>Tempo per essere produttivo</td><td>6–12 mesi di inserimento, durante i quali assorbe tempo dei senior</td><td>2–3 mesi dal PoC ai primi usi quotidiani; i benefici crescono con la catalogazione</td></tr>
+      <tr><td>Cosa porta che l'altro non porta</td><td>Giudizio, creatività, responsabilità, capacità di progettare cose nuove</td><td>Memoria completa e istantanea dell'archivio; nessuna dimenticanza; disponibile a chiunque</td></tr>
+      <tr><td>Rischio</td><td>Mercato del lavoro difficile per profili esperti; può andarsene portando via la conoscenza</td><td>Può non essere adottato; dipende dalla qualità dell'archivio; richiede disciplina di revisione</td></tr>
+      <tr><td>Effetto sulla conoscenza tacita</td><td>Ne aggiunge, ma la conoscenza resta nelle persone</td><td>La rende esplicita e la conserva, se il modulo di cattura viene usato</td></tr>
+    </tbody>
+  </table>
+  <div class="callout key">
+    <div class="t">Conclusione del confronto</div>
+    <p>Il sistema non sostituisce un'assunzione: chi progetta resta necessario e, con il fatturato in crescita, AMI potrebbe aver bisogno di entrambi. Il sistema rende però ogni assunzione più efficace: il nuovo assunto trova da solo ciò che oggi deve chiedere, e i senior dedicano il tempo di affiancamento alle decisioni invece che alla ricerca. È capacità, non sostituzione.</p>
+  </div>
+</div>
+
+<div class="page break">
+  <div class="section-head">
+    <div class="over">Parte III · Quanto</div>
+    <h2><span class="n">20</span>Business case: tabella di sintesi</h2>
+  </div>
+  <p>Sintesi delle grandezze economiche con la loro origine. Le voci "Da misurare durante PoC" non sono omissioni: sono i dati che oggi nessuno ha e che il PoC produce.</p>
+  <table>
+    <thead><tr><th style="width:30%">Voce</th><th class="num">Conservativo</th><th class="num">Base</th><th class="num">Alto</th><th style="width:30%">Origine</th></tr></thead>
+    <tbody>
+      <tr><td>Ore recuperate / anno</td><td class="num">1.050</td><td class="num">1.860</td><td class="num">2.710</td><td><span class="tag scen">Scenario</span> §17</td></tr>
+      <tr><td>Valore della capacità a 35 €/h</td><td class="num">36.750 €</td><td class="num">65.100 €</td><td class="num">94.850 €</td><td><span class="tag scen">Scenario</span> §17</td></tr>
+      <tr><td>Risparmio di cassa diretto (traduzioni, servizi esterni)</td><td colspan="3" style="text-align:center">Da misurare durante PoC</td><td>Dipende da cosa AMI acquista oggi all'esterno</td></tr>
+      <tr><td>Rework e ritardi evitati</td><td colspan="3" style="text-align:center">Da misurare durante PoC</td><td>Conteggio dei casi segnalati dal sistema (§24)</td></tr>
+      <tr><td>Investimento PoC</td><td colspan="3" style="text-align:center">5–10 k€</td><td><span class="tag hyp">Ipotesi</span> §18</td></tr>
+      <tr><td>Investimento produzione</td><td colspan="3" style="text-align:center">20–40 k€</td><td><span class="tag hyp">Ipotesi</span> §18</td></tr>
+      <tr><td>Investimento piattaforma (opzionale)</td><td colspan="3" style="text-align:center">40–100 k€</td><td><span class="tag hyp">Ipotesi</span> §18</td></tr>
+      <tr><td>Costi ricorrenti</td><td colspan="3" style="text-align:center">3–8 k€ / anno</td><td><span class="tag hyp">Ipotesi</span> §18</td></tr>
+      <tr><td>Tempo interno AMI (PoC + produzione)</td><td colspan="3" style="text-align:center">190–380 ore</td><td><span class="tag hyp">Ipotesi</span> §18</td></tr>
+      <tr><td>Payback su 30 k€ (PoC + produzione, fascia bassa)</td><td class="num">11 mesi</td><td class="num">6 mesi</td><td class="num">4 mesi</td><td><span class="tag scen">Scenario</span> §18</td></tr>
+      <tr><td>Payback su 60 k€ (PoC + produzione, fascia alta)</td><td class="num">23 mesi</td><td class="num">12 mesi</td><td class="num">8 mesi</td><td><span class="tag scen">Scenario</span> §18</td></tr>
+      <tr><td>Payback su 100 k€ (con piattaforma)</td><td class="num">38 mesi</td><td class="num">20 mesi</td><td class="num">13 mesi</td><td><span class="tag scen">Scenario</span> §18</td></tr>
+      <tr><td>Accuratezza top-3 della ricerca</td><td colspan="3" style="text-align:center">Da misurare durante PoC (soglia ≥ 80%)</td><td>§24</td></tr>
+      <tr><td>Time-to-information</td><td colspan="3" style="text-align:center">Da misurare durante PoC (soglia −50%)</td><td>§24</td></tr>
+      <tr><td>Contesto: fatturato e utile 2024</td><td colspan="3" style="text-align:center">8.109.246 € · 1.216.724 €</td><td><span class="tag ami">Dato AMI verificato</span> §2</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <div class="t">Lettura per la Direzione</div>
+    <p>Nello scenario conservativo il progetto vale, in capacità, l'equivalente di circa due terzi di una persona e si ripaga in un anno con un investimento nella fascia bassa. Nello scenario base vale più di una persona. In entrambi i casi il valore dipende dal fatto che AMI usi la capacità liberata: per questo il documento non promette un risparmio di costi, ma propone di misurare, in sei settimane e con meno di 10 k€, se le ipotesi reggono.</p>
+  </div>
+</div>

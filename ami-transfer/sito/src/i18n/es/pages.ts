@@ -66,7 +66,7 @@ export const pages: Pages = {
       "Constituida el 23 de marzo de 1978",
       "7.000 m² de fábrica y 600 m² de oficinas",
       "Más de 20 líneas dedicadas cada año",
-      "Facturación 2023: 7,46 millones de euros (cuentas depositadas)",
+      "Facturación 2024: 8,11 millones de euros (cuentas depositadas)",
       "Expositor en Tube Düsseldorf en 2022, 2024 y 2026",
     ],
     staff: "Plantilla:",

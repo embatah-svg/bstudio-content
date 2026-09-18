@@ -66,7 +66,7 @@ export const pages: Pages = {
       "Créée le 23 mars 1978",
       "7 000 m² d'usine et 600 m² de bureaux",
       "Plus de 20 lignes dédiées chaque année",
-      "Chiffre d'affaires 2023 : 7,46 millions d'euros (comptes déposés)",
+      "Chiffre d'affaires 2024 : 8,11 millions d'euros (comptes déposés)",
       "Exposant à Tube Düsseldorf en 2022, 2024 et 2026",
     ],
     staff: "Effectif :",
