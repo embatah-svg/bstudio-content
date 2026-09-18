@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  async redirects() {
-    return [{ source: "/", destination: "/it", permanent: false }];
-  },
-};
+// La scelta della lingua su "/" è fatta da src/proxy.ts (cookie, poi
+// Accept-Language), non da un redirect statico.
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

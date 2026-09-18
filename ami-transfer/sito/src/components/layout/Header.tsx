@@ -45,7 +45,7 @@ export default function Header({ locale, homeHref, nav, careers, labels, slugMap
     >
       <div className="mx-auto flex w-[min(1180px,92vw)] items-center justify-between gap-5">
         <Link href={homeHref} aria-label={`A.M.I. — ${labels.home}`} onClick={() => setOpen(false)} className="no-underline">
-          <Logo variant="white" size={44} />
+          <Logo variant="white" size={44} wordmarkClassName="hidden min-[420px]:inline" />
         </Link>
 
         <div className="hidden items-center gap-7 min-[1100px]:flex">
@@ -66,7 +66,7 @@ export default function Header({ locale, homeHref, nav, careers, labels, slugMap
         <div className="flex items-center gap-4 min-[1100px]:hidden">
           <a
             href={COMPANY.phoneHref}
-            className="hidden font-heading text-[15px] font-bold whitespace-nowrap text-white no-underline min-[560px]:block"
+            className="font-heading text-[15px] font-bold whitespace-nowrap text-white no-underline"
             aria-label={`${labels.call} ${COMPANY.phone}`}
           >
             {COMPANY.phone}

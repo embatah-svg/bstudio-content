@@ -1,8 +1,11 @@
+import { SHOW_TODO } from "@/lib/todo";
+
 // Segnaposto visibile per dati non ancora verificati con l'azienda.
-// Regola di progetto: nessun dato inventato; qui si mostra cosa manca.
+// Neutro di proposito: il giallo resta riservato alle CTA.
 export default function Todo({ children }: { children: string }) {
+  if (!SHOW_TODO) return null;
   return (
-    <span className="inline-block border border-yellow bg-[rgba(232,180,0,0.12)] px-2 py-px font-heading text-[13px] font-bold tracking-[0.02em] text-[#6b5300]">
+    <span className="inline-block border border-dashed border-[rgba(19,26,30,0.4)] px-2 py-px font-heading text-[13px] font-bold text-[#5a6870]">
       {children}
     </span>
   );

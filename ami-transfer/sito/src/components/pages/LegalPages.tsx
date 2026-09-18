@@ -3,6 +3,7 @@ import Section, { Prose } from "@/components/ui/Section";
 import Todo from "@/components/ui/Todo";
 import { COMPANY } from "@/lib/site";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 
 export default function LegalPages({ d, kind }: { d: Dictionary; kind: "note-legali" | "privacy" }) {
   if (kind === "note-legali") {
@@ -21,9 +22,11 @@ export default function LegalPages({ d, kind }: { d: Dictionary; kind: "note-leg
               <br />
               Tel. {COMPANY.phone} · {COMPANY.email}
             </p>
-            <p>
-              {p.capital} <Todo>{d.ui.todo}</Todo>
-            </p>
+            {SHOW_TODO && (
+              <p>
+                {p.capital} <Todo>{d.ui.todo}</Todo>
+              </p>
+            )}
             <p>
               {p.copyright} {COMPANY.legalName}. {p.images}
             </p>
@@ -45,13 +48,17 @@ export default function LegalPages({ d, kind }: { d: Dictionary; kind: "note-leg
           </p>
           <h3>{p.drawingsTitle}</h3>
           <p>{p.drawingsText}</p>
-          <p>
-            {p.storageNote} <Todo>{d.ui.todo}</Todo>
-          </p>
-          <h3>{p.fullTitle}</h3>
-          <p>
-            <Todo>{p.fullTodo}</Todo>
-          </p>
+          {SHOW_TODO && (
+            <>
+              <p>
+                {p.storageNote} <Todo>{d.ui.todo}</Todo>
+              </p>
+              <h3>{p.fullTitle}</h3>
+              <p>
+                <Todo>{p.fullTodo}</Todo>
+              </p>
+            </>
+          )}
         </Prose>
       </Section>
     </>

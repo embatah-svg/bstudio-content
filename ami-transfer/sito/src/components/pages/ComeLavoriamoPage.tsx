@@ -4,6 +4,7 @@ import Figure from "@/components/ui/Figure";
 import Todo from "@/components/ui/Todo";
 import CtaBand from "@/components/sections/CtaBand";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 
 const darkCaption = "[&_figcaption]:border-[rgba(255,255,255,0.2)] [&_figcaption]:text-[#8d98a3]";
 
@@ -26,11 +27,13 @@ export default function ComeLavoriamoPage({ d }: { d: Dictionary }) {
             </li>
           ))}
         </ol>
-        <Prose>
-          <p className="mt-10">
-            {p.timesNote} <Todo>{d.ui.todo}</Todo> · {p.testNote} <Todo>{d.ui.todo}</Todo>
-          </p>
-        </Prose>
+        {SHOW_TODO && (
+          <Prose>
+            <p className="mt-10">
+              {p.timesNote} <Todo>{d.ui.todo}</Todo> · {p.testNote} <Todo>{d.ui.todo}</Todo>
+            </p>
+          </Prose>
+        )}
       </Section>
 
       <Section tone="petrol" title={p.testedTitle} lede={p.testedLede}>

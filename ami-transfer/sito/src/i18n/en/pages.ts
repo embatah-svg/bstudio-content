@@ -4,7 +4,7 @@ export const pages: Pages = {
   home: {
     hero: {
       title: "The tube goes in raw, comes out finished.",
-      sub: "Linear transfer lines for tube processing: designed, programmed, built and tested in our plant in Manerbio, Italy.",
+      sub: "Transfer lines built around your part: from the component drawing to the finished part in continuous cycle.",
       hint: "drag to rotate",
     },
     facts: [
@@ -15,7 +15,7 @@ export const pages: Pages = {
     ],
     cycle: {
       title: "One line, six stations, a finished part at every step.",
-      lede: "The line advances at a fixed pitch: at every index all the stations work at the same time on their own tube section. The cycle time is that of the slowest station, not the sum of the operations.",
+      lede: "The line advances at a fixed pitch: at every index all the stations work at the same time on their own tube section. The cycle time is that of the slowest station, not the sum of the operations. The sequence below is an example: the actual configuration depends on the part.",
       station: "Station",
       stations: [
         { title: "Loading", text: "Automatic feeding from bundle or bar, with part-presence check." },
@@ -23,7 +23,7 @@ export const pages: Pages = {
         { title: "Drilling", text: "Dedicated machining units, positioned on the pitch required by the customer drawing." },
         { title: "Punching", text: "Chipless material removal where the part geometry allows it." },
         { title: "Threading", text: "Tapping units synchronised with the indexing cycle." },
-        { title: "Inspection and unloading", text: "In-line dimensional check and automatic rejection of scrap." },
+        { title: "Inspection and unloading", text: "Automatic unloading of the finished part, with the checks required by the specification." },
       ],
     },
     departments: {
@@ -40,12 +40,12 @@ export const pages: Pages = {
     },
     service: {
       title: "The line you bought twenty years ago: we still know it.",
-      lede: "We keep the archive of every order that left Manerbio: drawings, programs, bills of materials. That is why a spare part is identified within the day and an intervention starts where it is needed.",
+      lede: "We keep the archive of every order that left Manerbio: drawings, programs, bills of materials. A spare part is identified from the archive, not from a photo, and an intervention starts where it is needed.",
       items: [
-        "Original spare parts and end-of-life components flagged before they stop the line",
+        "Original spare parts identified from the order archive",
         "Retrofit of cabinet and PLC on lines that are still mechanically sound",
         "Line modification for a new part or a different cycle",
-        "Remote and on-site support, throughout Europe",
+        "Remote and on-site support",
       ],
     },
   },
@@ -54,18 +54,19 @@ export const pages: Pages = {
     metaTitle: "Company — Transfer line builders since 1978",
     metaDescription:
       "A.M.I. S.r.l. builds made-to-order transfer lines for tube processing in Manerbio, Italy. Design, PLC, steelwork, machining and testing in-house.",
-    title: "Since 1978 we build transfer lines in Manerbio.",
+    title: "Since 1978, one line at a time.",
     lede: "A.M.I. — Automazione Meccanica Industriale — is a builder of made-to-order special machines. Every line is born around a specific customer component and is designed, built and tested in the same plant.",
     heroAlt: "Aerial view of the A.M.I. plant in Manerbio: office building and production hall",
     heroCaption: "The plant in Manerbio (Brescia, Italy). Frame from the A.M.I. company video.",
     chainTitle: "One roof for the whole chain",
-    chainP1: "In an industry where many builders assemble and subcontract, A.M.I. keeps every critical phase in-house: 3D CAD design, PLC programming, heavy steelwork, machining, quality control, assembly and testing.",
+    chainP1: "A.M.I. keeps every critical phase in-house: 3D CAD design, PLC programming, heavy steelwork, machining, quality control, assembly and testing.",
     chainP2: "For the customer this means one point of contact, lead times that do not depend on third parties and a machine that can be worked on again years later, because the people who designed and programmed it are still here.",
     numbersTitle: "The numbers",
     numbers: [
       "Founded on 23 March 1978",
       "7,000 m² of plant and 600 m² of offices",
       "Over 20 dedicated lines every year",
+      "2023 turnover: €7.46 million (filed accounts)",
       "Exhibitor at Tube Düsseldorf in 2022, 2024 and 2026",
     ],
     staff: "Headcount:",
@@ -129,14 +130,14 @@ export const pages: Pages = {
       { title: "Quotation", text: "Line configuration, expected cycle time, delivery times. No generic specification: the quotation describes the machine for that part." },
       { title: "Design", text: "3D modelling of the whole line and of the machining units. PLC programming in parallel with the mechanics." },
       { title: "Construction", text: "Steelwork, machining, electrical cabinets and assembly in the same plant." },
-      { title: "Testing in the plant", text: "The line is assembled and set up in Manerbio, processing the customer's part before shipment." },
+      { title: "Testing in the plant", text: "The line is fully assembled and set up in Manerbio before shipment." },
       { title: "Installation and start-up", text: "Transport, installation, start-up and operator training at the customer's site." },
       { title: "Service", text: "Spare parts, support and retrofits for the whole life of the line, with the complete order archive." },
     ],
     timesNote: "Average times per phase:",
     testNote: "Testing with the customer's part as standard practice:",
     testedTitle: "Tested before it leaves.",
-    testedLede: "Every line is fully assembled in the plant. The customer can see it processing their own part before it is dismantled and shipped.",
+    testedLede: "Every line is fully assembled and set up in the plant before being dismantled and shipped.",
     photo1Alt: "Work station with A.M.I.-branded pneumatic gripper on a line under testing",
     photo1Caption: "Station under testing. Frame from the company video.",
     photo2Alt: "Tube clamping fixture with engraved A.M.I. mark",
@@ -150,14 +151,14 @@ export const pages: Pages = {
     metaDescription:
       "Original spare parts, cabinet and PLC retrofits, modifications for new parts and on-site support for A.M.I. transfer lines installed since 1978.",
     title: "The line you bought twenty years ago: we still know it.",
-    lede: "We keep the archive of every order that left Manerbio: drawings, programs, bills of materials. A spare part is identified within the day and an intervention starts where it is needed.",
+    lede: "We keep the archive of every order that left Manerbio: drawings, programs, bills of materials. A spare part is identified from the archive, not from a photo, and an intervention starts where it is needed.",
     lineDown: "Line stopped?",
     hours: "Support hours:",
     services: [
-      { title: "Spare parts", text: "Original spare parts identified within the day from the order archive. We flag end-of-life components before they stop the line." },
+      { title: "Spare parts", text: "Original spare parts identified from the order archive, with the drawings and bills of materials of your line." },
       { title: "Retrofit", text: "Replacement of electrical cabinet and PLC on lines that are still mechanically sound. The logic is written in-house: it gets updated, not bought again." },
       { title: "Modification for a new part", text: "New machining units or a new sequence of stations when the component changes. The line adapts instead of being replaced." },
-      { title: "Support", text: "Remote and on-site interventions, throughout Europe, by the technician who knows the machine." },
+      { title: "Support", text: "Remote and on-site interventions by the technician who knows the machine." },
     ],
     identifyTitle: "Identify your line.",
     identifyLede: "For a spare part or support request we need a few data: you will find them on the machine plate.",
@@ -185,7 +186,7 @@ export const pages: Pages = {
     metaTitle: "Careers — Manerbio, Italy",
     metaDescription:
       "Mechanical design, PLC automation, assembly and testing of transfer lines in Manerbio. Open positions and unsolicited applications.",
-    title: "Machines you see being born in full.",
+    title: "From the drawing to the machine, under the same roof.",
     lede: "In Manerbio a transfer line is designed, programmed, built and tested in the same plant. Those who work here follow the part from the drawing to the machine that produces it.",
     whatTitle: "What we do",
     what: [

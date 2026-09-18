@@ -4,7 +4,7 @@ export const pages: Pages = {
   home: {
     hero: {
       title: "Das Rohr kommt roh hinein und fertig heraus.",
-      sub: "Lineare Transferlinien für die Rohrbearbeitung: konstruiert, programmiert, gebaut und abgenommen in unserem Werk in Manerbio, Italien.",
+      sub: "Transferlinien, gebaut um Ihr Teil: von der Bauteilzeichnung zum fertigen Teil im Dauertakt.",
       hint: "ziehen zum Drehen",
     },
     facts: [
@@ -15,7 +15,7 @@ export const pages: Pages = {
     ],
     cycle: {
       title: "Eine Linie, sechs Stationen, ein fertiges Teil bei jedem Takt.",
-      lede: "Die Linie taktet mit fester Teilung: Bei jedem Takt arbeiten alle Stationen gleichzeitig an ihrem Rohrabschnitt. Die Taktzeit ist die der langsamsten Station, nicht die Summe der Bearbeitungen.",
+      lede: "Die Linie taktet mit fester Teilung: Bei jedem Takt arbeiten alle Stationen gleichzeitig an ihrem Rohrabschnitt. Die Taktzeit ist die der langsamsten Station, nicht die Summe der Bearbeitungen. Die Abfolge unten ist ein Beispiel: Die tatsächliche Konfiguration hängt vom Teil ab.",
       station: "Station",
       stations: [
         { title: "Beladen", text: "Automatische Zuführung aus dem Bund oder von der Stange, mit Teileanwesenheitskontrolle." },
@@ -23,7 +23,7 @@ export const pages: Pages = {
         { title: "Bohren", text: "Eigene Bearbeitungseinheiten, positioniert auf der von der Kundenzeichnung geforderten Teilung." },
         { title: "Stanzen", text: "Spanloser Materialabtrag, wo die Teilegeometrie es zulässt." },
         { title: "Gewindeschneiden", text: "Mit dem Takt synchronisierte Gewindeeinheiten." },
-        { title: "Prüfen und Entladen", text: "Maßprüfung in der Linie und automatisches Ausschleusen von Ausschuss." },
+        { title: "Prüfen und Entladen", text: "Automatisches Entladen des fertigen Teils, mit den vom Lastenheft geforderten Prüfungen." },
       ],
     },
     departments: {
@@ -40,12 +40,12 @@ export const pages: Pages = {
     },
     service: {
       title: "Die Linie, die Sie vor zwanzig Jahren gekauft haben, kennen wir noch.",
-      lede: "Wir haben das Archiv jedes Auftrags, der Manerbio verlassen hat: Pläne, Programme, Stücklisten. Deshalb wird ein Ersatzteil am selben Tag identifiziert und ein Einsatz beginnt dort, wo er gebraucht wird.",
+      lede: "Wir haben das Archiv jedes Auftrags, der Manerbio verlassen hat: Pläne, Programme, Stücklisten. Ein Ersatzteil wird aus dem Archiv identifiziert, nicht anhand eines Fotos, und ein Einsatz beginnt dort, wo er gebraucht wird.",
       items: [
-        "Originalersatzteile und Meldung auslaufender Komponenten, bevor sie die Linie stoppen",
+        "Originalersatzteile, identifiziert aus dem Auftragsarchiv",
         "Retrofit von Schaltschrank und SPS bei mechanisch noch intakten Linien",
         "Umbau der Linie für ein neues Teil oder einen anderen Zyklus",
-        "Fern- und Vor-Ort-Support in ganz Europa",
+        "Fern- und Vor-Ort-Support",
       ],
     },
   },
@@ -54,18 +54,19 @@ export const pages: Pages = {
     metaTitle: "Unternehmen — Hersteller von Transferlinien seit 1978",
     metaDescription:
       "A.M.I. S.r.l. baut in Manerbio (Italien) auftragsbezogene Transferlinien für die Rohrbearbeitung. Konstruktion, SPS, Stahlbau, Bearbeitung und Abnahme im Haus.",
-    title: "Seit 1978 bauen wir Transferlinien in Manerbio.",
+    title: "Seit 1978, eine Linie nach der anderen.",
     lede: "A.M.I. — Automazione Meccanica Industriale — ist ein Hersteller von auftragsbezogenen Sondermaschinen. Jede Linie entsteht um ein konkretes Kundenbauteil und wird im selben Werk konstruiert, gebaut und abgenommen.",
     heroAlt: "Luftaufnahme des A.M.I.-Werks in Manerbio: Bürogebäude und Produktionshalle",
     heroCaption: "Das Werk in Manerbio (Brescia, Italien). Bild aus dem A.M.I.-Unternehmensvideo.",
     chainTitle: "Ein Dach für die gesamte Kette",
-    chainP1: "In einer Branche, in der viele Hersteller montieren und fremdvergeben, behält A.M.I. jede kritische Phase im Haus: 3D-CAD-Konstruktion, SPS-Programmierung, schweren Stahlbau, mechanische Bearbeitung, Qualitätskontrolle, Montage und Abnahme.",
+    chainP1: "A.M.I. behält jede kritische Phase im Haus: 3D-CAD-Konstruktion, SPS-Programmierung, schweren Stahlbau, mechanische Bearbeitung, Qualitätskontrolle, Montage und Abnahme.",
     chainP2: "Für den Kunden bedeutet das einen Ansprechpartner, Termine, die nicht von Dritten abhängen, und eine Maschine, an der auch Jahre später wieder gearbeitet werden kann, weil die Menschen, die sie konstruiert und programmiert haben, noch da sind.",
     numbersTitle: "Die Zahlen",
     numbers: [
       "Gegründet am 23. März 1978",
       "7.000 m² Werksfläche und 600 m² Büros",
       "Über 20 kundenspezifische Linien pro Jahr",
+      "Umsatz 2023: 7,46 Mio. € (hinterlegter Jahresabschluss)",
       "Aussteller auf der Tube Düsseldorf 2022, 2024 und 2026",
     ],
     staff: "Mitarbeiterzahl:",
@@ -129,14 +130,14 @@ export const pages: Pages = {
       { title: "Angebot", text: "Linienkonfiguration, erwartete Taktzeit, Lieferzeiten. Kein allgemeines Lastenheft: Das Angebot beschreibt die Maschine für dieses Teil." },
       { title: "Konstruktion", text: "3D-Modellierung der gesamten Linie und der Bearbeitungseinheiten. SPS-Programmierung parallel zur Mechanik." },
       { title: "Bau", text: "Stahlbau, mechanische Bearbeitung, Schaltschränke und Montage im selben Werk." },
-      { title: "Abnahme im Werk", text: "Die Linie wird in Manerbio montiert und eingerichtet und bearbeitet vor dem Versand das Kundenteil." },
+      { title: "Abnahme im Werk", text: "Die Linie wird in Manerbio komplett montiert und eingerichtet, bevor sie versandt wird." },
       { title: "Installation und Inbetriebnahme", text: "Transport, Aufstellung, Inbetriebnahme und Bedienerschulung beim Kunden." },
       { title: "Service", text: "Ersatzteile, Support und Retrofits über die gesamte Lebensdauer der Linie, mit dem vollständigen Auftragsarchiv." },
     ],
     timesNote: "Durchschnittliche Dauer je Phase:",
     testNote: "Abnahme mit dem Kundenteil als Standard:",
     testedTitle: "Abgenommen, bevor sie das Werk verlässt.",
-    testedLede: "Jede Linie wird im Werk komplett montiert. Der Kunde kann sie mit seinem eigenen Teil arbeiten sehen, bevor sie demontiert und versandt wird.",
+    testedLede: "Jede Linie wird im Werk komplett montiert und eingerichtet, bevor sie demontiert und versandt wird.",
     photo1Alt: "Arbeitsstation mit pneumatischem Greifer mit A.M.I.-Kennzeichnung auf einer Linie in der Abnahme",
     photo1Caption: "Station in der Abnahme. Bild aus dem Unternehmensvideo.",
     photo2Alt: "Rohrspannvorrichtung mit eingraviertem A.M.I.-Zeichen",
@@ -150,14 +151,14 @@ export const pages: Pages = {
     metaDescription:
       "Originalersatzteile, Retrofit von Schaltschrank und SPS, Umbauten für neue Teile und Vor-Ort-Support für seit 1978 installierte A.M.I.-Transferlinien.",
     title: "Die Linie, die Sie vor zwanzig Jahren gekauft haben, kennen wir noch.",
-    lede: "Wir haben das Archiv jedes Auftrags, der Manerbio verlassen hat: Pläne, Programme, Stücklisten. Ein Ersatzteil wird am selben Tag identifiziert, ein Einsatz beginnt dort, wo er gebraucht wird.",
+    lede: "Wir haben das Archiv jedes Auftrags, der Manerbio verlassen hat: Pläne, Programme, Stücklisten. Ein Ersatzteil wird aus dem Archiv identifiziert, nicht anhand eines Fotos, und ein Einsatz beginnt dort, wo er gebraucht wird.",
     lineDown: "Linie steht?",
     hours: "Servicezeiten:",
     services: [
-      { title: "Ersatzteile", text: "Originalersatzteile, am selben Tag aus dem Auftragsarchiv identifiziert. Wir melden auslaufende Komponenten, bevor sie die Linie stoppen." },
+      { title: "Ersatzteile", text: "Originalersatzteile, identifiziert aus dem Auftragsarchiv mit den Plänen und Stücklisten Ihrer Linie." },
       { title: "Retrofit", text: "Austausch von Schaltschrank und SPS bei mechanisch noch intakten Linien. Die Logik stammt aus eigener Hand: Sie wird aktualisiert, nicht neu gekauft." },
       { title: "Umbau für ein neues Teil", text: "Neue Bearbeitungseinheiten oder eine neue Stationsfolge, wenn sich das Bauteil ändert. Die Linie passt sich an, statt ersetzt zu werden." },
-      { title: "Support", text: "Fern- und Vor-Ort-Einsätze in ganz Europa, durch den Techniker, der die Maschine kennt." },
+      { title: "Support", text: "Fern- und Vor-Ort-Einsätze durch den Techniker, der die Maschine kennt." },
     ],
     identifyTitle: "Identifizieren Sie Ihre Linie.",
     identifyLede: "Für eine Ersatzteil- oder Serviceanfrage brauchen wir wenige Angaben: Sie finden sie auf dem Typenschild der Maschine.",
@@ -185,7 +186,7 @@ export const pages: Pages = {
     metaTitle: "Karriere — Manerbio, Italien",
     metaDescription:
       "Mechanische Konstruktion, SPS-Automatisierung, Montage und Abnahme von Transferlinien in Manerbio. Offene Stellen und Initiativbewerbungen.",
-    title: "Maschinen, die man vollständig entstehen sieht.",
+    title: "Von der Zeichnung zur Maschine, unter einem Dach.",
     lede: "In Manerbio wird eine Transferlinie im selben Werk konstruiert, programmiert, gebaut und abgenommen. Wer hier arbeitet, begleitet das Teil von der Zeichnung bis zur Maschine, die es fertigt.",
     whatTitle: "Was wir tun",
     what: [

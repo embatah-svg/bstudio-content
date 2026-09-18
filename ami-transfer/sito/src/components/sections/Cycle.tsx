@@ -7,7 +7,7 @@ export default function Cycle({ d }: { d: Dictionary }) {
     <section id="ciclo" className="py-[clamp(64px,9vw,120px)]">
       <div className="mx-auto w-[min(1180px,92vw)]">
         <div className="max-w-[62ch]">
-          <h2 className="max-w-[20ch] text-[clamp(30px,4.4vw,50px)]">{c.title}</h2>
+          <h2 className="max-w-[20ch] text-[clamp(34px,4vw,58px)]">{c.title}</h2>
           <p className="mt-[22px] text-[#3b4850]">{c.lede}</p>
         </div>
         <div className="mt-14 grid grid-cols-1 gap-px bg-[rgba(19,26,30,0.2)] min-[520px]:grid-cols-2 min-[860px]:grid-cols-3">

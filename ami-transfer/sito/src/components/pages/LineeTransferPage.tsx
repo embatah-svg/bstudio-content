@@ -6,6 +6,7 @@ import Todo from "@/components/ui/Todo";
 import Button from "@/components/ui/Button";
 import CtaBand from "@/components/sections/CtaBand";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 import type { LavorazioneKey } from "@/i18n/config";
 
 export default function LineeTransferPage({ d }: { d: Dictionary }) {
@@ -47,15 +48,17 @@ export default function LineeTransferPage({ d }: { d: Dictionary }) {
         </div>
       </Section>
 
-      <Section title={p.rangesTitle} lede={p.rangesLede}>
+      <Section title={SHOW_TODO ? p.rangesTitle : undefined} lede={SHOW_TODO ? p.rangesLede : undefined}>
         <Prose>
-          <ul>
-            {p.ranges.map((r) => (
-              <li key={r}>
-                {r}: <Todo>{d.ui.todo}</Todo>
-              </li>
-            ))}
-          </ul>
+          {SHOW_TODO && (
+            <ul>
+              {p.ranges.map((r) => (
+                <li key={r}>
+                  {r}: <Todo>{d.ui.todo}</Todo>
+                </li>
+              ))}
+            </ul>
+          )}
           <p>{p.rangesNote}</p>
         </Prose>
         <div className="mt-6 flex flex-wrap gap-[14px]">

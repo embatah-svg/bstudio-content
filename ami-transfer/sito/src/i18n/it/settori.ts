@@ -15,9 +15,9 @@ export const settoriPage = {
   metaTitle: "Settori — Automotive, building, elettrodomestico",
   metaDescription:
     "I settori in cui lavorano le linee transfer A.M.I.: componenti automotive in tubo, tubo da costruzione, scambiatori e gruppi termici.",
-  title: "Chi ci porta un pezzo, non un capitolato.",
+  title: "Partiamo dal pezzo, non dal catalogo.",
   lede: "Tre settori dichiarati, un metodo solo: si parte dal disegno del componente e dalla produttività richiesta.",
-  homeTitle: "Chi ci porta un pezzo, non un capitolato.",
+  homeTitle: "Partiamo dal pezzo, non dal catalogo.",
   homeLede: "Partiamo dal disegno del pezzo e dalla produttività richiesta, e costruiamo la linea intorno a quelli.",
   detail: {
     components: "Componenti tipici",

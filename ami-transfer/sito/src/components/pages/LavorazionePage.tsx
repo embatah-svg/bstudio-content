@@ -5,6 +5,7 @@ import Todo from "@/components/ui/Todo";
 import Button from "@/components/ui/Button";
 import CtaBand from "@/components/sections/CtaBand";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 import type { LavorazioneKey } from "@/i18n/config";
 
 export default function LavorazionePage({ d, lavorazioneKey }: { d: Dictionary; lavorazioneKey: LavorazioneKey }) {
@@ -41,17 +42,19 @@ export default function LavorazionePage({ d, lavorazioneKey }: { d: Dictionary; 
         </div>
       </Section>
 
-      <Section tone="paper-2" title={t.rangesTitle} lede={t.rangesLede}>
-        <Prose>
-          <ul>
-            {t.ranges.map((r) => (
-              <li key={r}>
-                {r}: <Todo>{d.ui.todo}</Todo>
-              </li>
-            ))}
-          </ul>
-        </Prose>
-      </Section>
+      {SHOW_TODO && (
+        <Section tone="paper-2" title={t.rangesTitle} lede={t.rangesLede}>
+          <Prose>
+            <ul>
+              {t.ranges.map((r) => (
+                <li key={r}>
+                  {r}: <Todo>{d.ui.todo}</Todo>
+                </li>
+              ))}
+            </ul>
+          </Prose>
+        </Section>
+      )}
 
       <Section title={t.sectorsTitle} lede={t.sectorsLede}>
         <div className="mt-10 grid grid-cols-1 gap-6 min-[760px]:grid-cols-3">

@@ -4,6 +4,7 @@ import Section, { Prose } from "@/components/ui/Section";
 import Todo from "@/components/ui/Todo";
 import CtaBand from "@/components/sections/CtaBand";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 import type { LavorazioneKey } from "@/i18n/config";
 
 export default function LavorazioniPage({ d }: { d: Dictionary }) {
@@ -30,11 +31,13 @@ export default function LavorazioniPage({ d }: { d: Dictionary }) {
             );
           })}
         </div>
-        <Prose>
-          <p className="mt-10">
-            {p.fullListNote} <Todo>{p.fullListTodo}</Todo>
-          </p>
-        </Prose>
+        {SHOW_TODO && (
+          <Prose>
+            <p className="mt-10">
+              {p.fullListNote} <Todo>{p.fullListTodo}</Todo>
+            </p>
+          </Prose>
+        )}
       </Section>
 
       <CtaBand d={d} title={p.ctaTitle} text={p.ctaText} />

@@ -5,9 +5,9 @@ export const settoriPage: typeof ItPage = {
   metaTitle: "Sectores — Automoción, construcción, electrodoméstico",
   metaDescription:
     "Los sectores de las líneas transfer A.M.I.: componentes de automoción en tubo, tubo para construcción, intercambiadores de calor y grupos térmicos.",
-  title: "Nos traen una pieza, no un pliego de condiciones.",
+  title: "Partimos de la pieza, no del catálogo.",
   lede: "Tres sectores declarados, un solo método: se parte del plano del componente y de la productividad requerida.",
-  homeTitle: "Nos traen una pieza, no un pliego de condiciones.",
+  homeTitle: "Partimos de la pieza, no del catálogo.",
   homeLede: "Partimos del plano de la pieza y de la productividad requerida, y construimos la línea alrededor de ellos.",
   detail: {
     components: "Componentes típicos",

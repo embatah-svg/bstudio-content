@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { leggiRichiesta, validaFile, validaRichiesta } from "@/lib/richiesta";
+import { leggiRichiesta, leggiService, validaFile, validaRichiesta, validaService } from "@/lib/richiesta";
 
 export const runtime = "nodejs";
 
@@ -12,11 +12,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, codice: "failed" }, { status: 400 });
   }
 
-  const richiesta = leggiRichiesta(form);
-  const file = form.get("file");
-  const errori = validaRichiesta(richiesta);
-  const erroreFile = validaFile(file instanceof File ? file : null);
-  if (erroreFile) errori.file = erroreFile;
+  const errori =
+    form.get("tipo") === "service"
+      ? validaService(leggiService(form))
+      : validaRichiesta(leggiRichiesta(form));
+
+  if (form.get("tipo") !== "service" && form.get("modalita") !== "nda") {
+    const file = form.get("file");
+    const erroreFile = validaFile(file instanceof File ? file : null);
+    if (erroreFile) errori.file = erroreFile;
+  }
   if (Object.keys(errori).length > 0) {
     return NextResponse.json({ ok: false, codice: "fields", errori }, { status: 422 });
   }

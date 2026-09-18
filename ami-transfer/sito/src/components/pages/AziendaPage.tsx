@@ -5,6 +5,7 @@ import Todo from "@/components/ui/Todo";
 import Button from "@/components/ui/Button";
 import CtaBand from "@/components/sections/CtaBand";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 
 const darkCaption = "[&_figcaption]:border-[rgba(255,255,255,0.2)] [&_figcaption]:text-[#8d98a3]";
 
@@ -28,9 +29,11 @@ export default function AziendaPage({ d }: { d: Dictionary }) {
               {p.numbers.map((n) => (
                 <li key={n}>{n}</li>
               ))}
-              <li>
-                {p.staff} <Todo>{d.ui.todo}</Todo>
-              </li>
+              {SHOW_TODO && (
+                <li>
+                  {p.staff} <Todo>{d.ui.todo}</Todo>
+                </li>
+              )}
             </ul>
           </Prose>
         </div>
@@ -46,17 +49,19 @@ export default function AziendaPage({ d }: { d: Dictionary }) {
           ))}
         </div>
         <div className="mt-14 grid grid-cols-1 gap-6 min-[760px]:grid-cols-2">
-          <Figure src="/images/linea-portale.webp" alt={p.photo1Alt} caption={p.photo1Caption} className={darkCaption} />
-          <Figure src="/images/robot-scarico.webp" alt={p.photo2Alt} caption={p.photo2Caption} className={darkCaption} />
+          <Figure src="/images/linea-portale.webp" alt={p.photo1Alt} caption={p.photo1Caption} className={darkCaption} tone="mono" />
+          <Figure src="/images/robot-scarico.webp" alt={p.photo2Alt} caption={p.photo2Caption} className={darkCaption} tone="mono" />
         </div>
       </Section>
 
       <Section title={p.peopleTitle} lede={p.peopleLede}>
-        <Prose>
-          <p>
-            {p.peoplePrefix} <Todo>{p.peopleTodo}</Todo>
-          </p>
-        </Prose>
+        {SHOW_TODO && (
+          <Prose>
+            <p>
+              {p.peoplePrefix} <Todo>{p.peopleTodo}</Todo>
+            </p>
+          </Prose>
+        )}
         <div className="mt-6">
           <Button href={href(d.locale, "lavora-con-noi")} variant="outline-dark">{d.ui.cta.careers}</Button>
         </div>

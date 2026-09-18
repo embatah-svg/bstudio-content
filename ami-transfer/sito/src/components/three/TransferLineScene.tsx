@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-const BLUE = 0x005a80;
-const BG = 0x0b2230;
+const BLUE = 0x24506b;
+const BG = 0x0f1a1f;
 const DARK = 0x1b262c;
 const STEEL = 0xaab4be;
 const YELLOW = 0xe8b400;

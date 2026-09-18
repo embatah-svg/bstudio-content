@@ -5,6 +5,7 @@ import Todo from "@/components/ui/Todo";
 import Button from "@/components/ui/Button";
 import CtaBand from "@/components/sections/CtaBand";
 import { href, type Dictionary } from "@/i18n";
+import { SHOW_TODO } from "@/lib/todo";
 import type { SettoreKey } from "@/i18n/config";
 
 export default function SettorePage({ d, settoreKey }: { d: Dictionary; settoreKey: SettoreKey }) {
@@ -31,9 +32,11 @@ export default function SettorePage({ d, settoreKey }: { d: Dictionary; settoreK
                 <li key={c}>{c}</li>
               ))}
             </ul>
-            <p>
-              {t.componentsTodo} <Todo>{d.ui.todo}</Todo>
-            </p>
+            {SHOW_TODO && (
+              <p>
+                {t.componentsTodo} <Todo>{d.ui.todo}</Todo>
+              </p>
+            )}
           </Prose>
           <Prose>
             <h3 className="!mt-0">{t.needs}</h3>
@@ -60,17 +63,19 @@ export default function SettorePage({ d, settoreKey }: { d: Dictionary; settoreK
         </div>
       </Section>
 
-      <Section title={t.caseTitle} lede={t.caseLede}>
-        <Prose>
-          <p>
-            <Todo>{t.caseTodo}</Todo>
-          </p>
-          <p>{t.caseNote}</p>
-        </Prose>
-        <div className="mt-6">
-          <Button href={href(d.locale, "contatti")} variant="primary">{d.ui.cta.primary}</Button>
-        </div>
-      </Section>
+      {SHOW_TODO && (
+        <Section title={t.caseTitle} lede={t.caseLede}>
+          <Prose>
+            <p>
+              <Todo>{t.caseTodo}</Todo>
+            </p>
+            <p>{t.caseNote}</p>
+          </Prose>
+          <div className="mt-6">
+            <Button href={href(d.locale, "contatti")} variant="primary">{d.ui.cta.primary}</Button>
+          </div>
+        </Section>
+      )}
 
       <CtaBand d={d} />
     </>

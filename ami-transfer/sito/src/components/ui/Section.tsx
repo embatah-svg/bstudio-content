@@ -25,7 +25,7 @@ export default function Section({ id, tone = "paper", title, lede, children }: S
       <Container>
         {title && (
           <div className="max-w-[62ch]">
-            <h2 className={`max-w-[20ch] text-[clamp(30px,4.4vw,50px)] ${t.h2}`}>{title}</h2>
+            <h2 className={`max-w-[20ch] text-[clamp(34px,4vw,58px)] ${t.h2}`}>{title}</h2>
             {lede && <p className={`mt-[22px] ${t.p}`}>{lede}</p>}
           </div>
         )}

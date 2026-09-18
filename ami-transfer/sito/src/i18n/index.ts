@@ -105,6 +105,7 @@ export function buildSlugMap(): SlugMap {
 export function alternates(section?: SectionKey, child?: { type: "lavorazioni" | "settori"; key: string }) {
   const languages: Record<string, string> = {};
   for (const l of LOCALES) languages[l] = href(l, section, child);
-  languages["x-default"] = href(DEFAULT_LOCALE, section, child);
+  // Chi arriva da Google fuori dall'Italia (fiere, export) atterra sull'inglese.
+  languages["x-default"] = href("en", section, child);
   return { languages };
 }

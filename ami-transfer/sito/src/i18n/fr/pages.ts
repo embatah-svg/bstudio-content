@@ -4,7 +4,7 @@ export const pages: Pages = {
   home: {
     hero: {
       title: "Le tube entre brut, il ressort fini.",
-      sub: "Lignes transfert linéaires pour l'usinage du tube : conçues, programmées, construites et testées dans notre usine de Manerbio, en Italie.",
+      sub: "Des lignes transfert construites autour de votre pièce : du plan du composant à la pièce finie en cycle continu.",
       hint: "glisser pour tourner",
     },
     facts: [
@@ -15,7 +15,7 @@ export const pages: Pages = {
     ],
     cycle: {
       title: "Une seule ligne, six postes, une pièce finie à chaque pas.",
-      lede: "La ligne avance à pas fixe : à chaque indexage, tous les postes travaillent en même temps sur leur tronçon de tube. Le temps de cycle est celui du poste le plus lent, pas la somme des usinages.",
+      lede: "La ligne avance à pas fixe : à chaque indexage, tous les postes travaillent en même temps sur leur tronçon de tube. Le temps de cycle est celui du poste le plus lent, pas la somme des usinages. La séquence ci-dessous est un exemple : la configuration réelle dépend de la pièce.",
       station: "Poste",
       stations: [
         { title: "Chargement", text: "Alimentation automatique depuis un fagot ou une barre, avec contrôle de présence pièce." },
@@ -23,7 +23,7 @@ export const pages: Pages = {
         { title: "Perçage", text: "Unités d'usinage dédiées, positionnées au pas exigé par le plan client." },
         { title: "Poinçonnage", text: "Enlèvement de matière sans copeaux là où la géométrie de la pièce le permet." },
         { title: "Taraudage", text: "Unités de taraudage synchronisées avec le cycle d'indexage." },
-        { title: "Contrôle et déchargement", text: "Vérification dimensionnelle en ligne et séparation automatique des rebuts." },
+        { title: "Contrôle et déchargement", text: "Déchargement automatique de la pièce finie, avec les contrôles exigés par le cahier des charges." },
       ],
     },
     departments: {
@@ -40,12 +40,12 @@ export const pages: Pages = {
     },
     service: {
       title: "La ligne que vous avez achetée il y a vingt ans, nous la connaissons encore.",
-      lede: "Nous avons les archives de chaque commande sortie de Manerbio : schémas, programmes, nomenclatures. C'est pourquoi une pièce de rechange est identifiée dans la journée et une intervention part de là où c'est nécessaire.",
+      lede: "Nous avons les archives de chaque commande sortie de Manerbio : schémas, programmes, nomenclatures. Une pièce de rechange est identifiée à partir des archives, pas d'une photo, et une intervention part de là où c'est nécessaire.",
       items: [
-        "Pièces de rechange d'origine et composants en fin de vie signalés avant qu'ils n'arrêtent la ligne",
+        "Pièces de rechange d'origine identifiées à partir des archives de commande",
         "Rétrofit d'armoire et d'automate sur des lignes encore mécaniquement saines",
         "Modification de la ligne pour une nouvelle pièce ou un cycle différent",
-        "Assistance à distance et sur site, dans toute l'Europe",
+        "Assistance à distance et sur site",
       ],
     },
   },
@@ -54,18 +54,19 @@ export const pages: Pages = {
     metaTitle: "Entreprise — Constructeurs de lignes transfert depuis 1978",
     metaDescription:
       "A.M.I. S.r.l. construit à Manerbio (Italie) des lignes transfert sur commande pour l'usinage du tube. Conception, automate, chaudronnerie, usinage et réception en interne.",
-    title: "Depuis 1978, nous construisons des lignes transfert à Manerbio.",
+    title: "Depuis 1978, une ligne à la fois.",
     lede: "A.M.I. — Automazione Meccanica Industriale — est un constructeur de machines spéciales sur commande. Chaque ligne naît autour d'un composant précis du client et est conçue, construite et testée dans la même usine.",
     heroAlt: "Vue aérienne de l'usine A.M.I. à Manerbio : bâtiment de bureaux et hall de production",
     heroCaption: "L'usine de Manerbio (Brescia, Italie). Image tirée de la vidéo d'entreprise A.M.I.",
     chainTitle: "Un seul toit pour toute la chaîne",
-    chainP1: "Dans un secteur où beaucoup de constructeurs assemblent et sous-traitent, A.M.I. garde en interne chaque phase critique : conception CAO 3D, programmation automate, chaudronnerie lourde, usinage mécanique, contrôle qualité, montage et réception.",
+    chainP1: "A.M.I. garde en interne chaque phase critique : conception CAO 3D, programmation automate, chaudronnerie lourde, usinage mécanique, contrôle qualité, montage et réception.",
     chainP2: "Pour le client, cela signifie un seul interlocuteur, des délais qui ne dépendent pas de tiers et une machine sur laquelle on peut intervenir des années plus tard, parce que ceux qui l'ont conçue et programmée sont encore là.",
     numbersTitle: "Les chiffres",
     numbers: [
       "Créée le 23 mars 1978",
       "7 000 m² d'usine et 600 m² de bureaux",
       "Plus de 20 lignes dédiées chaque année",
+      "Chiffre d'affaires 2023 : 7,46 millions d'euros (comptes déposés)",
       "Exposant à Tube Düsseldorf en 2022, 2024 et 2026",
     ],
     staff: "Effectif :",
@@ -129,14 +130,14 @@ export const pages: Pages = {
       { title: "Offre", text: "Configuration de la ligne, temps de cycle prévu, délais de livraison. Pas de cahier des charges générique : l'offre décrit la machine pour cette pièce." },
       { title: "Conception", text: "Modélisation 3D de toute la ligne et des unités d'usinage. Programmation automate en parallèle de la mécanique." },
       { title: "Construction", text: "Chaudronnerie, usinage mécanique, armoires électriques et montage dans la même usine." },
-      { title: "Réception en usine", text: "La ligne est montée et mise au point à Manerbio, en usinant la pièce du client avant l'expédition." },
+      { title: "Réception en usine", text: "La ligne est montée complète et mise au point à Manerbio avant l'expédition." },
       { title: "Installation et démarrage", text: "Transport, mise en place, démarrage et formation des opérateurs chez le client." },
       { title: "Service", text: "Pièces de rechange, assistance et rétrofit pour toute la vie de la ligne, avec les archives complètes de la commande." },
     ],
     timesNote: "Délais moyens par phase :",
     testNote: "La réception avec la pièce du client comme pratique courante :",
     testedTitle: "Réceptionnée avant de partir.",
-    testedLede: "Chaque ligne est montée complète en usine. Le client peut la voir usiner sa propre pièce avant qu'elle ne soit démontée et expédiée.",
+    testedLede: "Chaque ligne est montée complète et mise au point en usine avant d'être démontée et expédiée.",
     photo1Alt: "Poste de travail avec pince pneumatique marquée A.M.I. sur une ligne en réception",
     photo1Caption: "Poste en réception. Image tirée de la vidéo d'entreprise.",
     photo2Alt: "Montage de bridage du tube avec marque A.M.I. gravée",
@@ -150,14 +151,14 @@ export const pages: Pages = {
     metaDescription:
       "Pièces de rechange d'origine, rétrofit d'armoire et d'automate, modifications pour nouvelles pièces et assistance sur site pour les lignes transfert A.M.I. installées depuis 1978.",
     title: "La ligne que vous avez achetée il y a vingt ans, nous la connaissons encore.",
-    lede: "Nous avons les archives de chaque commande sortie de Manerbio : schémas, programmes, nomenclatures. Une pièce de rechange est identifiée dans la journée et une intervention part de là où c'est nécessaire.",
+    lede: "Nous avons les archives de chaque commande sortie de Manerbio : schémas, programmes, nomenclatures. Une pièce de rechange est identifiée à partir des archives, pas d'une photo, et une intervention part de là où c'est nécessaire.",
     lineDown: "Ligne à l'arrêt ?",
     hours: "Horaires d'assistance :",
     services: [
-      { title: "Pièces de rechange", text: "Pièces d'origine identifiées dans la journée à partir des archives de commande. Nous signalons les composants en fin de vie avant qu'ils n'arrêtent la ligne." },
+      { title: "Pièces de rechange", text: "Pièces d'origine identifiées à partir des archives de commande, avec les schémas et nomenclatures de votre ligne." },
       { title: "Rétrofit", text: "Remplacement de l'armoire électrique et de l'automate sur des lignes encore mécaniquement saines. Les logiques sont écrites en interne : on les met à jour, on ne les rachète pas." },
       { title: "Modification pour nouvelle pièce", text: "Nouvelles unités d'usinage ou nouvelle séquence de postes quand le composant change. La ligne s'adapte au lieu d'être remplacée." },
-      { title: "Assistance", text: "Interventions à distance et sur site, dans toute l'Europe, par le technicien qui connaît la machine." },
+      { title: "Assistance", text: "Interventions à distance et sur site, par le technicien qui connaît la machine." },
     ],
     identifyTitle: "Identifiez votre ligne.",
     identifyLede: "Pour une demande de pièce de rechange ou d'assistance, quelques données suffisent : vous les trouverez sur la plaque de la machine.",
@@ -185,7 +186,7 @@ export const pages: Pages = {
     metaTitle: "Carrières — Manerbio, Italie",
     metaDescription:
       "Conception mécanique, automatisme, montage et réception de lignes transfert à Manerbio. Postes ouverts et candidatures spontanées.",
-    title: "Des machines qu'on voit naître en entier.",
+    title: "Du plan à la machine, sous le même toit.",
     lede: "À Manerbio, une ligne transfert est conçue, programmée, construite et réceptionnée dans la même usine. Ceux qui travaillent ici suivent la pièce du plan jusqu'à la machine qui la produit.",
     whatTitle: "Ce que nous faisons",
     what: [

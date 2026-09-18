@@ -29,7 +29,7 @@ export default function TransferLine() {
     return (
       <div className="absolute inset-0">
         <Image src="/images/linea-portale.webp" alt="" fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,34,48,0.35)_0%,rgba(11,34,48,0.9)_70%,#0b2230_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,26,31,0.35)_0%,rgba(15,26,31,0.9)_70%,#0f1a1f_100%)]" />
       </div>
     );
   }

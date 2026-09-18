@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LOCALES, type LavorazioneKey, type Locale, type SectionKey, type SettoreKey } from "@/i18n/config";
+import Flag from "@/components/ui/Flag";
+import { LOCALES, LOCALE_NAMES, type LavorazioneKey, type Locale, type SectionKey, type SettoreKey } from "@/i18n/config";
 import type { SlugMap } from "@/i18n";
 
 type Props = { locale: Locale; slugMap: SlugMap; label: string; onNavigate?: () => void };
@@ -32,10 +33,15 @@ function equivalent(pathname: string, from: Locale, to: Locale, m: SlugMap): str
   return out;
 }
 
+// La scelta esplicita vince sul rilevamento automatico (src/proxy.ts).
+function remember(locale: Locale) {
+  document.cookie = `ami-lang=${locale}; path=/; max-age=31536000; samesite=lax`;
+}
+
 export default function LanguageSwitch({ locale, slugMap, label, onNavigate }: Props) {
   const pathname = usePathname() ?? `/${locale}`;
   return (
-    <nav aria-label={label} className="flex flex-wrap gap-3 font-heading text-[13px] font-bold tracking-[0.06em] uppercase">
+    <nav aria-label={label} className="flex flex-wrap items-center gap-3">
       {LOCALES.map((l) => {
         const active = l === locale;
         return (
@@ -44,12 +50,18 @@ export default function LanguageSwitch({ locale, slugMap, label, onNavigate }: P
             href={equivalent(pathname, locale, l, slugMap)}
             hrefLang={l}
             lang={l}
+            title={LOCALE_NAMES[l]}
+            aria-label={LOCALE_NAMES[l]}
             aria-current={active ? "true" : undefined}
-            onClick={onNavigate}
-            className={`border-b pb-[2px] no-underline ${
-              active ? "border-yellow text-white" : "border-transparent text-[#8d98a3] hover:text-white"
+            onClick={() => {
+              remember(l);
+              onNavigate?.();
+            }}
+            className={`inline-flex items-center gap-[6px] border-b-2 pb-[3px] font-heading text-[12px] font-bold uppercase no-underline ${
+              active ? "border-yellow text-white" : "border-transparent text-[#8d98a3] opacity-75 hover:text-white hover:opacity-100"
             }`}
           >
+            <Flag locale={l} size={18} />
             {l}
           </Link>
         );

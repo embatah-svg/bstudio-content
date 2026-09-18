@@ -2,51 +2,43 @@
 
 import { useState, type FormEvent } from "react";
 import { FILE_ESTENSIONI, leggiRichiesta, validaFile, validaRichiesta, type Errori } from "@/lib/richiesta";
+import { COMPANY } from "@/lib/site";
 import type { Ui } from "@/i18n/it/ui";
+import { Field, fieldCls, focusPrimoErrore, invia, labelCls, mailtoFallback, submitCls, type Stato } from "@/components/forms/formKit";
 
 type Props = { t: Ui["form"]; privacyHref: string };
-
-const field =
-  "w-full border-0 border-b border-[rgba(19,26,30,0.4)] bg-transparent px-0 py-3 text-[17px] text-ink focus:border-blue focus:outline-none";
-const label = "block font-heading text-[15px] font-bold text-ink";
-const errCls = "mt-2 text-[14px] text-[#8a1c1c]";
-
-type Codice = keyof Ui["form"]["errors"];
-type Stato = { tipo: "idle" } | { tipo: "invio" } | { tipo: "ok" } | { tipo: "errore"; codice: Codice };
 
 export default function RichiestaForm({ t, privacyHref }: Props) {
   const [errori, setErrori] = useState<Errori>({});
   const [stato, setStato] = useState<Stato>({ tipo: "idle" });
-
-  const msg = (campo: keyof Errori) => {
-    const c = errori[campo];
-    return c ? <p className={errCls}>{t.errors[c]}</p> : null;
-  };
+  const [modalita, setModalita] = useState<"allego" | "nda">("allego");
+  const [ultimo, setUltimo] = useState<FormData | null>(null);
 
   async function onSubmit(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault();
     const formEl = ev.currentTarget;
     const form = new FormData(formEl);
-    const file = form.get("file");
     const e = validaRichiesta(leggiRichiesta(form));
-    const ef = validaFile(file instanceof File ? file : null);
-    if (ef) e.file = ef;
+    if (modalita === "allego") {
+      const file = form.get("file");
+      const ef = validaFile(file instanceof File ? file : null);
+      if (ef) e.file = ef;
+    }
     setErrori(e);
-    if (Object.keys(e).length > 0) return;
+    if (Object.keys(e).length > 0) {
+      focusPrimoErrore(formEl);
+      return;
+    }
 
     setStato({ tipo: "invio" });
-    try {
-      const res = await fetch("/api/richiesta", { method: "POST", body: form });
-      const data = (await res.json()) as { ok: boolean; codice?: Codice; errori?: Errori };
-      if (data.ok) {
-        setStato({ tipo: "ok" });
-        formEl.reset();
-      } else {
-        if (data.errori) setErrori(data.errori);
-        setStato({ tipo: "errore", codice: data.codice ?? "failed" });
-      }
-    } catch {
-      setStato({ tipo: "errore", codice: "failed" });
+    setUltimo(form);
+    const data = await invia(form);
+    if (data.ok) {
+      setStato({ tipo: "ok" });
+      formEl.reset();
+    } else {
+      if (data.errori) setErrori(data.errori);
+      setStato({ tipo: "errore", codice: data.codice ?? "failed" });
     }
   }
 
@@ -59,30 +51,44 @@ export default function RichiestaForm({ t, privacyHref }: Props) {
     );
   }
 
+  const msg = t.errors as Record<string, string>;
+
   return (
-    <form onSubmit={onSubmit} noValidate encType="multipart/form-data" className="grid grid-cols-1 gap-8">
-      <div>
-        <label htmlFor="file" className={label}>{t.file}</label>
-        <input id="file" name="file" type="file" accept={FILE_ESTENSIONI.join(",")} className={`${field} border-b-0 pl-0`} />
-        <p className="mt-2 text-[14px] text-[#5a6870]">{t.fileHelp}</p>
-        {msg("file")}
-      </div>
+    <form method="post" action="/api/richiesta" encType="multipart/form-data" onSubmit={onSubmit} noValidate className="grid grid-cols-1 gap-8">
+      <fieldset className="m-0 border-0 p-0">
+        <legend className={labelCls}>{t.mode}</legend>
+        <div className="mt-3 grid gap-3">
+          {(["allego", "nda"] as const).map((m) => (
+            <label key={m} className="flex items-start gap-3 text-[16px]">
+              <input type="radio" name="modalita" value={m} checked={modalita === m} onChange={() => setModalita(m)} className="mt-1 h-4 w-4 accent-blue" />
+              <span>{m === "allego" ? t.modeAttach : t.modeNda}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      {modalita === "allego" && (
+        <Field id="file" label={t.file} errori={errori} messaggi={msg}>
+          {(a) => (
+            <>
+              <input {...a} name="file" type="file" accept={FILE_ESTENSIONI.join(",")} className={`${fieldCls} border-b-0 pl-0`} />
+              <p className="mt-2 text-[14px] text-[#5a6870]">{t.fileHelp}</p>
+            </>
+          )}
+        </Field>
+      )}
 
       <div className="grid grid-cols-1 gap-8 min-[620px]:grid-cols-2">
-        <div>
-          <label htmlFor="materiale" className={label}>{t.material}</label>
-          <input id="materiale" name="materiale" className={field} autoComplete="off" />
-          {msg("materiale")}
-        </div>
-        <div>
-          <label htmlFor="produttivita" className={label}>{t.productivity}</label>
-          <input id="produttivita" name="produttivita" className={field} autoComplete="off" />
-          {msg("produttivita")}
-        </div>
+        <Field id="materiale" label={t.material} errori={errori} messaggi={msg}>
+          {(a) => <input {...a} name="materiale" className={fieldCls} autoComplete="off" />}
+        </Field>
+        <Field id="produttivita" label={t.productivity} errori={errori} messaggi={msg}>
+          {(a) => <input {...a} name="produttivita" className={fieldCls} autoComplete="off" />}
+        </Field>
       </div>
 
-      <fieldset className="m-0 border-0 p-0">
-        <legend className={label}>{t.processes}</legend>
+      <fieldset className="m-0 border-0 p-0" aria-invalid={Boolean(errori.lavorazioni)}>
+        <legend className={labelCls}>{t.processes}</legend>
         <div className="mt-3 flex flex-wrap gap-x-7 gap-y-3">
           {t.processOptions.map((l) => (
             <label key={l} className="flex items-center gap-2 text-[16px]">
@@ -91,74 +97,65 @@ export default function RichiestaForm({ t, privacyHref }: Props) {
             </label>
           ))}
         </div>
-        {msg("lavorazioni")}
+        {errori.lavorazioni && <p className="mt-2 text-[14px] text-[#8a1c1c]">{msg[errori.lavorazioni]}</p>}
       </fieldset>
 
-      <div>
-        <label htmlFor="settore" className={label}>{t.sector}</label>
-        <select id="settore" name="settore" defaultValue="" className={field}>
-          <option value="" disabled>{t.select}</option>
-          {t.sectorOptions.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
-        {msg("settore")}
-      </div>
+      <Field id="settore" label={t.sector} errori={errori} messaggi={msg}>
+        {(a) => (
+          <select {...a} name="settore" defaultValue="" className={fieldCls}>
+            <option value="">{t.select}</option>
+            {t.sectorOptions.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        )}
+      </Field>
 
       <div className="grid grid-cols-1 gap-8 min-[620px]:grid-cols-2">
-        <div>
-          <label htmlFor="azienda" className={label}>{t.company}</label>
-          <input id="azienda" name="azienda" className={field} autoComplete="organization" />
-          {msg("azienda")}
-        </div>
-        <div>
-          <label htmlFor="nome" className={label}>{t.name}</label>
-          <input id="nome" name="nome" className={field} autoComplete="name" />
-          {msg("nome")}
-        </div>
-        <div>
-          <label htmlFor="email" className={label}>{t.email}</label>
-          <input id="email" name="email" type="email" className={field} autoComplete="email" />
-          {msg("email")}
-        </div>
-        <div>
-          <label htmlFor="telefono" className={label}>{t.phone}</label>
-          <input id="telefono" name="telefono" type="tel" className={field} autoComplete="tel" />
-          {msg("telefono")}
-        </div>
+        <Field id="azienda" label={t.company} errori={errori} messaggi={msg}>
+          {(a) => <input {...a} name="azienda" className={fieldCls} autoComplete="organization" />}
+        </Field>
+        <Field id="nome" label={t.name} errori={errori} messaggi={msg}>
+          {(a) => <input {...a} name="nome" className={fieldCls} autoComplete="name" />}
+        </Field>
+        <Field id="email" label={t.email} errori={errori} messaggi={msg}>
+          {(a) => <input {...a} name="email" type="email" className={fieldCls} autoComplete="email" />}
+        </Field>
+        <Field id="telefono" label={t.phone} errori={errori} messaggi={msg}>
+          {(a) => <input {...a} name="telefono" type="tel" className={fieldCls} autoComplete="tel" />}
+        </Field>
       </div>
 
       <div>
-        <label htmlFor="messaggio" className={label}>{t.notes}</label>
-        <textarea id="messaggio" name="messaggio" rows={4} className={field} />
+        <label htmlFor="messaggio" className={labelCls}>{t.notes}</label>
+        <textarea id="messaggio" name="messaggio" rows={4} className={fieldCls} />
       </div>
 
       <div className="grid gap-3">
         <label className="flex items-start gap-3 text-[15px] text-[#3b4850]">
-          <input type="checkbox" name="privacy" className="mt-1 h-4 w-4 accent-blue" />
+          <input type="checkbox" name="privacy" aria-invalid={Boolean(errori.privacy)} className="mt-1 h-4 w-4 accent-blue" />
           <span>
             {t.privacyA}
             <a href={privacyHref} className="border-b border-[rgba(36,80,107,0.35)] text-blue no-underline">{t.privacyLink}</a>
             {t.privacyB}
           </span>
         </label>
-        {msg("privacy")}
-        <label className="flex items-start gap-3 text-[15px] text-[#3b4850]">
-          <input type="checkbox" name="nda" className="mt-1 h-4 w-4 accent-blue" />
-          <span>{t.nda}</span>
-        </label>
+        {errori.privacy && <p className="text-[14px] text-[#8a1c1c]">{msg[errori.privacy]}</p>}
       </div>
 
       {stato.tipo === "errore" && (
-        <p role="alert" className="border-l-4 border-[#8a1c1c] pl-4 text-[15px] text-[#8a1c1c]">{t.errors[stato.codice]}</p>
+        <div role="alert" className="border-l-4 border-[#8a1c1c] pl-4 text-[15px] text-[#8a1c1c]">
+          <p className="m-0">{msg[stato.codice]}</p>
+          {ultimo && (
+            <a href={mailtoFallback(COMPANY.email, t.title, ultimo)} className="mt-2 inline-block border-b border-current no-underline">
+              {t.emailFallback}
+            </a>
+          )}
+        </div>
       )}
 
       <div>
-        <button
-          type="submit"
-          disabled={stato.tipo === "invio"}
-          className="border border-transparent bg-yellow px-[26px] py-[15px] font-heading text-[16px] font-bold text-[#17130a] transition-colors duration-[120ms] hover:bg-[#ffc91f] disabled:opacity-60"
-        >
+        <button type="submit" disabled={stato.tipo === "invio"} className={submitCls}>
           {stato.tipo === "invio" ? t.sending : t.submit}
         </button>
       </div>

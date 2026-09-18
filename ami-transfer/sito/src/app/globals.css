@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
-/* Palette ancorata al blu del marchio A.M.I. (emblema: #004868 → #005880). */
+/* Palette del piano (§6): smalto macchina, acciaio, segnaletica. L'emblema
+   si adatta al sistema (bianco piatto sui fondi scuri), non il contrario. */
 :root {
-  --petrol: #0b2230;
-  --petrol-2: #113244;
-  --blue: #005a80;
+  --petrol: #0f1a1f;
+  --petrol-2: #16262e;
+  --blue: #24506b;
   --steel: #8d98a3;
   --paper: #e9eae6;
   --paper-2: #dcded8;

@@ -5,9 +5,9 @@ export const settoriPage: typeof ItPage = {
   metaTitle: "Industries — Automotive, building, home appliances",
   metaDescription:
     "The industries served by A.M.I. transfer lines: automotive tube components, construction tube, heat exchangers and heating units.",
-  title: "Customers bring us a part, not a specification.",
+  title: "We start from the part, not from the catalogue.",
   lede: "Three declared industries, one method: we start from the component drawing and the required output.",
-  homeTitle: "Customers bring us a part, not a specification.",
+  homeTitle: "We start from the part, not from the catalogue.",
   homeLede: "We start from the part drawing and the required output, and build the line around them.",
   detail: {
     components: "Typical components",

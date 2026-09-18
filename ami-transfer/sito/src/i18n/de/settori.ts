@@ -5,9 +5,9 @@ export const settoriPage: typeof ItPage = {
   metaTitle: "Branchen — Automotive, Bauwesen, Hausgeräte",
   metaDescription:
     "Die Branchen der A.M.I.-Transferlinien: Rohrbauteile für Automotive, Rohre für das Bauwesen, Wärmetauscher und Heizgeräte.",
-  title: "Unsere Kunden bringen ein Teil, kein Lastenheft.",
+  title: "Wir beginnen beim Teil, nicht beim Katalog.",
   lede: "Drei Branchen, eine Methode: Wir beginnen bei der Bauteilzeichnung und der geforderten Stückzahl.",
-  homeTitle: "Unsere Kunden bringen ein Teil, kein Lastenheft.",
+  homeTitle: "Wir beginnen beim Teil, nicht beim Katalog.",
   homeLede: "Wir gehen von der Teilezeichnung und der geforderten Stückzahl aus und bauen die Linie darum herum.",
   detail: {
     components: "Typische Bauteile",

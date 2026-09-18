@@ -3,7 +3,9 @@ import Section, { Prose } from "@/components/ui/Section";
 import Todo from "@/components/ui/Todo";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import ServiceForm from "@/components/forms/ServiceForm";
 import { COMPANY } from "@/lib/site";
+import { SHOW_TODO } from "@/lib/todo";
 import { href, type Dictionary } from "@/i18n";
 
 export default function ServicePage({ d }: { d: Dictionary }) {
@@ -17,9 +19,11 @@ export default function ServicePage({ d }: { d: Dictionary }) {
           <div>
             <div className="font-heading text-[15px] font-bold text-[#cfe0ec]">{p.lineDown}</div>
             <a href={COMPANY.phoneHref} className="font-heading text-[clamp(28px,4vw,44px)] font-extrabold text-white no-underline">{COMPANY.phone}</a>
-            <div className="mt-1 text-[15px] text-[#cfe0ec]">
-              {p.hours} <Todo>{d.ui.todo}</Todo>
-            </div>
+            {SHOW_TODO && (
+              <div className="mt-1 text-[15px] text-[#cfe0ec]">
+                {p.hours} <Todo>{d.ui.todo}</Todo>
+              </div>
+            )}
           </div>
           <Button href="#identifica" variant="primary">{d.ui.cta.identifyLine}</Button>
         </Container>
@@ -37,23 +41,16 @@ export default function ServicePage({ d }: { d: Dictionary }) {
       </Section>
 
       <Section id="identifica" tone="paper-2" title={p.identifyTitle} lede={p.identifyLede}>
-        <Prose>
-          <ul>
-            {p.identifyItems.map((i) => (
-              <li key={i}>{i}</li>
-            ))}
-          </ul>
-          <p>
-            {p.writeA}{" "}
-            <a href={`mailto:${COMPANY.email}?subject=${encodeURIComponent(p.emailSubject)}`} className="border-b border-[rgba(36,80,107,0.35)] text-blue no-underline">
-              {COMPANY.email}
-            </a>{" "}
-            {p.writeB}
-          </p>
-          <p>
-            {p.processNote} <Todo>{d.ui.todo}</Todo>
-          </p>
-        </Prose>
+        <div className="mt-10 max-w-[760px]">
+          <ServiceForm t={d.ui.form} s={d.ui.serviceForm} privacyHref={href(d.locale, "privacy")} />
+        </div>
+        {SHOW_TODO && (
+          <Prose>
+            <p className="mt-10">
+              {p.processNote} <Todo>{d.ui.todo}</Todo>
+            </p>
+          </Prose>
+        )}
       </Section>
     </>
   );

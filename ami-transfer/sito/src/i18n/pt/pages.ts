@@ -4,7 +4,7 @@ export const pages: Pages = {
   home: {
     hero: {
       title: "O tubo entra em bruto e sai acabado.",
-      sub: "Linhas transfer lineares para a maquinação de tubo: projetadas, programadas, construídas e testadas na nossa fábrica em Manerbio, Itália.",
+      sub: "Linhas transfer construídas à volta da sua peça: do desenho do componente à peça acabada em ciclo contínuo.",
       hint: "arraste para rodar",
     },
     facts: [
@@ -15,7 +15,7 @@ export const pages: Pages = {
     ],
     cycle: {
       title: "Uma só linha, seis estações, uma peça acabada a cada passo.",
-      lede: "A linha avança a passo fixo: a cada indexação, todas as estações trabalham em simultâneo no seu troço de tubo. O tempo de ciclo é o da estação mais lenta, não a soma das maquinações.",
+      lede: "A linha avança a passo fixo: a cada indexação, todas as estações trabalham em simultâneo no seu troço de tubo. O tempo de ciclo é o da estação mais lenta, não a soma das maquinações. A sequência abaixo é um exemplo: a configuração real depende da peça.",
       station: "Estação",
       stations: [
         { title: "Carga", text: "Alimentação automática a partir de feixe ou de barra, com controlo de presença de peça." },
@@ -23,7 +23,7 @@ export const pages: Pages = {
         { title: "Furação", text: "Unidades de maquinação dedicadas, posicionadas no passo exigido pelo desenho do cliente." },
         { title: "Puncionamento", text: "Remoção de material sem apara onde a geometria da peça o permite." },
         { title: "Roscagem", text: "Unidades de roscagem sincronizadas com o ciclo de indexação." },
-        { title: "Controlo e descarga", text: "Verificação dimensional em linha e separação automática do refugo." },
+        { title: "Controlo e descarga", text: "Descarga automática da peça acabada, com os controlos exigidos pelo caderno de encargos." },
       ],
     },
     departments: {
@@ -40,12 +40,12 @@ export const pages: Pages = {
     },
     service: {
       title: "A linha que comprou há vinte anos, ainda a conhecemos.",
-      lede: "Temos o arquivo de cada encomenda que saiu de Manerbio: esquemas, programas, listas de materiais. Por isso uma peça de substituição identifica-se no próprio dia e uma intervenção começa onde é preciso.",
+      lede: "Temos o arquivo de cada encomenda que saiu de Manerbio: esquemas, programas, listas de materiais. Uma peça de substituição identifica-se a partir do arquivo, não de uma foto, e uma intervenção começa onde é preciso.",
       items: [
-        "Peças de substituição originais e componentes em fim de vida assinalados antes de pararem a linha",
+        "Peças de substituição originais identificadas a partir do arquivo da encomenda",
         "Retrofit de quadro e PLC em linhas ainda mecanicamente sãs",
         "Modificação da linha para uma peça nova ou um ciclo diferente",
-        "Assistência remota e no local, em toda a Europa",
+        "Assistência remota e no local",
       ],
     },
   },
@@ -54,18 +54,19 @@ export const pages: Pages = {
     metaTitle: "Empresa — Construtores de linhas transfer desde 1978",
     metaDescription:
       "A A.M.I. S.r.l. constrói em Manerbio (Itália) linhas transfer por encomenda para a maquinação de tubo. Projeto, PLC, serralharia, maquinação e receção internos.",
-    title: "Desde 1978 construímos linhas transfer em Manerbio.",
+    title: "Desde 1978, uma linha de cada vez.",
     lede: "A A.M.I. — Automazione Meccanica Industriale — é um construtor de máquinas especiais por encomenda. Cada linha nasce à volta de um componente específico do cliente e é projetada, construída e testada na mesma fábrica.",
     heroAlt: "Vista aérea da fábrica A.M.I. em Manerbio: edifício de escritórios e nave de produção",
     heroCaption: "A fábrica de Manerbio (Brescia, Itália). Fotograma do vídeo institucional da A.M.I.",
     chainTitle: "Um só teto para toda a cadeia",
-    chainP1: "Num setor onde muitos construtores montam e subcontratam, a A.M.I. mantém internamente cada fase crítica: projeto CAD 3D, programação PLC, serralharia pesada, maquinação, controlo de qualidade, montagem e receção.",
+    chainP1: "A A.M.I. mantém internamente cada fase crítica: projeto CAD 3D, programação PLC, serralharia pesada, maquinação, controlo de qualidade, montagem e receção.",
     chainP2: "Para o cliente significa um só interlocutor, prazos que não dependem de terceiros e uma máquina em que se pode voltar a intervir anos depois, porque quem a projetou e programou ainda cá está.",
     numbersTitle: "Os números",
     numbers: [
       "Constituída a 23 de março de 1978",
       "7.000 m² de fábrica e 600 m² de escritórios",
       "Mais de 20 linhas dedicadas por ano",
+      "Volume de negócios 2023: 7,46 milhões de euros (contas depositadas)",
       "Expositor na Tube Düsseldorf em 2022, 2024 e 2026",
     ],
     staff: "Efetivo:",
@@ -129,14 +130,14 @@ export const pages: Pages = {
       { title: "Proposta", text: "Configuração da linha, tempo de ciclo previsto, prazos de entrega. Sem cadernos de encargos genéricos: a proposta descreve a máquina para aquela peça." },
       { title: "Projeto", text: "Modelação 3D de toda a linha e das unidades de maquinação. Programação PLC em paralelo com a mecânica." },
       { title: "Construção", text: "Serralharia, maquinação, quadros elétricos e montagem na mesma fábrica." },
-      { title: "Receção na fábrica", text: "A linha é montada e afinada em Manerbio, a maquinar a peça do cliente antes da expedição." },
+      { title: "Receção na fábrica", text: "A linha é montada completa e afinada em Manerbio antes da expedição." },
       { title: "Instalação e arranque", text: "Transporte, colocação, arranque e formação dos operadores nas instalações do cliente." },
       { title: "Assistência", text: "Peças de substituição, assistência e retrofit durante toda a vida da linha, com o arquivo completo da encomenda." },
     ],
     timesNote: "Tempos médios por fase:",
     testNote: "A receção com a peça do cliente como prática corrente:",
     testedTitle: "Testada antes de partir.",
-    testedLede: "Cada linha é montada completa na fábrica. O cliente pode vê-la a maquinar a sua própria peça antes de ser desmontada e expedida.",
+    testedLede: "Cada linha é montada completa e afinada na fábrica antes de ser desmontada e expedida.",
     photo1Alt: "Estação de trabalho com pinça pneumática com marca A.M.I. numa linha em receção",
     photo1Caption: "Estação em receção. Fotograma do vídeo institucional.",
     photo2Alt: "Dispositivo de fixação do tubo com marca A.M.I. gravada",
@@ -150,14 +151,14 @@ export const pages: Pages = {
     metaDescription:
       "Peças de substituição originais, retrofit de quadro e PLC, modificações para peças novas e assistência no local para as linhas transfer A.M.I. instaladas desde 1978.",
     title: "A linha que comprou há vinte anos, ainda a conhecemos.",
-    lede: "Temos o arquivo de cada encomenda que saiu de Manerbio: esquemas, programas, listas de materiais. Uma peça de substituição identifica-se no próprio dia e uma intervenção começa onde é preciso.",
+    lede: "Temos o arquivo de cada encomenda que saiu de Manerbio: esquemas, programas, listas de materiais. Uma peça de substituição identifica-se a partir do arquivo, não de uma foto, e uma intervenção começa onde é preciso.",
     lineDown: "Linha parada?",
     hours: "Horário de assistência:",
     services: [
-      { title: "Peças de substituição", text: "Peças originais identificadas no próprio dia a partir do arquivo da encomenda. Assinalamos os componentes em fim de vida antes de pararem a linha." },
+      { title: "Peças de substituição", text: "Peças originais identificadas a partir do arquivo da encomenda, com os esquemas e listas de materiais da sua linha." },
       { title: "Retrofit", text: "Substituição de quadro elétrico e PLC em linhas ainda mecanicamente sãs. As lógicas são escritas internamente: atualizam-se, não se voltam a comprar." },
       { title: "Modificação para peça nova", text: "Novas unidades de maquinação ou nova sequência de estações quando o componente muda. A linha adapta-se em vez de ser substituída." },
-      { title: "Assistência", text: "Intervenções remotas e no local, em toda a Europa, com o técnico que conhece a máquina." },
+      { title: "Assistência", text: "Intervenções remotas e no local, com o técnico que conhece a máquina." },
     ],
     identifyTitle: "Identifique a sua linha.",
     identifyLede: "Para um pedido de peça ou de assistência bastam poucos dados: encontra-os na placa da máquina.",
@@ -185,7 +186,7 @@ export const pages: Pages = {
     metaTitle: "Trabalhe connosco — Manerbio, Itália",
     metaDescription:
       "Projeto mecânico, automação PLC, montagem e receção de linhas transfer em Manerbio. Vagas abertas e candidaturas espontâneas.",
-    title: "Máquinas que se veem nascer por inteiro.",
+    title: "Do desenho à máquina, sob o mesmo teto.",
     lede: "Em Manerbio, uma linha transfer é projetada, programada, construída e testada na mesma fábrica. Quem trabalha aqui acompanha a peça do desenho até à máquina que a produz.",
     whatTitle: "O que fazemos",
     what: [
