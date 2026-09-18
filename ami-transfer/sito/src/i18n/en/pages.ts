@@ -3,8 +3,8 @@ import type { Pages } from "@/i18n/it/pages";
 export const pages: Pages = {
   home: {
     hero: {
-      title: "The tube goes in raw, comes out finished.",
-      sub: "Transfer lines built around your part: from the component drawing to the finished part in continuous cycle.",
+      title: "Transfer lines built around your part.",
+      sub: "Tube processing in continuous cycle, from the component drawing to the finished part: design, PLC, construction and acceptance testing under one roof.",
       hint: "drag to rotate",
     },
     facts: [

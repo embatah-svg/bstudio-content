@@ -3,8 +3,8 @@ import type { Pages } from "@/i18n/it/pages";
 export const pages: Pages = {
   home: {
     hero: {
-      title: "Das Rohr kommt roh hinein und fertig heraus.",
-      sub: "Transferlinien, gebaut um Ihr Teil: von der Teilezeichnung zum fertigen Teil im Dauertakt.",
+      title: "Transferlinien, gebaut um Ihr Teil.",
+      sub: "Rohrbearbeitung im Dauertakt, von der Teilezeichnung zum fertigen Teil: Konstruktion, SPS, Bau und Abnahme unter einem Dach.",
       hint: "ziehen zum Drehen",
     },
     facts: [

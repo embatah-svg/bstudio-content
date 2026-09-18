@@ -3,8 +3,8 @@ import type { Pages } from "@/i18n/it/pages";
 export const pages: Pages = {
   home: {
     hero: {
-      title: "El tubo entra en bruto y sale acabado.",
-      sub: "Líneas transfer construidas alrededor de su pieza: del plano del componente a la pieza acabada en ciclo continuo.",
+      title: "Líneas transfer construidas alrededor de su pieza.",
+      sub: "Mecanizado del tubo en ciclo continuo, del plano del componente a la pieza acabada: diseño, PLC, construcción y recepción bajo el mismo techo.",
       hint: "arrastre para girar",
     },
     facts: [

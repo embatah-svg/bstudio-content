@@ -1,8 +1,8 @@
 export const pages = {
   home: {
     hero: {
-      title: "Il tubo entra grezzo, esce finito.",
-      sub: "Linee transfer costruite intorno al vostro pezzo: dal disegno del componente al pezzo finito in ciclo continuo.",
+      title: "Linee transfer costruite intorno al vostro pezzo.",
+      sub: "Lavorazione del tubo in ciclo continuo, dal disegno del componente al pezzo finito: progettazione, PLC, costruzione e collaudo nella stessa azienda.",
       hint: "trascina per ruotare",
     },
     facts: [

@@ -3,8 +3,8 @@ import type { Pages } from "@/i18n/it/pages";
 export const pages: Pages = {
   home: {
     hero: {
-      title: "Le tube entre brut, il ressort fini.",
-      sub: "Des lignes transfert construites autour de votre pièce : du plan du composant à la pièce finie en cycle continu.",
+      title: "Des lignes transfert construites autour de votre pièce.",
+      sub: "Usinage du tube en cycle continu, du plan du composant à la pièce finie : conception, automate, construction et réception sous le même toit.",
       hint: "glisser pour tourner",
     },
     facts: [
