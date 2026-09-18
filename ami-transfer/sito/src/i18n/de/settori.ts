@@ -6,7 +6,7 @@ export const settoriPage: typeof ItPage = {
   metaDescription:
     "Die Branchen der A.M.I.-Transferlinien: Rohrbauteile für Automotive, Rohre für das Bauwesen, Wärmetauscher und Heizgeräte.",
   title: "Wir beginnen beim Teil, nicht beim Katalog.",
-  lede: "Drei Branchen, eine Methode: Wir beginnen bei der Bauteilzeichnung und der geforderten Stückzahl.",
+  lede: "Drei Branchen, eine Methode: Wir beginnen bei der Teilezeichnung und der geforderten Stückzahl.",
   homeTitle: "Wir beginnen beim Teil, nicht beim Katalog.",
   homeLede: "Wir gehen von der Teilezeichnung und der geforderten Stückzahl aus und bauen die Linie darum herum.",
   detail: {
@@ -31,7 +31,7 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     title: "Transferlinien für Rohrbauteile im Automotive-Bereich",
     lede: "Rohrbauteile in Serienstückzahlen, bei denen Taktzeit, Wiederholgenauigkeit und Prozessrückverfolgbarkeit zählen.",
     homeText: "Rohrbauteile für Abgasanlagen, Klimatisierung und Bremssysteme in Serienstückzahlen.",
-    componenti: ["Rohrbauteile für Abgasanlagen", "Leitungen für Klimatisierung", "Bauteile für Bremssysteme"],
+    componenti: ["Rohrbauteile für Abgasanlagen", "Klimaleitungen", "Bauteile für Bremssysteme"],
     esigenze: [
       "Taktzeit im Angebot festgelegt und bei der Abnahme verifiziert.",
       "Maßliche Wiederholgenauigkeit bei großen Losen.",

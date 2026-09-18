@@ -65,7 +65,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     serve: [
       "Plano con geometría de las aberturas y tolerancias.",
       "Material y espesor del tubo, para comprobar que el punzonado es aplicable.",
-      "Volúmenes previstos: influyen en la duración de las herramientas y en el dimensionamiento.",
+      "Volúmenes previstos: influyen en la vida útil de las herramientas y en el dimensionamiento.",
     ],
     settori: ["automotive", "building"],
   },
@@ -73,14 +73,14 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "roscado",
     name: "Roscado",
     title: "Roscado del tubo en ciclo continuo",
-    lede: "Unidades de roscado integradas en la línea y sincronizadas con el ciclo de indexado, para roscar agujeros y extremos sin salir del transfer.",
+    lede: "Unidades de roscado integradas en la línea y sincronizadas con el ciclo de indexado, para roscar agujeros y extremos sin salir de la línea transfer.",
     cosa: [
       "Roscado de agujeros radiales ya realizados en las estaciones anteriores.",
       "Roscado de extremos del tubo, donde el plano lo requiere.",
       "Unidades de roscado con control del ciclo de avance y retroceso.",
     ],
     inLinea: [
-      "El taladrado y el roscado se realizan en estaciones consecutivas del mismo transfer.",
+      "El taladrado y el roscado se realizan en estaciones consecutivas de la misma línea.",
       "Sin manipulación de la pieza entre las dos operaciones: los ejes se mantienen referenciados.",
       "Lubricación dedicada en la estación de roscado.",
     ],
@@ -102,7 +102,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
       "Calibrado de extremos donde la pieza debe acoplarse a un racor.",
     ],
     inLinea: [
-      "Primera estación útil tras la carga: todos los mecanizados siguientes trabajan sobre un tubo ya calibrado.",
+      "Primera estación tras la carga: todos los mecanizados siguientes trabajan sobre un tubo ya calibrado.",
       "Herramientas de calibrado dimensionadas sobre el diámetro nominal de la pieza.",
       "Control en línea donde lo exige el pliego de condiciones.",
     ],

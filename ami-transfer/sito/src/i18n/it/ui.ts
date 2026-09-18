@@ -75,6 +75,7 @@ export const ui = {
     title: "Richiesta di fattibilità",
     office: "Ufficio tecnico",
     hours: "Orari",
+    hoursValue: "8:00–12:00 e 13:00–18:00",
     map: "Mappa e indicazioni",
     file: "Disegno o modello del pezzo",
     fileHelp:

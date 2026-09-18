@@ -2,7 +2,7 @@ import type { SettoreKey } from "@/i18n/config";
 import type { SettoreContent, settoriPage as ItPage } from "@/i18n/it/settori";
 
 export const settoriPage: typeof ItPage = {
-  metaTitle: "Industries — Automotive, building, home appliances",
+  metaTitle: "Industries — Automotive, construction, home appliances",
   metaDescription:
     "The industries served by A.M.I. transfer lines: automotive tube components, construction tube, heat exchangers and heating units.",
   title: "We start from the part, not from the catalogue.",
@@ -29,8 +29,8 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     slug: "automotive",
     name: "Automotive",
     title: "Transfer lines for automotive tube components",
-    lede: "Tubular components in series volumes, where cycle time, repeatability and process traceability matter.",
-    homeText: "Tubular components for exhaust systems, air conditioning and braking systems, in series volumes.",
+    lede: "Tubular components in production volumes, where cycle time, repeatability and process traceability matter.",
+    homeText: "Tubular components for exhaust systems, air conditioning and braking systems, in production volumes.",
     componenti: ["Tubular components for exhaust systems", "Air-conditioning tubing", "Components for braking systems"],
     esigenze: [
       "Cycle time defined at quotation stage and verified at acceptance testing.",
@@ -41,11 +41,11 @@ export const settori: Record<SettoreKey, SettoreContent> = {
   },
   building: {
     slug: "building",
-    name: "Building",
+    name: "Construction",
     title: "Transfer lines for construction tube",
-    lede: "Tube for plumbing and heating systems, scaffolding and light steelwork: simple parts, high volumes, decisive part cost.",
-    homeText: "Tube for plumbing and heating systems, scaffolding and light steelwork.",
-    componenti: ["Tube for plumbing and heating systems", "Scaffolding elements", "Light tubular steelwork"],
+    lede: "Tube for plumbing and heating systems, scaffolding and light structural work: simple parts, high volumes, decisive part cost.",
+    homeText: "Tube for plumbing and heating systems, scaffolding and light structural work.",
+    componenti: ["Tube for plumbing and heating systems", "Scaffolding elements", "Light tubular structures"],
     esigenze: [
       "Low part cost on large volumes.",
       "Robust lines, with simple maintenance and available spare parts.",

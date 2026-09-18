@@ -66,7 +66,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     serve: [
       "Drawing with opening geometry and tolerances.",
       "Tube material and thickness, to verify that punching is applicable.",
-      "Expected volumes: they affect tool life and sizing.",
+      "Expected volumes: they affect tool life and line sizing.",
     ],
     settori: ["automotive", "building"],
   },
@@ -74,14 +74,14 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "threading",
     name: "Threading",
     title: "Tube threading in continuous cycle",
-    lede: "Tapping units integrated in the line and synchronised with the indexing cycle, to thread holes and ends without leaving the transfer.",
+    lede: "Tapping units integrated in the line and synchronised with the indexing cycle, to thread holes and ends without leaving the transfer line.",
     cosa: [
       "Threading of radial holes already made at previous stations.",
       "Threading of tube ends where the drawing requires it.",
       "Tapping units with controlled feed and return cycle.",
     ],
     inLinea: [
-      "Drilling and threading take place at consecutive stations of the same transfer.",
+      "Drilling and threading take place at consecutive stations of the same line.",
       "No re-handling of the part between the two operations: the axes stay referenced.",
       "Dedicated lubrication at the tapping station.",
     ],
@@ -103,7 +103,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
       "End sizing where the part has to mate with a fitting.",
     ],
     inLinea: [
-      "First useful station after loading: all following operations work on an already sized tube.",
+      "First station after loading: all following operations work on an already sized tube.",
       "Sizing tools dimensioned on the nominal diameter of the part.",
       "In-line inspection where required by the specification.",
     ],

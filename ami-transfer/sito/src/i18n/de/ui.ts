@@ -63,13 +63,14 @@ export const ui: Ui = {
     station: "Betroffene Station oder Baugruppe",
     problem: "Beschreibung des Problems oder Komponentencode",
     submit: "Serviceanfrage senden",
-    hint: "Seriennummer und Baujahr stehen auf dem Typenschild am Grundkörper oder am Schaltschrank.",
+    hint: "Seriennummer und Baujahr stehen auf dem Typenschild am Maschinenbett oder am Schaltschrank.",
     errors: { matricola: "Bitte die Seriennummer der Linie angeben.", problema: "Bitte das Problem beschreiben." },
   },
   form: {
     title: "Machbarkeitsanfrage",
     office: "Technisches Büro",
     hours: "Öffnungszeiten",
+    hoursValue: "8:00–12:00 und 13:00–18:00 Uhr (MEZ)",
     map: "Karte und Anfahrt",
     file: "Zeichnung oder Modell des Teils",
     fileHelp:

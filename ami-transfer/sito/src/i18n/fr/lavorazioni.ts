@@ -29,7 +29,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "percage",
     name: "Perçage",
     title: "Perçage du tube sur ligne transfert",
-    lede: "Trous radiaux et traversants réalisés sur un ou plusieurs postes de la ligne, avec des unités d'usinage dédiées positionnées au pas exigé par le plan.",
+    lede: "Perçages radiaux et débouchants réalisés sur un ou plusieurs postes de la ligne, avec des unités d'usinage dédiées positionnées au pas exigé par le plan.",
     cosa: [
       "Trous simples ou multiples sur le même tronçon de tube, y compris sur des plans différents.",
       "Unités d'usinage à avance contrôlée, une par groupe de trous.",
@@ -73,14 +73,14 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "taraudage",
     name: "Taraudage",
     title: "Taraudage du tube en cycle continu",
-    lede: "Unités de taraudage intégrées à la ligne et synchronisées avec le cycle d'indexage, pour tarauder trous et extrémités sans sortir du transfert.",
+    lede: "Unités de taraudage intégrées à la ligne et synchronisées avec le cycle d'indexage, pour tarauder trous et extrémités sans sortir de la ligne transfert.",
     cosa: [
       "Taraudage de trous radiaux déjà réalisés aux postes précédents.",
-      "Taraudage d'extrémité du tube, là où le plan l'exige.",
+      "Filetage des extrémités du tube, là où le plan l'exige.",
       "Unités de taraudage avec cycle d'avance et de retour contrôlé.",
     ],
     inLinea: [
-      "Perçage et taraudage ont lieu sur des postes consécutifs du même transfert.",
+      "Perçage et taraudage ont lieu sur des postes consécutifs de la même ligne.",
       "Aucune reprise de la pièce entre les deux opérations : les axes restent référencés.",
       "Lubrification dédiée au poste de taraudage.",
     ],
@@ -95,14 +95,14 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "calibrage",
     name: "Calibrage",
     title: "Calibrage du tube avant usinage",
-    lede: "Reprise du diamètre et de la circularité du tube brut, pour donner aux postes suivants une référence stable.",
+    lede: "Correction du diamètre et de la circularité du tube brut, pour donner aux postes suivants une référence stable.",
     cosa: [
       "Correction de l'ovalisation et des variations de diamètre du tube entrant.",
       "Référence dimensionnelle fiable pour le perçage, le poinçonnage et le taraudage.",
       "Calibrage d'extrémité là où la pièce doit s'accoupler à un raccord.",
     ],
     inLinea: [
-      "Premier poste utile après le chargement : toutes les opérations suivantes travaillent sur un tube déjà calibré.",
+      "Premier poste après le chargement : toutes les opérations suivantes travaillent sur un tube déjà calibré.",
       "Outils de calibrage dimensionnés sur le diamètre nominal de la pièce.",
       "Contrôle en ligne là où le cahier des charges l'exige.",
     ],

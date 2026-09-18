@@ -97,7 +97,8 @@ export const pages = {
     title: "Una linea, più stazioni, un pezzo finito a ogni passo.",
     lede: "La linea transfer lineare porta il tubo attraverso una sequenza di stazioni. Tutte lavorano contemporaneamente: il tempo ciclo è quello della stazione più lenta, non della somma delle lavorazioni.",
     indexTitle: "Come funziona l'indexaggio.",
-    indexLede: "Il principio è semplice e si vede nell'animazione della home: il tubo avanza di un passo, le teste scendono, lavorano, risalgono, e la linea avanza di nuovo.",
+    indexLede: "Il principio è semplice: il tubo avanza di un passo, le teste scendono, lavorano, risalgono, e la linea avanza di nuovo.",
+    sceneCaption: "Schema del ciclo di indexaggio: avanzamento a passo, discesa delle teste, lavorazione, risalita. Trascinate per ruotare.",
     elements: [
       { title: "Basamento e guide", text: "Struttura elettrosaldata costruita in carpenteria interna, con guide di scorrimento per il trasferimento del pezzo." },
       { title: "Sistema di indexaggio", text: "Avanzamento a passo fisso: a ogni ciclo tutti i pezzi in linea avanzano di una stazione." },
@@ -151,7 +152,7 @@ export const pages = {
     title: "La linea che avete comprato vent'anni fa la conosciamo ancora.",
     lede: "Abbiamo l'archivio di ogni commessa uscita da Manerbio: schemi, programmi, distinte. Un ricambio si identifica dall'archivio, non da una foto, e un intervento parte da dove serve.",
     lineDown: "Linea ferma?",
-    hours: "Orari di assistenza:",
+    hours: "Assistenza negli orari d'ufficio: 8:00–12:00 e 13:00–18:00.",
     services: [
       { title: "Ricambi", text: "Ricambi originali identificati dall'archivio di commessa, con schemi e distinte della vostra linea." },
       { title: "Retrofit", text: "Sostituzione di quadro elettrico e PLC su linee ancora meccanicamente sane. Le logiche sono scritte in casa: si aggiornano, non si ricomprano." },

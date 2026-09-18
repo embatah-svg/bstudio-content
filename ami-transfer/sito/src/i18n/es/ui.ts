@@ -17,14 +17,14 @@ export const routes: Record<SectionKey, string> = {
 export const ui: Ui = {
   siteTitle: "A.M.I. — Líneas transfer para el mecanizado de tubo",
   siteDescription:
-    "Líneas transfer lineales para el mecanizado de tubo metálico. Diseñadas, programadas y probadas en Manerbio (Brescia, Italia).",
+    "Líneas transfer lineales para el mecanizado de tubo metálico. Diseñadas, programadas y sometidas a pruebas de recepción en Manerbio (Brescia, Italia).",
   nav: {
     azienda: "Empresa",
     "linee-transfer": "Líneas transfer",
     lavorazioni: "Mecanizados",
     settori: "Sectores",
     "come-lavoriamo": "Cómo trabajamos",
-    service: "Servicio",
+    service: "Servicio técnico",
     contatti: "Contacto",
     "lavora-con-noi": "Trabaja con nosotros",
     "note-legali": "Aviso legal",
@@ -70,6 +70,7 @@ export const ui: Ui = {
     title: "Solicitud de viabilidad",
     office: "Oficina técnica",
     hours: "Horario",
+    hoursValue: "8:00–12:00 y 13:00–18:00 (hora de Italia)",
     map: "Mapa e indicaciones",
     file: "Plano o modelo de la pieza",
     fileHelp:
@@ -111,7 +112,7 @@ export const ui: Ui = {
       fileType: "Formatos aceptados: PDF, DWG, DXF, STEP, STP, ZIP.",
       fileSize: "El archivo supera los 25 MB.",
       inactive: "El formulario aún no está activo. Escriba a info@amitransfer.com.",
-      failed: "Envío fallido. Inténtelo de nuevo o escriba a info@amitransfer.com.",
+      failed: "No se ha podido enviar. Inténtelo de nuevo o escriba a info@amitransfer.com.",
       fields: "Revise los campos señalados.",
     },
   },

@@ -31,7 +31,7 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     title: "Líneas transfer para componentes de automoción en tubo",
     lede: "Componentes tubulares en volúmenes de serie, donde cuentan el tiempo de ciclo, la repetibilidad y la trazabilidad del proceso.",
     homeText: "Componentes tubulares para sistemas de escape, climatización y sistemas de frenado, en volúmenes de serie.",
-    componenti: ["Componentes tubulares para sistemas de escape", "Tuberías para climatización", "Componentes para sistemas de frenado"],
+    componenti: ["Componentes tubulares para sistemas de escape", "Tubos para climatización", "Componentes para sistemas de frenado"],
     esigenze: [
       "Tiempo de ciclo definido en la oferta y verificado en la recepción.",
       "Repetibilidad dimensional en lotes grandes.",
@@ -59,7 +59,7 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     title: "Líneas transfer para intercambiadores y grupos térmicos",
     lede: "Intercambiadores de calor, grupos térmicos y componentes de línea blanca: piezas que cambian a menudo y líneas que deben adaptarse.",
     homeText: "Intercambiadores de calor, grupos térmicos y componentes de línea blanca.",
-    componenti: ["Tubos para intercambiadores de calor", "Componentes para grupos térmicos", "Tuberías para electrodomésticos"],
+    componenti: ["Tubos para intercambiadores de calor", "Componentes para grupos térmicos", "Tubos para electrodomésticos"],
     esigenze: [
       "Flexibilidad ante piezas nuevas sin sustituir la línea.",
       "Lógica PLC modificable cuando cambia el componente.",

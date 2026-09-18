@@ -21,7 +21,7 @@ export default function Hero({ d }: { d: Dictionary }) {
           </div>
         </div>
       </div>
-      <div className="pointer-events-none absolute right-[max(4vw,16px)] bottom-[7vh] hidden text-[13px] tracking-[0.04em] text-[#7f929e] min-[700px]:block">
+      <div className="pointer-events-none absolute right-[max(4vw,16px)] bottom-[7vh] hidden max-w-[28ch] text-right text-[13px] text-[#7f929e] min-[900px]:block">
         {h.hint}
       </div>
     </div>

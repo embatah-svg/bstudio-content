@@ -4,7 +4,7 @@ import type { Ui } from "@/i18n/it/ui";
 export const routes: Record<SectionKey, string> = {
   azienda: "empresa",
   "linee-transfer": "linhas-transfer",
-  lavorazioni: "maquinacoes",
+  lavorazioni: "maquinagens",
   settori: "setores",
   "come-lavoriamo": "como-trabalhamos",
   service: "assistencia",
@@ -15,13 +15,13 @@ export const routes: Record<SectionKey, string> = {
 };
 
 export const ui: Ui = {
-  siteTitle: "A.M.I. — Linhas transfer para a maquinação de tubo",
+  siteTitle: "A.M.I. — Linhas transfer para a maquinagem de tubo",
   siteDescription:
-    "Linhas transfer lineares para a maquinação de tubo metálico. Projetadas, programadas e testadas em Manerbio (Brescia, Itália).",
+    "Linhas transfer lineares para a maquinagem de tubo metálico. Projetadas, programadas e ensaiadas em Manerbio (Brescia, Itália).",
   nav: {
     azienda: "Empresa",
     "linee-transfer": "Linhas transfer",
-    lavorazioni: "Maquinações",
+    lavorazioni: "Maquinagens",
     settori: "Setores",
     "come-lavoriamo": "Como trabalhamos",
     service: "Assistência",
@@ -34,20 +34,20 @@ export const ui: Ui = {
   menu: "Menu",
   close: "Fechar",
   language: "Idioma",
-  breadcrumb: "Navegação",
+  breadcrumb: "Caminho de navegação",
   call: "Ligar",
   todo: "A CONFIRMAR",
   cta: {
     primary: "Envie o desenho da peça",
     secondary: "Fale com o gabinete técnico",
     feasibility: "Verificar a viabilidade",
-    allProcesses: "Ver todas as maquinações do tubo",
+    allProcesses: "Ver todas as maquinagens do tubo",
     howWeWork: "Como trabalhamos",
     identifyLine: "Identifique a sua linha",
     seeComponents: "Ver os componentes que produzimos",
     careers: "Trabalhe connosco",
     company: "A empresa",
-    allProcessesShort: "Todas as maquinações",
+    allProcessesShort: "Todas as maquinagens",
     watchLine: "Ver a linha a trabalhar",
   },
   ctaBand: {
@@ -70,13 +70,14 @@ export const ui: Ui = {
     title: "Pedido de viabilidade",
     office: "Gabinete técnico",
     hours: "Horário",
+    hoursValue: "8:00–12:00 e 13:00–18:00 (hora de Itália)",
     map: "Mapa e indicações",
     file: "Desenho ou modelo da peça",
     fileHelp:
       "PDF, DWG, DXF, STEP ou ZIP, máx. 25 MB. Os ficheiros são usados apenas para avaliar o pedido; a pedido, assinamos um acordo de confidencialidade antes de receber qualquer documento.",
     material: "Material e diâmetro do tubo",
     productivity: "Produtividade pretendida (peças/hora ou peças/ano)",
-    processes: "Maquinações necessárias",
+    processes: "Maquinagens necessárias",
     processOptions: ["Calibragem", "Furação", "Puncionamento", "Roscagem", "Outra"],
     sector: "Setor",
     sectorOptions: ["Automóvel", "Construção", "Eletrodomésticos", "Outro"],
@@ -101,7 +102,7 @@ export const ui: Ui = {
     errors: {
       materiale: "Indique o material e o diâmetro do tubo.",
       produttivita: "Indique a produtividade pretendida.",
-      lavorazioni: "Selecione pelo menos uma maquinação.",
+      lavorazioni: "Selecione pelo menos uma maquinagem.",
       settore: "Selecione o setor.",
       azienda: "Indique a empresa.",
       nome: "Indique o seu nome.",
@@ -111,7 +112,7 @@ export const ui: Ui = {
       fileType: "Formatos aceites: PDF, DWG, DXF, STEP, STP, ZIP.",
       fileSize: "O ficheiro excede 25 MB.",
       inactive: "O formulário ainda não está ativo. Escreva para info@amitransfer.com.",
-      failed: "Envio falhado. Tente novamente ou escreva para info@amitransfer.com.",
+      failed: "O envio falhou. Tente novamente ou escreva para info@amitransfer.com.",
       fields: "Verifique os campos assinalados.",
     },
   },

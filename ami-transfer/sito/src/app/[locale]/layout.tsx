@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       images: [{ url: "/images/sede-drone.webp", width: 1280, height: 720, alt: d.pages.azienda.heroAlt }],
     },
     twitter: { card: "summary_large_image" },
+    robots: process.env.NEXT_PUBLIC_NOINDEX === "1" ? { index: false, follow: false } : undefined,
   };
 }
 

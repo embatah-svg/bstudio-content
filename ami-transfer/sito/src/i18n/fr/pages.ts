@@ -18,8 +18,8 @@ export const pages: Pages = {
       lede: "La ligne avance à pas fixe : à chaque indexage, tous les postes travaillent en même temps sur leur tronçon de tube. Le temps de cycle est celui du poste le plus lent, pas la somme des usinages. La séquence ci-dessous est un exemple : la configuration réelle dépend de la pièce.",
       station: "Poste",
       stations: [
-        { title: "Chargement", text: "Alimentation automatique depuis un fagot ou une barre, avec contrôle de présence pièce." },
-        { title: "Calibrage", text: "Reprise du diamètre et de la circularité avant les usinages suivants." },
+        { title: "Chargement", text: "Alimentation automatique depuis une botte ou une barre, avec contrôle de présence pièce." },
+        { title: "Calibrage", text: "Correction du diamètre et de la circularité avant les usinages suivants." },
         { title: "Perçage", text: "Unités d'usinage dédiées, positionnées au pas exigé par le plan client." },
         { title: "Poinçonnage", text: "Enlèvement de matière sans copeaux là où la géométrie de la pièce le permet." },
         { title: "Taraudage", text: "Unités de taraudage synchronisées avec le cycle d'indexage." },
@@ -28,7 +28,7 @@ export const pages: Pages = {
     },
     departments: {
       title: "De la conception à la réception, tout sous le même toit.",
-      lede: "Chaque phase critique de la ligne est interne. Cela signifie un seul interlocuteur, des délais qui ne dépendent pas de tiers et la possibilité de reprendre la machine même dix ans après la livraison.",
+      lede: "Chaque phase critique de la ligne est interne. Cela signifie un seul interlocuteur, des délais qui ne dépendent pas de tiers et la possibilité d'intervenir sur la machine même dix ans après la livraison.",
       items: [
         { title: "Conception", text: "Bureau d'études dédié, modélisation 3D de toute la ligne avant de couper la première pièce." },
         { title: "Programmation automate", text: "Logiques d'automatisme écrites en interne : la machine reste modifiable dans le temps." },
@@ -55,7 +55,7 @@ export const pages: Pages = {
     metaDescription:
       "A.M.I. S.r.l. construit à Manerbio (Italie) des lignes transfert sur commande pour l'usinage du tube. Conception, automate, chaudronnerie, usinage et réception en interne.",
     title: "Depuis 1978, une ligne à la fois.",
-    lede: "A.M.I. — Automazione Meccanica Industriale — est un constructeur de machines spéciales sur commande. Chaque ligne naît autour d'un composant précis du client et est conçue, construite et testée dans la même usine.",
+    lede: "A.M.I. — Automazione Meccanica Industriale — est un constructeur de machines spéciales sur commande. Chaque ligne est conçue autour d'un composant précis du client et est conçue, construite et réceptionnée dans la même usine.",
     heroAlt: "Vue aérienne de l'usine A.M.I. à Manerbio : bâtiment de bureaux et hall de production",
     heroCaption: "L'usine de Manerbio (Brescia, Italie). Image tirée de la vidéo d'entreprise A.M.I.",
     chainTitle: "Un seul toit pour toute la chaîne",
@@ -99,13 +99,14 @@ export const pages: Pages = {
     title: "Une ligne, plusieurs postes, une pièce finie à chaque pas.",
     lede: "La ligne transfert linéaire fait passer le tube par une séquence de postes. Tous travaillent en même temps : le temps de cycle est celui du poste le plus lent, pas la somme des usinages.",
     indexTitle: "Comment fonctionne l'indexage.",
-    indexLede: "Le principe est simple et se voit dans l'animation de la page d'accueil : le tube avance d'un pas, les têtes descendent, usinent, remontent, et la ligne avance à nouveau.",
+    indexLede: "Le principe est simple : le tube avance d'un pas, les têtes descendent, usinent, remontent, et la ligne avance à nouveau.",
+    sceneCaption: "Schéma du cycle d'indexage : avance d'un pas, descente des têtes, usinage, remontée. Glissez pour tourner.",
     elements: [
-      { title: "Bâti et guidages", text: "Structure mécano-soudée construite dans notre chaudronnerie, avec guidages de glissement pour le transfert de la pièce." },
+      { title: "Bâti et guidages", text: "Structure mécano-soudée construite dans notre chaudronnerie, avec glissières pour le transfert de la pièce." },
       { title: "Système d'indexage", text: "Avance à pas fixe : à chaque cycle, toutes les pièces de la ligne avancent d'un poste." },
       { title: "Postes de travail", text: "Chaque poste porte une unité d'usinage dédiée à une opération : perçage, poinçonnage, taraudage, calibrage." },
       { title: "Bridage de la pièce", text: "Le tube est bridé et référencé à chaque poste pendant l'usinage." },
-      { title: "Chargement et déchargement", text: "Alimentation automatique depuis un fagot ou une barre, déchargement avec séparation des rebuts." },
+      { title: "Chargement et déchargement", text: "Alimentation automatique depuis une botte ou une barre, déchargement avec séparation des rebuts." },
       { title: "Automatisme", text: "Automate et armoire électrique conçus et programmés en interne." },
     ],
     photoAlt: "Portique de transfert avec pinces pneumatiques au-dessus d'une ligne transfert A.M.I.",
@@ -123,7 +124,7 @@ export const pages: Pages = {
     metaDescription:
       "Le process A.M.I. pour une ligne transfert : analyse de faisabilité sur le plan, offre, conception, construction, réception en usine, installation et service.",
     title: "De la demande à la réception, un seul interlocuteur.",
-    lede: "Le parcours d'une ligne A.M.I. en sept phases. Ceux qui la conçoivent sont ceux qui la programment, la construisent, la réceptionnent et l'assistent.",
+    lede: "Le parcours d'une ligne A.M.I. en sept phases. Ceux qui la conçoivent la programment aussi, la construisent, la réceptionnent et l'assistent.",
     phase: "Phase",
     phases: [
       { title: "Analyse de faisabilité", text: "Nous recevons le plan de la pièce et la cadence requise. Le bureau d'études vérifie si une ligne transfert est la bonne voie et avec quelle séquence de postes." },
@@ -131,7 +132,7 @@ export const pages: Pages = {
       { title: "Conception", text: "Modélisation 3D de toute la ligne et des unités d'usinage. Programmation automate en parallèle de la mécanique." },
       { title: "Construction", text: "Chaudronnerie, usinage mécanique, armoires électriques et montage dans la même usine." },
       { title: "Réception en usine", text: "La ligne est montée complète et mise au point à Manerbio avant l'expédition." },
-      { title: "Installation et démarrage", text: "Transport, mise en place, démarrage et formation des opérateurs chez le client." },
+      { title: "Installation et mise en service", text: "Transport, mise en place, mise en service et formation des opérateurs chez le client." },
       { title: "Service", text: "Pièces de rechange, assistance et rétrofit pour toute la vie de la ligne, avec les archives complètes de la commande." },
     ],
     timesNote: "Délais moyens par phase :",
@@ -153,7 +154,7 @@ export const pages: Pages = {
     title: "La ligne que vous avez achetée il y a vingt ans, nous la connaissons encore.",
     lede: "Nous avons les archives de chaque commande sortie de Manerbio : schémas, programmes, nomenclatures. Une pièce de rechange est identifiée à partir des archives, pas d'une photo, et une intervention part de là où c'est nécessaire.",
     lineDown: "Ligne à l'arrêt ?",
-    hours: "Horaires d'assistance :",
+    hours: "Assistance aux heures de bureau : 8h00–12h00 et 13h00–18h00 (heure de Paris).",
     services: [
       { title: "Pièces de rechange", text: "Pièces d'origine identifiées à partir des archives de commande, avec les schémas et nomenclatures de votre ligne." },
       { title: "Rétrofit", text: "Remplacement de l'armoire électrique et de l'automate sur des lignes encore mécaniquement saines. Les logiques sont écrites en interne : on les met à jour, on ne les rachète pas." },
@@ -185,7 +186,7 @@ export const pages: Pages = {
   lavoraConNoi: {
     metaTitle: "Carrières — Manerbio, Italie",
     metaDescription:
-      "Conception mécanique, automatisme, montage et réception de lignes transfert à Manerbio. Postes ouverts et candidatures spontanées.",
+      "Conception mécanique, automatisme, montage et réception de lignes transfert à Manerbio. Postes à pourvoir et candidatures spontanées.",
     title: "Du plan à la machine, sous le même toit.",
     lede: "À Manerbio, une ligne transfert est conçue, programmée, construite et réceptionnée dans la même usine. Ceux qui travaillent ici suivent la pièce du plan jusqu'à la machine qui la produit.",
     whatTitle: "Ce que nous faisons",
@@ -193,9 +194,9 @@ export const pages: Pages = {
       "Conception mécanique 3D de lignes et d'unités d'usinage",
       "Programmation automate et armoires électriques",
       "Chaudronnerie, usinage mécanique, montage",
-      "Réception en usine et démarrage chez le client",
+      "Réception en usine et mise en service chez le client",
     ],
-    openTitle: "Postes ouverts",
+    openTitle: "Postes à pourvoir",
     spontaneousA: "Les candidatures spontanées sont les bienvenues : envoyez votre CV à",
     spontaneousB: "en indiquant « Candidature » dans l'objet.",
     emailSubject: "Candidature",
@@ -212,7 +213,7 @@ export const pages: Pages = {
 
   privacy: {
     metaTitle: "Politique de confidentialité",
-    title: "Information sur le traitement des données.",
+    title: "Informations sur le traitement des données.",
     lede: "Comment nous traitons les données que vous nous envoyez via le site, en particulier les plans techniques.",
     ownerTitle: "Responsable du traitement",
     contact: "Contact :",
@@ -220,7 +221,7 @@ export const pages: Pages = {
     drawingsText:
       "Les fichiers envoyés via le formulaire de demande servent exclusivement à évaluer la faisabilité de la demande et à formuler une offre. Ils ne sont pas partagés avec des tiers. Sur demande, A.M.I. signe un accord de confidentialité (NDA) avant de recevoir tout document.",
     storageNote: "Où sont conservés les fichiers, qui y accède et pendant combien de temps :",
-    fullTitle: "Texte complet de l'information",
+    fullTitle: "Texte complet de la politique",
     fullTodo: "À RÉDIGER AVEC LE CONSEILLER EN PROTECTION DES DONNÉES DE L'ENTREPRISE",
   },
 };

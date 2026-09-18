@@ -4,7 +4,7 @@ import type { SettoreContent, settoriPage as ItPage } from "@/i18n/it/settori";
 export const settoriPage: typeof ItPage = {
   metaTitle: "Setores — Automóvel, construção, eletrodomésticos",
   metaDescription:
-    "Os setores das linhas transfer A.M.I.: componentes automóvel em tubo, tubo para construção, permutadores de calor e grupos térmicos.",
+    "Os setores das linhas transfer A.M.I.: componentes tubulares para o setor automóvel, tubo para construção, permutadores de calor e grupos térmicos.",
   title: "Partimos da peça, não do catálogo.",
   lede: "Três setores declarados, um só método: parte-se do desenho do componente e da produtividade pretendida.",
   homeTitle: "Partimos da peça, não do catálogo.",
@@ -13,7 +13,7 @@ export const settoriPage: typeof ItPage = {
     components: "Componentes típicos",
     componentsTodo: "Exemplos verificados com a empresa e fotos dos componentes:",
     needs: "O que conta neste setor",
-    processesTitle: "Maquinações recorrentes.",
+    processesTitle: "Maquinagens recorrentes.",
     processesLede: "As estações que encontramos com mais frequência nas linhas deste setor.",
     caseTitle: "Um caso real.",
     caseLede: "Peça, problema, tempo de ciclo obtido, ano.",
@@ -28,10 +28,10 @@ export const settori: Record<SettoreKey, SettoreContent> = {
   automotive: {
     slug: "automovel",
     name: "Automóvel",
-    title: "Linhas transfer para componentes automóvel em tubo",
+    title: "Linhas transfer para componentes tubulares para o setor automóvel",
     lede: "Componentes tubulares em volumes de série, onde contam o tempo de ciclo, a repetibilidade e a rastreabilidade do processo.",
     homeText: "Componentes tubulares para sistemas de escape, climatização e sistemas de travagem, em volumes de série.",
-    componenti: ["Componentes tubulares para sistemas de escape", "Tubagens para climatização", "Componentes para sistemas de travagem"],
+    componenti: ["Componentes tubulares para sistemas de escape", "Tubos para climatização", "Componentes para sistemas de travagem"],
     esigenze: [
       "Tempo de ciclo definido na proposta e verificado na receção.",
       "Repetibilidade dimensional em lotes elevados.",
@@ -59,7 +59,7 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     title: "Linhas transfer para permutadores e grupos térmicos",
     lede: "Permutadores de calor, grupos térmicos e componentes para linha branca: peças que mudam com frequência e linhas que têm de se adaptar.",
     homeText: "Permutadores de calor, grupos térmicos e componentes para linha branca.",
-    componenti: ["Tubos para permutadores de calor", "Componentes para grupos térmicos", "Tubagens para eletrodomésticos"],
+    componenti: ["Tubos para permutadores de calor", "Componentes para grupos térmicos", "Tubos para eletrodomésticos"],
     esigenze: [
       "Flexibilidade em peças novas sem substituir a linha.",
       "Lógica PLC modificável quando o componente muda.",

@@ -19,11 +19,7 @@ export default function ServicePage({ d }: { d: Dictionary }) {
           <div>
             <div className="font-heading text-[15px] font-bold text-[#cfe0ec]">{p.lineDown}</div>
             <a href={COMPANY.phoneHref} className="font-heading text-[clamp(28px,4vw,44px)] font-extrabold text-white no-underline">{COMPANY.phone}</a>
-            {SHOW_TODO && (
-              <div className="mt-1 text-[15px] text-[#cfe0ec]">
-                {p.hours} <Todo>{d.ui.todo}</Todo>
-              </div>
-            )}
+            <div className="mt-1 text-[15px] text-[#cfe0ec]">{p.hours}</div>
           </div>
           <Button href="#identifica" variant="primary">{d.ui.cta.identifyLine}</Button>
         </Container>

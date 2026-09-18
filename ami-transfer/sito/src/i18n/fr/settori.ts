@@ -29,8 +29,8 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     slug: "automobile",
     name: "Automobile",
     title: "Lignes transfert pour composants automobiles en tube",
-    lede: "Composants tubulaires en volumes de série, où comptent le temps de cycle, la répétabilité et la traçabilité du process.",
-    homeText: "Composants tubulaires pour lignes d'échappement, climatisation et systèmes de freinage, en volumes de série.",
+    lede: "Composants tubulaires en grande série, où comptent le temps de cycle, la répétabilité et la traçabilité du process.",
+    homeText: "Composants tubulaires pour lignes d'échappement, climatisation et systèmes de freinage, en grande série.",
     componenti: ["Composants tubulaires pour lignes d'échappement", "Tubes de climatisation", "Composants pour systèmes de freinage"],
     esigenze: [
       "Temps de cycle défini à l'offre et vérifié à la réception.",
@@ -43,9 +43,9 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     slug: "batiment",
     name: "Bâtiment",
     title: "Lignes transfert pour le tube de construction",
-    lede: "Tube pour installations sanitaires et thermiques, échafaudages et charpente légère : pièces simples, gros volumes, coût pièce décisif.",
-    homeText: "Tube pour installations sanitaires et thermiques, échafaudages et charpente légère.",
-    componenti: ["Tube pour installations sanitaires et thermiques", "Éléments d'échafaudage", "Charpente légère en tube"],
+    lede: "Tube pour installations sanitaires et de chauffage, échafaudages et charpente légère : pièces simples, gros volumes, coût pièce décisif.",
+    homeText: "Tube pour installations sanitaires et de chauffage, échafaudages et charpente légère.",
+    componenti: ["Tube pour installations sanitaires et de chauffage", "Éléments d'échafaudage", "Charpente légère en tube"],
     esigenze: [
       "Coût pièce bas sur gros volumes.",
       "Lignes robustes, à maintenance simple et pièces de rechange disponibles.",
@@ -57,7 +57,7 @@ export const settori: Record<SettoreKey, SettoreContent> = {
     slug: "electromenager",
     name: "Électroménager",
     title: "Lignes transfert pour échangeurs et groupes thermiques",
-    lede: "Échangeurs de chaleur, groupes thermiques et composants pour le blanc : des pièces qui changent souvent et des lignes qui doivent s'adapter.",
+    lede: "Échangeurs de chaleur, groupes thermiques et composants pour l'électroménager : des pièces qui changent souvent et des lignes qui doivent s'adapter.",
     homeText: "Échangeurs de chaleur, groupes thermiques et composants pour l'électroménager.",
     componenti: ["Tubes pour échangeurs de chaleur", "Composants pour groupes thermiques", "Tubes pour électroménager"],
     esigenze: [

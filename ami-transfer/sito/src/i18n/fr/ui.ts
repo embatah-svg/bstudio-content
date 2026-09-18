@@ -17,7 +17,7 @@ export const routes: Record<SectionKey, string> = {
 export const ui: Ui = {
   siteTitle: "A.M.I. — Lignes transfert pour l'usinage du tube",
   siteDescription:
-    "Lignes transfert linéaires pour l'usinage du tube métallique. Conçues, programmées et testées à Manerbio (Brescia, Italie).",
+    "Lignes transfert linéaires pour l'usinage du tube métallique. Conçues, programmées et réceptionnées à Manerbio (Brescia, Italie).",
   nav: {
     azienda: "Entreprise",
     "linee-transfer": "Lignes transfert",
@@ -70,6 +70,7 @@ export const ui: Ui = {
     title: "Demande de faisabilité",
     office: "Bureau d'études",
     hours: "Horaires",
+    hoursValue: "8h00–12h00 et 13h00–18h00 (heure de Paris)",
     map: "Plan et accès",
     file: "Plan ou modèle de la pièce",
     fileHelp:
@@ -111,7 +112,7 @@ export const ui: Ui = {
       fileType: "Formats acceptés : PDF, DWG, DXF, STEP, STP, ZIP.",
       fileSize: "Le fichier dépasse 25 Mo.",
       inactive: "Le formulaire n'est pas encore actif. Écrivez à info@amitransfer.com.",
-      failed: "Envoi échoué. Réessayez ou écrivez à info@amitransfer.com.",
+      failed: "L'envoi a échoué. Réessayez ou écrivez à info@amitransfer.com.",
       fields: "Vérifiez les champs signalés.",
     },
   },

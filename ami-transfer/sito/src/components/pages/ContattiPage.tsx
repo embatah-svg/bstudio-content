@@ -35,15 +35,13 @@ export default function ContattiPage({ d }: { d: Dictionary }) {
               <br />
               <a href={`mailto:${COMPANY.email}`} className={link}>{COMPANY.email}</a>
             </address>
+            <p className="mt-6 text-[15px] text-[#5a6870]">
+              {f.hours}: {f.hoursValue}
+            </p>
             {SHOW_TODO && (
-              <>
-                <p className="mt-6 text-[15px] text-[#5a6870]">
-                  {f.hours}: <Todo>{d.ui.todo}</Todo>
-                </p>
-                <p className="mt-6 text-[15px] text-[#5a6870]">
-                  {f.map}: <Todo>{d.ui.todo}</Todo>
-                </p>
-              </>
+              <p className="mt-6 text-[15px] text-[#5a6870]">
+                {f.map}: <Todo>{d.ui.todo}</Todo>
+              </p>
             )}
           </aside>
         </Container>

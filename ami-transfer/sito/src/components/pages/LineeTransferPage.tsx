@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
 import Section, { Prose } from "@/components/ui/Section";
 import Figure from "@/components/ui/Figure";
+import IndexingScene from "@/components/three/IndexingScene";
 import Todo from "@/components/ui/Todo";
 import Button from "@/components/ui/Button";
 import CtaBand from "@/components/sections/CtaBand";
@@ -17,6 +18,9 @@ export default function LineeTransferPage({ d }: { d: Dictionary }) {
       <PageHero d={d} crumbs={[{ href: href(d.locale, "linee-transfer"), label: d.ui.nav["linee-transfer"] }]} title={p.title} lede={p.lede} />
 
       <Section title={p.indexTitle} lede={p.indexLede}>
+        <div className="mt-12">
+          <IndexingScene caption={p.sceneCaption} />
+        </div>
         <div className="mt-12 grid grid-cols-1 gap-px bg-[rgba(19,26,30,0.2)] min-[520px]:grid-cols-2 min-[860px]:grid-cols-3">
           {p.elements.map((el) => (
             <div key={el.title} className="bg-paper px-6 pt-[26px] pb-[30px]">

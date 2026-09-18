@@ -29,7 +29,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "bohren",
     name: "Bohren",
     title: "Rohrbohren auf der Transferlinie",
-    lede: "Radiale und durchgehende Bohrungen an einer oder mehreren Stationen der Linie, mit eigenen Bearbeitungseinheiten auf der von der Zeichnung geforderten Teilung.",
+    lede: "Radial- und Durchgangsbohrungen an einer oder mehreren Stationen der Linie, mit eigenen Bearbeitungseinheiten auf der von der Zeichnung geforderten Teilung.",
     cosa: [
       "Einzelne oder mehrere Bohrungen am selben Rohrabschnitt, auch in verschiedenen Ebenen.",
       "Bearbeitungseinheiten mit geregeltem Vorschub, eine je Bohrungsgruppe.",
@@ -51,7 +51,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "stanzen",
     name: "Stanzen",
     title: "Spanloses Stanzen von Rohren",
-    lede: "Materialabtrag durch Umformung, wo die Teilegeometrie es zulässt: schneller als Bohren und ohne Späne.",
+    lede: "Spanlose Materialtrennung, wo die Teilegeometrie es zulässt: schneller als Bohren und ohne Späne.",
     cosa: [
       "Öffnungen, Langlöcher und Ausklinkungen mit teilespezifischem Stempel und Matrize.",
       "Keine Späne: Die Station bleibt sauber, das Teil braucht kein Innenentgraten.",
@@ -60,7 +60,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     inLinea: [
       "Stanzwerkzeuge für das einzelne Teil ausgelegt und in der Station austauschbar.",
       "Mit der Taktung synchronisiert: Das Teil kommt bereits gespannt und ausgerichtet an.",
-      "Vorab-Machbarkeitsprüfung an der Zeichnung vor dem Angebot.",
+      "Vorab-Machbarkeitsprüfung anhand der Zeichnung vor dem Angebot.",
     ],
     serve: [
       "Zeichnung mit Geometrie der Öffnungen und Toleranzen.",
@@ -73,11 +73,11 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     slug: "gewindeschneiden",
     name: "Gewindeschneiden",
     title: "Gewindeschneiden am Rohr im Dauertakt",
-    lede: "In die Linie integrierte, mit dem Takt synchronisierte Gewindeeinheiten, um Bohrungen und Rohrenden mit Gewinde zu versehen, ohne die Transferlinie zu verlassen.",
+    lede: "In die Linie integrierte, mit dem Takt synchronisierte Gewindeschneideinheiten, um Bohrungen und Rohrenden mit Gewinde zu versehen, ohne die Transferlinie zu verlassen.",
     cosa: [
       "Gewinde in radialen Bohrungen, die an vorherigen Stationen erstellt wurden.",
       "Gewinde an Rohrenden, wo die Zeichnung es verlangt.",
-      "Gewindeeinheiten mit geregeltem Vorschub- und Rückzugszyklus.",
+      "Gewindeschneideinheiten mit geregeltem Vorschub- und Rückzugszyklus.",
     ],
     inLinea: [
       "Bohren und Gewindeschneiden erfolgen an aufeinanderfolgenden Stationen derselben Transferlinie.",
@@ -87,7 +87,7 @@ export const lavorazioni: Record<LavorazioneKey, LavorazioneContent> = {
     serve: [
       "Gewindebezeichnung und nutzbare Tiefe.",
       "Rohrwerkstoff und Wandstärke im Gewindebereich.",
-      "Eventuelle Prüfanforderungen (Gut-/Ausschusslehre in der Linie).",
+      "Eventuelle Prüfanforderungen (Gut-/Ausschussprüfung in der Linie).",
     ],
     settori: ["automotive", "elettrodomestico"],
   },
