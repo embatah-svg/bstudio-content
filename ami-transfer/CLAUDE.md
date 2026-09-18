@@ -144,6 +144,18 @@ sezione.
 - Palette ricalibrata sul blu dell'emblema (`--blue #005a80`, `--petrol #0b2230`).
   Il giallo resta solo per le CTA.
 
+- **Anteprima online**: https://ami-transfer.vercel.app (progetto Vercel `ami-transfer`,
+  team `cimbo-s-projects`, deploy con `npx vercel deploy --prod --yes` dalla cartella `sito/`).
+  Ha `NEXT_PUBLIC_NOINDEX=1`: robots e meta bloccano l'indicizzazione finché non va sul
+  dominio vero. I segnaposto `DA CONFERMARE` sono visibili apposta per la revisione con
+  Riccardo; al go-live si nascondono con `NEXT_PUBLIC_HIDE_TODO=1`.
+- Hero: loop muto di 13 s dal video aziendale (`public/video/`), poster su mobile e con
+  `prefers-reduced-motion`; lo schema 3D dell'indexaggio sta nella pagina Linee transfer.
+- Lingua: `src/proxy.ts` sceglie la lingua da cookie `ami-lang` (impostato dal selettore con
+  bandiere) o da Accept-Language; `/` non è mai servita direttamente.
+- Revisioni esterne fatte il 2026-09-18 (designer, UX B2B, traduttore): le correzioni
+  applicate sono nei commit; resta da fare una revisione madrelingua finale prima del go-live.
+
 ## Prossimi passi
 
 1. Milestone 0 — messa in sicurezza (serve accesso a hosting e DNS)
