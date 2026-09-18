@@ -123,7 +123,11 @@ sezione.
   `cd sito && npm run dev`. Struttura:
   - `src/lib/site.ts` — dati verificati, nav, CTA (unica fonte per recapiti e P.IVA)
   - `src/content/lavorazioni.ts`, `src/content/settori.ts` — contenuti delle pagine figlie
-  - `src/components/three/` — hero 3D (dynamic import, no SSR)
+  - `src/components/three/` — hero 3D (dynamic import, no SSR); sotto 480 px e con
+    `prefers-reduced-motion` mostra la foto reale `linea-portale.webp` al posto del 3D
+  - `npx next build` genera 114 pagine statiche (6 lingue) + sitemap + robots. Attenzione:
+    non lanciare la build mentre gira `npm run dev` (stessa cartella `.next`, corrompe
+    la cache di Turbopack: in caso, fermare il server e cancellare `.next`).
   - `src/components/ui/Todo.tsx` — segnaposto visibile `DA CONFERMARE`, usato ovunque manchi un dato
   - `src/app/api/richiesta/route.ts` — form fattibilità: valida e inoltra a `RICHIESTA_ENDPOINT`
     (env). Senza endpoint risponde 503 con fallback email. Va configurato con l'azienda.

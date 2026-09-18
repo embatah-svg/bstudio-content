@@ -23,9 +23,16 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const d = getDictionary(locale);
   return {
     metadataBase: new URL(SITE_URL),
-    title: d.ui.siteTitle,
+    title: { default: d.ui.siteTitle, template: "%s" },
     description: d.ui.siteDescription,
     alternates: alternates(),
+    openGraph: {
+      type: "website",
+      siteName: "A.M.I. Transfer",
+      locale,
+      images: [{ url: "/images/sede-drone.webp", width: 1280, height: 720, alt: d.pages.azienda.heroAlt }],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 
