@@ -6,15 +6,19 @@
   <title>Caty Aesthetic — Natürliche Ästhetik in Zürich</title>
   <meta name="description" content="Caty Aesthetic in Zürich: Lippen mit Hyaluron, Nasenkorrektur ohne OP und Behandlung von Augenringen (Rejuran, Juvelook, Lumi Eyes). Natürliche Ergebnisse, persönliche Beratung." />
   <meta name="theme-color" content="#3b2a22" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://caty-aesthetic.vercel.app/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Caty Aesthetic — Natürliche Ästhetik in Zürich" />
   <meta property="og:description" content="Deine natürliche Schönheit unterstreichen — nicht verändern. Lippen, Nasenkorrektur ohne OP, Augenringe." />
-  <meta property="og:image" content="images/caty-portrait.jpg" />
+  <meta property="og:url" content="https://caty-aesthetic.vercel.app/" />
+  <meta property="og:image" content="https://caty-aesthetic.vercel.app/images/caty-portrait.jpg" />
   <meta property="og:locale" content="de_CH" />
 
   <!-- Favicon (Monogramm C) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%233b2a22'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23f6f0e9'%3EC%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%233b2a22'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23f6f0e9'%3EC%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +31,11 @@
     "@type": "BeautySalon",
     "name": "Caty Aesthetic",
     "description": "Ästhetische Behandlungen in Zürich mit Fokus auf Natürlichkeit: Lippen, Nasenkorrektur mit Hyaluron, Augenringe.",
-    "image": "images/caty-portrait.jpg",
+    "image": "https://caty-aesthetic.vercel.app/images/caty-portrait.jpg",
+    "url": "https://caty-aesthetic.vercel.app/",
+    "logo": "https://caty-aesthetic.vercel.app/images/logo-mark.svg",
+    "founder": { "@type": "Person", "name": "Caty" },
+    "knowsLanguage": ["de", "es", "en"],
     "address": { "@type": "PostalAddress", "addressLocality": "Zürich", "addressCountry": "CH" },
     "sameAs": ["https://www.instagram.com/caty.aesthetic/"]
   }
@@ -312,12 +320,22 @@
       <details class="legal__item" id="impressum">
         <summary>Impressum</summary>
         <!-- TODO: echte Angaben eintragen -->
-        <p>Caty Aesthetic<br />[Vor- und Nachname]<br />[Strasse Nr.]<br />[PLZ] Zürich, Schweiz<br />E-Mail: [E-Mail-Adresse]</p>
+        <div class="legal__body">
+          <p><strong>Caty Aesthetic</strong><br />[Vor- und Nachname]<br />[Strasse Nr.], [PLZ] Zürich, Schweiz</p>
+          <p>Instagram: <a href="https://www.instagram.com/caty.aesthetic/" target="_blank" rel="noopener">@caty.aesthetic</a><br />E-Mail: [E-Mail-Adresse]</p>
+          <p class="legal__todo">Name, Adresse, E-Mail und ggf. UID vor dem Livegang ergänzen.</p>
+        </div>
       </details>
       <details class="legal__item" id="datenschutz">
         <summary>Datenschutz</summary>
-        <p>Wir bearbeiten Personendaten gemäss dem Schweizer Datenschutzgesetz (revDSG). Angaben aus dem Kontaktformular werden ausschliesslich zur Bearbeitung deiner Anfrage verwendet und über den Dienst Formspree übermittelt. Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt. Du kannst jederzeit Auskunft über deine Daten oder deren Löschung verlangen.</p>
-        <p>Diese Website lädt Schriften von Google Fonts. Dabei kann deine IP-Adresse an Google übermittelt werden.</p>
+        <div class="legal__body">
+          <p>Wir behandeln deine Daten vertraulich und gemäss dem Schweizer Datenschutzgesetz (revDSG).</p>
+          <p><strong>Kontaktformular:</strong> Deine Angaben (Name, E-Mail, Telefon, Nachricht) verwenden wir ausschliesslich zur Bearbeitung deiner Anfrage. Die Übermittlung erfolgt über den Dienst Formspree. Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt.</p>
+          <p><strong>Schriften:</strong> Diese Seite lädt Google Fonts; dabei kann deine IP-Adresse an Google übertragen werden.</p>
+          <p><strong>Tracking:</strong> Wir setzen keine Analyse- oder Werbe-Cookies ein.</p>
+          <p>Für Auskunft, Berichtigung oder Löschung deiner Daten schreib uns per Instagram-DM oder E-Mail.</p>
+          <p class="legal__todo">Hinweis: Diese Angaben vor dem Livegang rechtlich prüfen lassen.</p>
+        </div>
       </details>
     </div>
   </footer>

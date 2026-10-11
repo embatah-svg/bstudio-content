@@ -34,9 +34,31 @@ document.documentElement.classList.remove('no-js');
     items.forEach((el) => el.classList.add('is-visible'));
   }
 
-  // Legal-Links öffnen das jeweilige <details>
+  // Impressum/Datenschutz: <details> öffnen bei Link-Klick oder direktem Hash
+  const openLegalFromHash = () => {
+    const id = location.hash.slice(1);
+    if (id !== 'impressum' && id !== 'datenschutz') return;
+    const el = document.getElementById(id);
+    el.open = true;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  window.addEventListener('hashchange', openLegalFromHash);
   document.querySelectorAll('a[href="#impressum"], a[href="#datenschutz"]').forEach((a) => {
-    a.addEventListener('click', () => { document.querySelector(a.getAttribute('href')).open = true; });
+    a.addEventListener('click', () => { if (location.hash === a.getAttribute('href')) openLegalFromHash(); });
+  });
+  openLegalFromHash();
+
+  // Bild-Fallback: falls ein Foto fehlt, sauberer Marken-Platzhalter statt «kaputtem» Bild
+  const fallback = (img) => {
+    const wrap = img.closest('.hero__media, .card__img, .about__media, .gallery__item');
+    if (!wrap) return;
+    wrap.classList.add('img-missing');
+    wrap.setAttribute('data-label', img.getAttribute('alt') || 'Caty Aesthetic');
+    img.style.display = 'none';
+  };
+  document.querySelectorAll('main img').forEach((img) => {
+    if (img.complete && img.naturalWidth === 0) fallback(img);
+    img.addEventListener('error', () => fallback(img));
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();

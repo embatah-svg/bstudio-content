@@ -250,6 +250,25 @@ p { margin: 0 0 1em; }
 .legal__item summary { cursor: pointer; padding: 8px 0; color: var(--cream); }
 .legal__item p { font-size: 0.86rem; max-width: 60em; }
 
+/* ---------- Legal ---------- */
+.legal__body { padding-bottom: 10px; }
+.legal__todo { color: var(--gold); font-style: italic; }
+
+/* ---------- Bild-Fallback ---------- */
+.img-missing {
+  position: relative; min-height: 320px; border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--latte), var(--mocha));
+}
+.img-missing::before {
+  content: "C"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -75%);
+  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--cream); color: var(--espresso); font: italic 500 2.2rem/1 var(--serif);
+}
+.img-missing::after {
+  content: attr(data-label); position: absolute; top: 50%; left: 50%; transform: translate(-50%, 70%);
+  width: 80%; text-align: center; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream);
+}
+
 /* ---------- Reveal ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }

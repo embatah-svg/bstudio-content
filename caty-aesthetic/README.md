@@ -11,7 +11,22 @@ caty-aesthetic/
 ├── script.js    # Header, Mobile-Menü, Scroll-Reveal, Formular (Formspree)
 └── images/      # Fotos aus dem Instagram-Profil (lokal gehostet)
 ```
-Statisch, kein Build nötig — auf Vercel/Netlify/GitHub Pages hochladen.
+Statisch, kein Build nötig.
+
+## Deploy (Vercel, wie BauPro)
+Neues Vercel-Projekt aus `embatah-svg/bstudio-content`, **Root Directory = `caty-aesthetic`**,
+Framework „Other", kein Build-Command. Canonical/OG-URLs sind auf
+`https://caty-aesthetic.vercel.app/` gesetzt — bei anderer Domain in `index.html` ersetzen.
+
+## Logo
+Vektor-Logo (SVG) in `images/`:
+- `logo.svg` — Lockup für helle Hintergründe
+- `logo-inverse.svg` — Lockup für dunkle Hintergründe
+- `logo-mark.svg` — nur das Monogramm «C» (Profilbild, Social, Stempel)
+
+## Bilder
+Fotos liegen lokal in `images/` (Instagram-CDN blockiert Hotlinking und die Links laufen ab).
+Fehlt ein Bild, zeigt die Seite automatisch einen Marken-Platzhalter statt eines kaputten Bildes.
 
 ## Vor dem Go-live ausfüllen
 1. **Formular:** in `index.html` `YOUR_FORM_ID` durch die Formspree-ID ersetzen (bis dahin verweist das Formular auf Instagram-DM).
